@@ -1,2 +1,0 @@
-# QCM-JavaScript
-QCM-JavaScript
