@@ -1,0 +1,263 @@
+{"QCM":[
+  {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  }
+  {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  },
+    {
+    "title": "Compréhension de la Boucle for",
+    "category": "Les Boucles",
+    "question_number": 3,
+    "question_type": "code_analysis",
+    "question_text": "Quel est le résultat de ce code JavaScript ?",
+    "snippet": {
+      "javascript": "let result = '';\nfor (let i = 0; i < 5; i++) {\n  result += i;\n}\nconsole.log(result);"
+    },
+    "options": {
+      "A": "'01234'",
+      "B": "'12345'",
+      "C": "'012345'",
+      "D": "Une erreur est générée"
+    },
+    "correct_answer": {
+      "answer": ["A"]
+    },
+    "explanation": "La boucle for itère de 0 à 4, ajoutant chaque valeur de 'i' à la chaîne 'result'. Ainsi, '01234' est affiché dans la console."
+  }
+  
+]}

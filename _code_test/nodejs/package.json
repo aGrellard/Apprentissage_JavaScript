@@ -1,0 +1,15 @@
+
+{
+  "name": "mon-app-node",
+  "version": "1.0.0",
+  "description": "Une simple application Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Votre Nom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies en JS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    
+    <script src="app.js"></script>
+    <script>
+      const age = prompt('Quel est votre age ?');
+      console.log(age)
+      console.log(typeof age)
+      console.log(typeof parseInt(age))
+      const ageNbr = parseInt(age);
+      const regardeLilo = ageNbr <= 13
+      const regardeMatrix = ageNbr > 13 && ageNbr <=18;
+      const regardeEvilDead = ageNbr > 18
+
+
+      if (regardeLilo) 
+        console.log('regarde "Lilo & Stich"');
+      else if (regardeMatrix)
+        console.log('regarde "Matrix"');
+      else if (regardeEvilDead)
+        console.log('regarde "Evel Dead"');
+      else
+      console.log('regarde "plus belle la vie"')
+
+    </script>  
+  </body>
+</html>

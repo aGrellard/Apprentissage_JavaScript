@@ -1,0 +1,37 @@
+ .button{
+    padding: 15px 25px;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgb(111, 111, 111);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+ }
+.button::before,
+.button::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.35%;
+}
+.button::before {
+    width: calc(100% + 12px);
+    height: 99%;
+    border-top: 6px solid #ff0000;
+    border-bottom: 6px solid #ff0000;
+    transform: scaleX(0.25);
+}
+.button::after {
+    width: 100%;
+    height: calc(99% + 12px);
+    border-left: 6px solid #ff0000;
+    border-right: 6px solid #ff0000;
+    transform: scaleY(0.25);
+}

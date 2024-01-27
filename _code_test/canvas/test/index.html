@@ -1,0 +1,205 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div class="navbar">
+    <a href="#" class="button">liens 1</a>
+    <a href="#" class="button">liens 1</a>
+    <a href="#" class="button">liens 1</a>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>Hello World !!!</h3>
+      <div id="bdd">
+        <form action="" method="POST">
+          <div>
+            <label for="user">User</label>
+            <input type="text" name="user" placeholder="Adrien">
+          </div>
+          <label for="msg">Message</label>
+          <textarea name="msg">
+          </textarea>
+          <div>
+            <input class="button" type="submit" name="submit" value="Envoyer" >
+            <input class="button" type="reset" value="Effacer" >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    let intervalId;
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight - 5;
+
+    function drawMatrix() {
+      const katakana = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()*&^%+-/~{[|`]}';
+      const lettres = katakana.split('');
+      const fontSize = 14;
+      const columns = canvas.width/fontSize;
+      const raindrop = [];
+      for (let index = 0; index < columns; index++) {
+        raindrop[index]=0;
+      }
+      const draw = () => {
+        ctx.fillStyle = 'rgba(0,0,0,0.25)'
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = '#0F0';
+        ctx.font = fontSize + 'px monospace';
+        for (let index = 0; index < raindrop.length; index++) {
+          lettre = lettres[Math.floor(Math.random()*lettres.length)];
+          ctx.fillText(lettre, index*fontSize , raindrop[index]*fontSize)
+          if (raindrop[index]*fontSize > canvas.height && Math.random() > 0.96) {
+            raindrop[index] = 0;
+          }
+          raindrop[index]++;
+        } 
+      }
+      clearInterval(intervalId)
+      intervalId = setInterval(draw, 30);
+    }
+    function drawParticle() {
+      const particle = [];
+      // Obtenir les informations de position et de taille du .container
+      const containerRect = document.querySelector('.container').getBoundingClientRect();
+      const container = {
+          x: containerRect.left,
+          y: containerRect.top,
+          width: containerRect.width,
+          height: containerRect.height
+      };
+      function isInsideContainer(x, y) {
+        return x > container.x && x < container.x + container.width &&
+               y > container.y && y < container.y + container.height;
+      }
+
+
+      for (let index = 0; index < 50; index++) {
+        let x, y;
+        do {
+            x = Math.random() * canvas.width;
+            y = Math.random() * canvas.height;
+        } while (isInsideContainer(x, y)); // Continue jusqu'à ce que la position soit en dehors du .container
+
+        particle.push({
+          x: x,
+          y: y,
+          vx: Math.random() * 2.5-1,
+          vy: Math.random() * 2.5-1,
+        })
+      }
+
+      const particleRadius = 10;
+      const satelliteRadius = 2;
+      const orbitRadius = 20; // Rayon de l'orbite des satellites
+      const orbitSpeed = 0.05; // Vitesse de rotation des satellites
+
+      particle.forEach(p => {
+        p.satellites = [{
+            angle: Math.random() * Math.PI * 2, // Angle initial aléatoire
+            orbitSpeed: orbitSpeed
+        }];
+      });
+
+
+      function detectColision(p1, p2) {
+        let dx = p1.x - p2.x;
+        let dy = p1.y - p2.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        return distance < (particleRadius * 2); 
+      }
+
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.width);
+
+        for (i = 0; i < particle.length; i++){
+          let p = particle[i];
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+          if (p.x > container.x && p.x < container.x + container.width &&
+            p.y > container.y && p.y < container.y + container.height) {
+            // Inverser la vitesse pour simuler un rebond
+            p.vx *= -1;
+            p.vy *= -1;
+          }
+
+          for (let j = i +1; j < particle.length; j++) {
+            let p2 = particle[j];
+            if (detectColision(p, p2)){
+              let tempVx = p.vx;
+              let tempVy = p.vy;
+              p.vx = p2.vx;
+              p.vy = p2.vy;
+              p2.vx = tempVx;
+              p2.vy = tempVy;
+            }
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, particleRadius, 0, 2 * Math.PI);
+          ctx.fillStyle  = '#0F0';
+          ctx.fill();
+
+            // Mise à jour et dessin des satellites
+            p.satellites.forEach(s => {
+              s.angle += s.orbitSpeed;
+
+              const satelliteX = p.x + orbitRadius * Math.cos(s.angle);
+              const satelliteY = p.y + orbitRadius * Math.sin(s.angle);
+
+              ctx.beginPath();
+              ctx.arc(satelliteX, satelliteY, satelliteRadius, 0, 2 * Math.PI);
+              ctx.fillStyle = '#FF0'; // Couleur différente pour les satellites
+              ctx.fill();
+          });
+
+        }
+
+
+
+        
+      }
+      clearInterval(intervalId)
+      intervalId = setInterval(draw, 10);
+    }
+
+    document.querySelectorAll("a")[0].addEventListener("click", (e)=>{
+      drawMatrix()
+    })
+    document.querySelectorAll("a")[1].addEventListener("click", (e)=>{
+      drawParticle()
+    })
+    document.querySelectorAll("a")[2].addEventListener("click", (e)=>{
+      ctx.clearRect(0, 0, canvas.width, canvas.width);
+      clearInterval(intervalId)
+    })
+
+    drawMatrix()
+  </script>
+</body>
+
+</html>

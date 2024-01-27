@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./ressource/prism.css" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        section {
+            width: 90%;
+            margin: 0 auto;
+        }
+        section article {
+            padding: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+        <article>
+            <p>
+                La fonction <code>concat()</code> en JavaScript est une méthode de
+                l&#39;objet <code>Array</code> utilisée pour fusionner deux ou plusieurs
+                tableaux en un seul nouveau tableau. Cette méthode est non destructive, ce
+                qui signifie qu&#39;elle ne modifie pas les tableaux existants mais
+                renvoie plutôt un nouveau tableau qui est la concaténation des tableaux
+                d&#39;origine.
+              </p>
+              <h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+              <pre><code class="language-javascript">nouveauTableau = tableauOriginal.concat(tableau1[, tableau2[, ...[, tableauN]]])
+              </code></pre>
+              <ul>
+                <li>
+                  <strong>tableauOriginal</strong> : Le tableau à partir duquel
+                  <code>concat()</code> est appelé.
+                </li>
+                <li>
+                  <strong>tableau1, tableau2, ..., tableauN</strong> : Un ou plusieurs
+                  tableaux (ou valeurs) à concaténer avec le tableau original.
+                </li>
+              </ul>
+              <h3 id="fonctionnement-">Fonctionnement :</h3>
+              <ul>
+                <li>
+                  <code>concat()</code> prend un ou plusieurs tableaux et/ou valeurs et
+                  les fusionne avec le tableau sur lequel elle est appelée.
+                </li>
+                <li>
+                  Les tableaux passés en arguments sont ajoutés à la fin du tableau
+                  original, dans l&#39;ordre où ils sont fournis.
+                </li>
+                <li>
+                  Si les arguments fournis ne sont pas des tableaux, ils sont ajoutés au
+                  nouveau tableau en tant que valeurs individuelles.
+                </li>
+              </ul>
+              <h3 id="exemples-">Exemples :</h3>
+              <ol>
+                <li>
+                  <p><strong>Concaténation de Deux Tableaux :</strong></p>
+                  <pre><code class="language-javascript">let alpha = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+              let numeric = [1, 2, 3];
+              let alphanumeric = alpha.concat(numeric);
+              // alphanumeric = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 1, 2, 3]
+              </code></pre>
+                </li>
+                <li>
+                  <p><strong>Concaténation de Plusieurs Tableaux :</strong></p>
+                  <pre><code class="language-javascript">let num1 = [1, 2, 3];
+              let num2 = [4, 5, 6];
+              let num3 = [7, 8, 9];
+              let numbers = num1.concat(num2, num3);
+              // numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+              </code></pre>
+                </li>
+                <li>
+                  <p><strong>Ajout d&#39;Éléments Individuels :</strong></p>
+                  <pre><code class="language-javascript">let letters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+              let moreLetters = letters.concat(&#39;d&#39;, &#39;e&#39;);
+              // moreLetters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+              </code></pre>
+                </li>
+                <li>
+                  <p><strong>Concaténation de Tableaux et de Valeurs :</strong></p>
+                  <pre><code class="language-javascript">let numbers = [1, 2, 3];
+              let moreNumbers = numbers.concat([4, 5], 6, 7);
+              // moreNumbers = [1, 2, 3, 4, 5, 6, 7]
+              </code></pre>
+                </li>
+              </ol>
+              <h3 id="points-importants-">Points Importants :</h3>
+              <ul>
+                <li>
+                  <code>concat()</code> ne modifie pas les tableaux existants mais renvoie
+                  plutôt un nouveau tableau.
+                </li>
+                <li>
+                  Il est possible de concaténer des valeurs primitives (comme des chaînes
+                  de caractères ou des nombres) en plus des tableaux.
+                </li>
+                <li>
+                  Si un élément passé à <code>concat()</code> est un tableau, ses éléments
+                  sont ajoutés. Si l&#39;élément n&#39;est pas un tableau, il est ajouté
+                  tel quel dans le nouveau tableau.
+                </li>
+                <li>
+                  Cette méthode est souvent utilisée pour fusionner des tableaux sans
+                  modifier les tableaux originaux, préservant ainsi l&#39;immutabilité des
+                  données.
+                </li>
+              </ul>
+              <br />
+          
+              <hr />
+          
+              <br />
+          
+              <blockquote>
+                <p>
+                  La méthode <code>concat()</code> en JavaScript est utilisée pour
+                  combiner deux ou plusieurs tableaux en un seul. Voici différentes
+                  manières d&#39;utiliser <code>concat()</code> :
+                </p>
+              </blockquote>
+              <h3 id="1-fusionner-des-tableaux-">1. Fusionner des Tableaux :</h3>
+              <ul>
+                <li>
+                  <strong>Combiner plusieurs tableaux en un seul :</strong>
+                  <pre><code class="language-javascript">let array1 = [1, 2, 3];
+              let array2 = [4, 5, 6];
+              let combinedArray = array1.concat(array2);
+              // combinedArray = [1, 2, 3, 4, 5, 6]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="2-ajouter-des-éléments-à-un-tableau-">
+                2. Ajouter des Éléments à un Tableau :
+              </h3>
+              <ul>
+                <li>
+                  <strong>Ajouter des éléments individuels à un tableau :</strong>
+                  <pre><code class="language-javascript">let numbers = [1, 2, 3];
+              let moreNumbers = numbers.concat(4, 5);
+              // moreNumbers = [1, 2, 3, 4, 5]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="3-combiner-des-tableaux-avec-des-valeurs-non-tableau-">
+                3. Combiner des Tableaux avec des Valeurs Non-Tableau :
+              </h3>
+              <ul>
+                <li>
+                  <strong>Fusionner des tableaux avec des éléments non-tableau :</strong>
+                  <pre><code class="language-javascript">let letters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+              let numbersAndBoolean = letters.concat(1, [2, 3], true);
+              // numbersAndBoolean = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 1, 2, 3, true]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="4-concaténation-en-chaîne-">4. Concaténation en Chaîne :</h3>
+              <ul>
+                <li>
+                  <strong
+                    >Utiliser <code>concat()</code> plusieurs fois de suite :</strong
+                  >
+                  <pre><code class="language-javascript">let array1 = [1, 2];
+              let array2 = [3, 4];
+              let array3 = [5, 6];
+              let combinedArray = array1.concat(array2).concat(array3);
+              // combinedArray = [1, 2, 3, 4, 5, 6]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="5-création-de-copies-superficielles-">
+                5. Création de Copies Superficielles :
+              </h3>
+              <ul>
+                <li>
+                  <strong>Créer une copie superficielle d&#39;un tableau :</strong>
+                  <pre><code class="language-javascript">let original = [1, 2, 3];
+              let copy = original.concat();
+              // copy = [1, 2, 3]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="6-fusion-de-tableaux-contenant-des-objets-">
+                6. Fusion de Tableaux Contenant des Objets :
+              </h3>
+              <ul>
+                <li>
+                  <strong>Combiner des tableaux qui contiennent des objets :</strong>
+                  <pre><code class="language-javascript">let obj1 = [{ a: 1 }, { b: 2 }];
+              let obj2 = [{ c: 3 }];
+              let combinedObjects = obj1.concat(obj2);
+              // combinedObjects = [{ a: 1 }, { b: 2 }, { c: 3 }]
+              </code></pre>
+                </li>
+              </ul>
+              <h3 id="points-importants--1">Points Importants :</h3>
+              <ul>
+                <li>
+                  <code>concat()</code> ne modifie pas les tableaux existants mais crée un
+                  nouveau tableau.
+                </li>
+                <li>
+                  Elle peut être utilisée pour combiner n&#39;importe quel nombre de
+                  tableaux et/ou de valeurs supplémentaires.
+                </li>
+                <li>
+                  <code>concat()</code> réalise une copie superficielle, ce qui signifie
+                  que les objets et les tableaux imbriqués dans les tableaux originaux
+                  sont copiés par référence plutôt que dupliqués.
+                </li>
+              </ul>
+              <p>
+                Ces différentes utilisations montrent la flexibilité de
+                <code>concat()</code> pour fusionner des tableaux et ajouter des éléments
+                à des tableaux en JavaScript.
+              </p>
+        </article>        
+    </section>
+    <script src="./ressource/prism.js"></script>
+  </body>
+</html>

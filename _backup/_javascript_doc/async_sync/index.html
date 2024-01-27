@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cours JavaScript</title>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="icon" type="image/png" href="https://www.emmanuel-kawala.com/favicon.png" />
+    </head>
+    
+    <body>
+        <h1>Titre principal</h1>
+        <p>Un premier paragraphe</p>
+    </body>
+    <script>
+      /*
+      TEST SIMPLE FUNCTION
+
+      let x_connect = function connect(data) { 
+          var json = {};
+          json.data = " json data";
+          json.value = " json value";
+          // result = (true, json);
+          data( true, json, "3" );
+      }
+
+      console.log("DEB");
+      x_connect ( function(err, data, last) {
+          console.log("err", err);
+          console.log("data", data);
+          console.log("last", last);
+      } )
+      */
+
+function resolveAfter2Seconds() {
+  console.log("starting slow promise");
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("slow");
+      console.log("slow promise is done");
+    }, 5000);
+  });
+}
+
+function resolveAfter1Second() {
+  console.log("starting fast promise");
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("fast");
+      console.log("fast promise is done");
+    }, 1000);
+  });
+}
+
+async function sequentialStart() {
+  console.log("==SEQUENTIAL START==");
+
+  // 1. Execution gets here almost instantly
+  const slow = await resolveAfter2Seconds();
+  console.log(slow); // 2. this runs 2 seconds after 1.
+
+  const fast = await resolveAfter1Second();
+  console.log(fast); // 3. this runs 3 seconds after 1.
+
+  console.log("==SEQUENTIAL START AND==");
+}
+
+async function concurrentStart() {
+  console.log("==CONCURRENT START with await==");
+
+  /*
+  0. on appelle plusieurs fonctions d’affilée, ele seront donc traitées de manierre asyncrone.
+  leur callback sera trainter en 1.
+  */  
+  const slow = resolveAfter2Seconds(); // starts timer immediately
+  const fast = resolveAfter1Second(); // starts timer immediately
+
+  // 1. Traitement des callback de manière sycrone pour les 2 fonctions éxecutées
+  await slow.then(s=>{console.log({result:s});})
+  await fast.then(s=>{console.log({result:s});})
+  /*
+    Conclusions.
+    les 2 fonctions sont traitées de maniére asycrone la fast finit avant la slow.
+    les 2 callback sont traités de maniére syncrone.
+    on attend dabord le callback de fonction slow pour ensuite attendre le callback de la fast.
+  */
+  console.log("==CONCURRENT START with await END==");
+}
+
+async function parallel() {
+  console.log("==PARALLEL with await Promise.all==");
+
+  // Start 2 "jobs" in parallel and wait for both of them to complete
+  await Promise.all([
+    (async () => console.log(await resolveAfter2Seconds()))(),
+    (async () => console.log(await resolveAfter1Second()))(),
+  ]);
+
+  console.log("==PARALLEL with await Promise.all END==");
+}
+
+/*
+FOREACH LOOP
+  array.forEach(element => {});
+
+forEach n'est pas sensible aux promesses (vous ne pouvez pas renvoyer de valeurs dans une boucle forEach). 
+Il ne peut pas prendre en charge async et wait. Vous ne pouvez pas utiliser wait dans forEach
+*/
+
+
+/*
+  FOR LOOP
+
+Ce comportement fonctionne avec la plupart des boucles (comme les boucles while et for-of)…
+
+Mais cela ne fonctionnera pas avec les boucles qui nécessitent un rappel. 
+  Des exemples de ces boucles qui nécessitent un rappel incluent 
+    forEach, map, filter et reduce. 
+*/
+const sleep = ms => {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+const loopAfter2Seconds = async (p1) =>{
+  console.log("starting loopAfter2Seconds");
+  return sleep(4000).then(async _ => {
+    const slow = resolveAfter2Seconds(); 
+    await slow.then(s=>{console.log({resolveAfter2Seconds:s});})  
+    return p1;
+  })
+}
+const loop = async _ => {
+  let array_1 = [];
+  array_1.push({pos:1});
+  array_1.push({pos:2});
+  array_1.push({pos:3});
+  array_1.push({pos:4});
+  array_1.push({pos:5});
+  for (let index = 0; index < array_1.length; index++) {
+    const element = array_1[index];
+    const numFruit = await loopAfter2Seconds(element);
+    console.log(numFruit);
+  }
+}
+loop();
+
+
+    </script>
+</html>
+

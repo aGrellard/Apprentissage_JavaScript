@@ -1,0 +1,211 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bg-green{
+    background-color: #5fffbf21;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 1em; 
+    border-bottom: 1px solid black;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.bg {
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    min-height: 80vh;
+    /* background-color: bisque; */
+    position: relative;
+    justify-content: center;
+    background-color: rgb(243, 243, 243);
+}
+
+.QCM {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 50%;
+    /* margin: 0 auto; */
+
+}
+
+aside {
+    display: flex;
+    width: 20%;
+    height: 80%;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    align-items: center;
+    /* border-right: 1px solid black; */
+    /* background-color: rgba(0, 0, 0, 0.063); */
+}
+aside div {
+    top: 0;
+    display: flex;
+    flex-direction: column;  
+    width: 50%;
+    /* background-color: #f8f8f8; */
+    /* background: linear-gradient(to bottom, #f8f8f8, white ); */
+    padding: 30px 20px;
+    height: 100%;
+    box-shadow: 0 0 10px black;
+    background-color: rgba(255, 255, 255, 0.893);
+    border-radius: 10px;
+    gap: 30px;
+    
+}
+aside div button {
+    margin: .4em 0;
+    background-color: rgba(184, 184, 184, 0.081);
+    border: 0px solid #cdcdcd;
+    padding: 1em;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 3px black;
+    font-weight: 600;
+    position: relative;
+
+ }
+
+aside div button:hover {
+    background-color: #dadada5d
+}
+
+article {
+    font-family: 'Fira Code', monospace;
+    width: 100%;
+    margin-bottom: 4px;
+    background-color: rgb(255, 255, 255);
+}
+
+h2 {
+    font-size: 1.7em;
+    text-align: center;
+    margin-top: 24px;
+    padding: 0;
+    font-weight: 500;
+}
+h3 {
+    font-size: 1em;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 24px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.question-titre{
+    margin: 20px auto;
+    font-size: 1em;
+    text-align: center;
+    background-color: #dadada5d;
+    padding: .8em 0;
+    border-radius: 5px;
+    width: 95%;
+    overflow: auto;
+    font-weight: 600;
+}
+.question-titre:first-of-type{ 
+    color: rgb(0, 0, 0);
+}
+
+
+.QCM pre{
+    margin: 1em auto;
+    box-shadow: 1px 1px 10px black;
+    width: 95%;
+}
+.question-options {
+    margin: 20px auto;
+    padding: 20px;
+    width: 95%;
+    background-color: #dadada2b;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.678);
+}
+
+fieldset {
+    border-width: 0;
+}
+
+.question-options ol {
+    list-style-type: upper-alpha;
+    
+}
+
+.question-options li {
+    list-style: none; /* Enlève les marqueurs par défaut */
+    position: relative;
+    width: 100%;
+    margin-top: .6em;
+
+}
+
+.question-options input{
+    width: 20px;
+    height: 20px;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.question-options label{
+    width: 80%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .bg {
+        position: relative;
+    }
+    .QCM {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    
+    }
+    aside {
+        display: flex;
+        width: 100%;
+        height: auto;
+
+        justify-content: center;
+        position: relative;
+        left: 0;
+        align-items: center;
+    } 
+    aside div {
+        flex-direction: row;  
+        justify-content: space-around;
+        width: 100%;
+    }
+    aside div button {
+        margin: 0 2px;
+        background-color: white;
+        border: 1px solid #cdcdcd;
+        padding: 1em;
+        cursor: pointer;
+        width: 20%;
+        /* overflow:auto; */
+        
+    }
+}

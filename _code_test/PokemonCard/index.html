@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Courier, monospace;
+        }
+        body {
+            background-color: #ffffff;
+        }
+        .container {
+            width: 350px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+
+        }
+        #card {
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, orange, 36%, #ffffff 36%);
+            width: 100%;
+            padding: 30px 20px;
+            border: 1px solid black;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+        #card img {
+            width: 180px;
+            max-height: 200px;
+            position: relative;
+            margin: 20px auto;
+            display: block;
+        }
+        .hp {
+            width: 80px;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+        .poke-name {
+            font-weight: 600;
+            text-align: center;
+        }
+        .types {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 20px 0 40px 0;
+        }
+        .types span {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .stats p {
+            color : #404060;
+        }
+        button {
+            position: relative;
+            background-color: black;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 15px 40px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+        .c1 {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="c1">
+        <div class="container">
+            <div id="card">
+                <p class="hp">
+                    <span>HP</span> 80
+                </p>
+                <img src="" alt="Image">
+                <h2 class="poke-name">Sample Name</h2>
+                <div class="types">
+                    <span>type 1</span>
+                    <span>type 2</span>
+                </div>
+                <div class="stats">
+                    <div>
+                        <h3>60</h3>
+                        <p>stats 1</p>
+                    </div>
+                    <div> 
+                        <h3>60</h3>
+                        <p>stats 2</p>
+                    </div>
+                    <div>
+                        <h3>60</h3>
+                        <p>stats 3</p>
+                    </div>
+                </div>
+            </div>
+            <button>Generate</button>
+        </div>
+    </div>
+    <script>
+        function test_1(){
+            let url = Math.floor(Math.random()*150)+1;
+            fetch("https://pokeapi.co/api/v2/pokemon/" + url).then(reponse => reponse.json()).then(data=>{
+                const name = data.name[0].toUpperCase() + data.name.slice(1);
+                const stat_hp = data.stats[0].base_stat;
+                const stat_attack = data.stats[1].base_stat;
+                const stat_defense = data.stats[2].base_stat;
+                const stat_speed = data.stats[5].base_stat;
+                const sprites = data.sprites.other.dream_world.front_default;
+                console.log(`name: ${name}, hp: ${stat_hp}, attack: ${stat_attack}, defense: ${stat_defense}, speed: ${stat_speed}, sprites: ${sprites}`);
+                let containerCard = document.getElementById("card");
+                containerCard.innerHTML = 
+                `
+                    <p class="hp">
+                        <span>HP</span> ${stat_hp}
+                    </p>
+                    <img src="${sprites}">
+                    <h2 class="poke-name">${name}</h2>
+                    <div class="types">
+    
+                    </div>
+                    <div class="stats">
+                        <div>
+                            <h3>${stat_attack}</h3>
+                            <p>Attack</p>
+                        </div>
+                        <div> 
+                            <h3>${stat_defense}</h3>
+                            <p>Defense</p>
+                        </div>
+                        <div>
+                            <h3>${stat_speed}</h3>
+                            <p>Speed</p>
+                        </div>
+                    </div>
+                `
+    
+            })            
+        }
+        window.addEventListener("load", ()=>{
+            test_1()
+        })
+    </script>
+</body>
+</html>
