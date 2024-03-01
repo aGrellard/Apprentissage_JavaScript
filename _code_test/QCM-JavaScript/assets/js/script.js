@@ -193,7 +193,7 @@ class QCM  {
     #nb = 0;
     #category = [];
     #QCMList_i = new QCMList();
-    #isQCMList = false;
+    #isQCMList = true;
 
     constructor() {
     }

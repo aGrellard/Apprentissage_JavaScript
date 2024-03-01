@@ -1,12 +1,18 @@
-const mixte = [1, 'deux', true, {nom: 'objet'}, [5, 6]];
-const tableau2D = [[1, 2], [3, 4], [5, 6]];
-
-const sparse = [1, , 3, , 5];
-
-const nombres = [1, 2, 3, 4, 5];
-const nombresRnd = [3, 4, 2, 1, 5];
-const nombresRnd_2 = [3, 1, 4, 1, 5, 9];
-const nombresGroupe = [6, 2, 2, 2, 3, 3, 3, 3];
+const {
+    mixte,
+    tableau2D,
+    sparse,
+    nombres,
+    nombresRnd,
+    nombresRnd_2,
+    nombresGroupe,
+    fruits,
+    aliments,
+    utilisateurs_2,
+    utilisateurs_1,
+    tableauCle,
+    keyValuePairs
+  } = require('./collections.js');
 
 const fruits = ['Pomme', 'banane', 'orange', 'kiwi', 'mangue'];
 let aliments = [
@@ -167,7 +173,7 @@ console.log(JSON.stringify(map_4, null, 2), "\n");
 
 // **************************************************
 console.log(nombresRnd_2);
-let sort_1 = [...nombresRnd_2].sort((a, b) => a - b);
+let sort_1 = undefined;
 // SORTIE [1,1,3,4,5,9] 
 console.log("Trie les nombres en ordre croissant");
 console.log(JSON.stringify(sort_1, null, 0), "\n");
@@ -175,7 +181,7 @@ console.log(JSON.stringify(sort_1, null, 0), "\n");
 
 // **************************************************
 console.log(fruits);
-let sort_2 = [...fruits].sort();
+let sort_2 = undefined;
 // SORTIE ["Pomme","banane","kiwi","mangue","orange"] 
 console.log("Trie les chaînes de caractères");
 console.log(JSON.stringify(sort_2, null, 0), "\n");
@@ -205,3 +211,12 @@ console.log("Trie les nombres en ordre croissant");
 console.log(JSON.stringify(sort_5, null, 0), "\n");
 // #################################################
 
+/*
+let filter_2 = nombresGroupe.filter((item, index, array)=>{
+    return array.indexOf(item) === index
+});
+La condition array.indexOf(item) === index évalue à true uniquement pour la première occurrence de chaque élément. Ceci est parce que c'est la seule fois où l'indice de l'itération courante (index) correspondra à l'indice de la première occurrence de cet élément (array.indexOf(item)). Pour toutes les occurrences suivantes d'un élément déjà rencontré, index sera plus grand, faisant en sorte que la condition évalue à false et que ces éléments supplémentaires ne soient pas inclus dans le tableau final.
+
+Donc, oui, c'est l'utilisation de index dans cette vérification qui permet de "positionner" si un élément a déjà été pris en compte pour l'inclusion dans le tableau résultant de .filter(), servant effectivement de mécanisme pour exclure les doublons sans nécessiter une vérification directe des éléments précédemment ajoutés au tableau de sortie.
+
+*/

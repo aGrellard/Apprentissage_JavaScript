@@ -26,7 +26,7 @@ input.addEventListener("keypress", async (e)=>{
     }
 })
 async function wikiPedia(search) {
-    const request = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${search}`);
+    const request = await fetch(`https://fr.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${search}`);
     const json = await request.json();
     return json;
 }

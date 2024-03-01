@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionnaire de Contacts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="nomContact" placeholder="Nom du contact">
+        <input type="email" id="emailContact" placeholder="Email du contact">
+        <input type="tel" id="telContact" placeholder="Téléphone du contact">
+        <button onclick="ajouterContact()">Ajouter</button>
+        <input type="text" id="rechercheContact" placeholder="Rechercher un contact" oninput="rechercherContact()">
+        <ul id="listeContacts"></ul>
+        <div id="statistiques"></div>
+        <button onclick="trierContacts()">Trier par Nom</button>
+        <button onclick="calculerLongueurMoyenneNoms()">Longueur Moyenne des Noms</button>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
