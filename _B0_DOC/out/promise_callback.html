@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise#description">mdn_promise</a></p>
+<hr>
+<p>La polyvalence des fonctions retournant explicitement une promesse est particulièrement utile lorsqu'on doit convertir des opérations basées sur des callbacks en promesses. C'est souvent le cas avec des API plus anciennes ou des bibliothèques qui utilisent des callbacks pour gérer l'asynchronisme.</p>
+<p>Imaginons que vous ayez une fonction basée sur un callback, comme une fonction de lecture de fichier dans Node.js :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">lireFichier</span>(<span class="hljs-params">callback</span>) {
+    fs.<span class="hljs-title function_">readFile</span>(<span class="hljs-string">&#x27;monFichier.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">err, data</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (err) {
+            <span class="hljs-title function_">callback</span>(err, <span class="hljs-literal">null</span>);
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-title function_">callback</span>(<span class="hljs-literal">null</span>, data);
+    });
+}
+</code></pre>
+<p>Cette fonction utilise un callback pour retourner le résultat ou une erreur. Maintenant, disons que vous voulez utiliser des promesses pour gérer l'asynchronisme, ce qui rendrait votre code plus lisible et vous permettrait d'utiliser <code>async/await</code>. Vous pouvez envelopper cette fonction dans une nouvelle fonction qui retourne une promesse :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">lireFichierAsync</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        <span class="hljs-title function_">lireFichier</span>(<span class="hljs-function">(<span class="hljs-params">err, data</span>) =&gt;</span> {
+            <span class="hljs-keyword">if</span> (err) {
+                <span class="hljs-title function_">reject</span>(err);
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-title function_">resolve</span>(data);
+        });
+    });
+}
+</code></pre>
+<p>Dans cette nouvelle version, <code>lireFichierAsync</code> retourne une promesse. Si <code>lireFichier</code> se termine avec succès, la promesse est résolue avec les données lues. Si une erreur survient, la promesse est rejetée avec cette erreur.</p>
+<p>Vous pouvez maintenant utiliser <code>lireFichierAsync</code> avec <code>async/await</code> pour un code plus propre et plus lisible :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">traiterFichier</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> contenu = <span class="hljs-keyword">await</span> <span class="hljs-title function_">lireFichierAsync</span>();
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(contenu);
+    } <span class="hljs-keyword">catch</span> (err) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;Erreur lors de la lecture du fichier :&quot;</span>, err);
+    }
+}
+</code></pre>
+<p>Dans cet exemple, l'utilisation de promesses rend le code asynchrone plus intuitif et plus facile à suivre, tout en intégrant une gestion d'erreur claire avec <code>try...catch</code>.</p>
+
+            
+            
+        </body>
+        </html>

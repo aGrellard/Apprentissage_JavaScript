@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>every()</code> en JavaScript est une méthode de l'objet <code>Array</code> qui teste si tous les éléments d'un tableau passent un test implémenté par une fonction de rappel fournie. Elle est souvent utilisée pour vérifier si tous les éléments d'un tableau satisfont à une condition spécifique.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">every</span>(<span class="hljs-title function_">callback</span>(element[, index[, array]])[, thisArg])
+</code></pre>
+<ul>
+<li><strong>callback</strong> : Une fonction qui teste chaque élément du tableau. Cette fonction est appelée avec les arguments suivants :
+<ul>
+<li><strong>element</strong> : L'élément actuellement traité dans le tableau.</li>
+<li><strong>index</strong> (optionnel) : L'indice de l'élément actuellement traité dans le tableau.</li>
+<li><strong>array</strong> (optionnel) : Le tableau sur lequel <code>every()</code> a été appelé.</li>
+</ul>
+</li>
+<li><strong>thisArg</strong> (optionnel) : Une valeur à utiliser comme <code>this</code> lors de l'exécution de la fonction de rappel.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li>La méthode <code>every()</code> exécute la fonction de rappel une fois pour chaque élément présent dans le tableau, jusqu'à ce qu'elle trouve un élément pour lequel la fonction renvoie une valeur falsy (fausse).</li>
+<li>Si la fonction de rappel renvoie une valeur truthy (vraie) pour tous les éléments du tableau, <code>every()</code> renvoie <code>true</code>.</li>
+<li>Si la fonction de rappel renvoie <code>false</code> pour au moins un élément du tableau, <code>every()</code> renvoie <code>false</code> et cesse d'exécuter la fonction pour les éléments restants.</li>
+<li><code>every()</code> ne modifie pas le tableau sur lequel il est appelé.</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Vérifier si Tous les Éléments d'un Tableau sont des Nombres :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">isNumber</span> = (<span class="hljs-params">value</span>) =&gt; <span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;number&#x27;</span>;
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> allNumbers = numbers.<span class="hljs-title function_">every</span>(isNumber); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Vérifier si Tous les Éléments d'un Tableau Satisfont à une Condition :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">belowThreshold</span> = (<span class="hljs-params">value</span>) =&gt; value &lt; <span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> allBelowThreshold = numbers.<span class="hljs-title function_">every</span>(belowThreshold); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Vérification sur un Tableau d'Objets :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> allAdults = people.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> person.<span class="hljs-property">age</span> &gt;= <span class="hljs-number">18</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>every()</code> est une excellente option pour tester une condition sur tous les éléments d'un tableau, surtout dans les cas où vous avez besoin d'une vérification booléenne.</li>
+<li>La méthode retourne <code>true</code> pour tout tableau vide, quelle que soit la condition testée, car il n'y a aucun élément pour lequel la condition échoue.</li>
+<li><code>every()</code> cesse l'exécution dès qu'une valeur falsy est retournée par la fonction de rappel, ce qui peut améliorer l'efficacité pour les grands tableaux.</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3 id="1-vérifier-si-tous-les-éléments-répondent-à-une-condition-simple-">1. Vérifier si Tous les Éléments Répondent à une Condition Simple :</h3>
+<ul>
+<li><strong>Vérifier si tous les nombres d'un tableau sont positifs :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> allPositive = numbers.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num &gt; <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="2-utilisation-avec-des-tableaux-dobjets-">2. Utilisation avec des Tableaux d'Objets :</h3>
+<ul>
+<li><strong>Vérifier si tous les objets d'un tableau ont une certaine propriété :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> allHaveAge = people.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> person.<span class="hljs-property">age</span> !== <span class="hljs-literal">undefined</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="3-vérification-de-conditions-complexes-">3. Vérification de Conditions Complexes :</h3>
+<ul>
+<li><strong>Tester des conditions plus complexes sur les éléments du tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>];
+<span class="hljs-keyword">let</span> allOdd = numbers.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> !== <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="4-utilisation-avec-des-chaînes-de-caractères-">4. Utilisation avec des Chaînes de Caractères :</h3>
+<ul>
+<li><strong>Vérifier si tous les éléments d'un tableau de chaînes respectent un critère :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;cherry&quot;</span>];
+<span class="hljs-keyword">let</span> allStartWithA = words.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">word</span> =&gt;</span> word.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;a&quot;</span>));
+</code></pre>
+</li>
+</ul>
+<h3 id="5-combiner-every-avec-dautres-méthodes-de-tableau-">5. Combiner <code>every()</code> avec d'Autres Méthodes de Tableau :</h3>
+<ul>
+<li><strong>Utiliser <code>every()</code> dans une chaîne de méthodes de traitement de tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> allEvenAfterTransformation = numbers.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num * <span class="hljs-number">2</span>).<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="6-utilisation-de-every-pour-la-validation-">6. Utilisation de <code>every()</code> pour la Validation :</h3>
+<ul>
+<li><strong>Valider les éléments d'un tableau pour s'assurer qu'ils respectent une règle de validation :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> ages = [<span class="hljs-number">22</span>, <span class="hljs-number">18</span>, <span class="hljs-number">33</span>, <span class="hljs-number">17</span>];
+<span class="hljs-keyword">let</span> allAdults = ages.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">age</span> =&gt;</span> age &gt;= <span class="hljs-number">18</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="7-utiliser-every-avec-des-indices-ou-le-tableau-complet-">7. Utiliser <code>every()</code> avec des Indices ou le Tableau Complet :</h3>
+<ul>
+<li><strong>Accéder à l'indice ou au tableau complet dans la fonction de rappel :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> isOrdered = numbers.<span class="hljs-title function_">every</span>(<span class="hljs-function">(<span class="hljs-params">num, index, arr</span>) =&gt;</span> index === <span class="hljs-number">0</span> || arr[index - <span class="hljs-number">1</span>] &lt;= num);
+</code></pre>
+</li>
+</ul>
+<h3 id="points-importants--1">Points Importants :</h3>
+<ul>
+<li><code>every()</code> renvoie <code>true</code> si la fonction de rappel renvoie <code>true</code> pour chaque élément du tableau.</li>
+<li>Elle renvoie <code>false</code> dès qu'un élément ne satisfait pas la condition.</li>
+<li>La méthode est particulièrement utile pour la validation et la vérification des données dans les tableaux.</li>
+<li><code>every()</code> renvoie <code>true</code> pour un tableau vide, quel que soit le test réalisé, car techniquement, aucun élément ne viole la condition.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>En tant que développeur web JavaScript, il est crucial de connaître un ensemble de fonctions essentielles qui sont fréquemment utilisées dans le développement web. Voici une liste de ces fonctions et concepts clés :</p>
+<ol>
+<li>
+<p><strong>Manipulation du DOM</strong> :</p>
+<ul>
+<li><code>document.getElementById()</code></li>
+<li><code>document.getElementsByClassName()</code></li>
+<li><code>document.getElementsByTagName()</code></li>
+<li><code>document.querySelector()</code></li>
+<li><code>document.querySelectorAll()</code></li>
+<li><code>element.appendChild()</code></li>
+<li><code>element.removeChild()</code></li>
+<li><code>element.replaceChild()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Gestion des événements</strong> :</p>
+<ul>
+<li><code>addEventListener()</code></li>
+<li><code>removeEventListener()</code></li>
+<li><code>event.preventDefault()</code></li>
+<li><code>event.stopPropagation()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Manipulation des tableaux</strong> :</p>
+<ul>
+<li><code>Array.map()</code></li>
+<li><code>Array.filter()</code></li>
+<li><code>Array.reduce()</code></li>
+<li><code>Array.forEach()</code></li>
+<li><code>Array.find()</code></li>
+<li><code>Array.some()</code></li>
+<li><code>Array.every()</code></li>
+<li><code>Array.concat()</code></li>
+<li><code>Array.splice()</code></li>
+<li><code>Array.slice()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Gestion des objets</strong> :</p>
+<ul>
+<li><code>Object.keys()</code></li>
+<li><code>Object.values()</code></li>
+<li><code>Object.entries()</code></li>
+<li><code>Object.assign()</code></li>
+<li><code>JSON.stringify()</code></li>
+<li><code>JSON.parse()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions asynchrones et Promesses</strong> :</p>
+<ul>
+<li><code>setTimeout()</code></li>
+<li><code>setInterval()</code></li>
+<li><code>clearTimeout()</code></li>
+<li><code>clearInterval()</code></li>
+<li><code>Promise</code></li>
+<li><code>async/await</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Contrôle de flux</strong> :</p>
+<ul>
+<li><code>if...else</code></li>
+<li><code>switch</code></li>
+<li><code>for</code>, <code>for...in</code>, <code>for...of</code></li>
+<li><code>while</code>, <code>do...while</code></li>
+<li><code>try...catch...finally</code></li>
+<li><code>throw</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Autres fonctions et méthodes utiles</strong> :</p>
+<ul>
+<li><code>console.log()</code>, <code>console.error()</code>, <code>console.warn()</code></li>
+<li><code>Math.*</code> (comme <code>Math.random()</code>, <code>Math.floor()</code>)</li>
+<li><code>String.*</code> méthodes (comme <code>String.includes()</code>, <code>String.replace()</code>)</li>
+<li><code>Array.isArray()</code></li>
+<li><code>typeof</code>, <code>instanceof</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions natives de fetch et de requête HTTP</strong> :</p>
+<ul>
+<li><code>fetch()</code></li>
+<li><code>XMLHttpRequest</code> (bien que moins utilisé avec l'avènement de <code>fetch</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Expressions régulières</strong> :</p>
+<ul>
+<li><code>RegExp</code> méthodes (comme <code>test()</code>, <code>exec()</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Local Storage et Session Storage</strong> :</p>
+<ul>
+<li><code>localStorage.setItem()</code>, <code>localStorage.getItem()</code></li>
+<li><code>sessionStorage.setItem()</code>, <code>sessionStorage.getItem()</code></li>
+</ul>
+</li>
+</ol>
+<p>Ces fonctions et concepts sont la base de nombreux scripts et applications web modernes en JavaScript. Bien sûr, la maîtrise de ces éléments est complémentée par la compréhension des principes fondamentaux de la programmation en JavaScript, comme les closures, le hoisting, le contexte d'exécution, etc.</p>
+
+            
+            
+        </body>
+        </html>

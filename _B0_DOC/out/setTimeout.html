@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>setTimeout</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="settimeout">setTimeout</h1>
+<p>La fonction <code>setTimeout</code> est une fonction JavaScript intégrée qui permet de définir un délai avant l'exécution d'une fonction spécifique. Elle est largement utilisée pour retarder l'exécution d'un morceau de code ou pour exécuter du code de manière asynchrone après un certain temps. Voici une explication détaillée de son fonctionnement, de ses paramètres et de quelques cas d'utilisation.</p>
+<ul>
+<li><a href="#settimeout">setTimeout</a>
+<ul>
+<li><a href="#documentation">Documentation</a>
+<ul>
+<li><a href="#fonctionnement-de-settimeout">Fonctionnement de <code>setTimeout</code></a></li>
+<li><a href="#exemple-de-base">Exemple de base</a></li>
+<li><a href="#annulation-dun-timeout">Annulation d'un Timeout</a></li>
+<li><a href="#cas-dutilisation-courants">Cas d'utilisation courants</a></li>
+<li><a href="#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li><a href="#exemples">Exemples</a>
+<ul>
+<li><a href="#1-retarder-lex%C3%A9cution-dune-fonction">1. Retarder l'exécution d'une fonction</a></li>
+<li><a href="#2-debouncing">2. Debouncing</a></li>
+<li><a href="#3-throttling">3. Throttling</a></li>
+<li><a href="#4-ex%C3%A9cuter-du-code-apr%C3%A8s-le-chargement-complet-de-la-page">4. Exécuter du code après le chargement complet de la page</a></li>
+<li><a href="#5-cr%C3%A9er-des-animations-ou-des-transitions-temporis%C3%A9es">5. Créer des animations ou des transitions temporisées</a></li>
+<li><a href="#6-simuler-des-op%C3%A9rations-asynchrones">6. Simuler des opérations asynchrones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<h3 id="fonctionnement-de-settimeout">Fonctionnement de <code>setTimeout</code></h3>
+<p>La syntaxe de base de <code>setTimeout</code> est la suivante :</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>, delay, [arg1, arg2, ...]);
+</code></pre>
+<ul>
+<li><strong>function</strong> : La fonction à exécuter après le délai. Cette fonction peut être une fonction anonyme ou le nom d'une fonction existante.</li>
+<li><strong>delay</strong> : Le délai avant l'exécution de la fonction, exprimé en millisecondes (1000 millisecondes = 1 seconde). Si ce délai est omis ou mis à 0, la fonction sera mise dans la file d'attente pour être exécutée dès que possible, après l'achèvement des scripts en cours.</li>
+<li><strong>arg1, arg2, ...</strong> : (Optionnel) Des arguments supplémentaires qui seront passés à la fonction lors de son exécution.</li>
+</ul>
+<h3 id="exemple-de-base">Exemple de base</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">saluer</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Bonjour !&quot;</span>);
+}
+
+<span class="hljs-comment">// Exécute la fonction `saluer` après un délai de 2 secondes.</span>
+<span class="hljs-built_in">setTimeout</span>(saluer, <span class="hljs-number">2000</span>);
+</code></pre>
+<p>Dans cet exemple, la console affichera <code>&quot;Bonjour !&quot;</code> après un délai de 2 secondes.</p>
+<h3 id="annulation-dun-timeout">Annulation d'un Timeout</h3>
+<p><code>setTimeout</code> retourne un identifiant unique (un nombre) pour le timeout qu'elle a créé. Cet identifiant peut être utilisé avec la fonction <code>clearTimeout</code> pour annuler le timeout avant qu'il ne soit exécuté.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> timeoutId = <span class="hljs-built_in">setTimeout</span>(saluer, <span class="hljs-number">2000</span>);
+
+<span class="hljs-comment">// Annule le timeout</span>
+<span class="hljs-built_in">clearTimeout</span>(timeoutId);
+</code></pre>
+<p>Dans cet exemple, le timeout est annulé avant qu'il ne puisse exécuter la fonction <code>saluer</code>, donc &quot;Bonjour !&quot; ne sera pas affiché dans la console.</p>
+<h3 id="cas-dutilisation-courants">Cas d'utilisation courants</h3>
+<ul>
+<li><strong>Retarder des animations ou des transitions</strong> : Pour créer des effets visuels ou retarder l'affichage d'éléments sur une page web.</li>
+<li><strong>Debounce</strong> : Attendre que l'utilisateur ait fini de taper dans un champ de saisie (par exemple, lors de la recherche) avant de lancer une requête.</li>
+<li><strong>Throttling</strong> : S'assurer qu'une fonction ne s'exécute pas trop fréquemment, par exemple lors de l'écoute d'événements de défilement.</li>
+</ul>
+<h3 id="bonnes-pratiques">Bonnes pratiques</h3>
+<ul>
+<li>Utiliser <code>clearTimeout</code> pour éviter que des timeouts non nécessaires ne s'exécutent, en particulier dans les cas où l'utilisateur peut quitter la page ou modifier l'état qui rendrait l'exécution du timeout non pertinente.</li>
+<li>Être conscient du comportement du &quot;timer clamping&quot; dans certains navigateurs, où les délais courts peuvent être augmentés pour améliorer la performance et l'économie d'énergie, en particulier pour les onglets en arrière-plan.</li>
+</ul>
+<p>En résumé, <code>setTimeout</code> est un outil puissant pour contrôler l'exécution asynchrone de code JavaScript. Il offre une flexibilité dans la gestion des opérations différées, des animations, et d'autres tâches nécessitant un contrôle du timing.</p>
+<h2 id="exemples">Exemples</h2>
+<h3 id="1-retarder-lexécution-dune-fonction">1. Retarder l'exécution d'une fonction</h3>
+<p><strong>Utilisation</strong> : Exécuter une fonction après un certain temps.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Message affiché après 3 secondes&quot;</span>);
+}, <span class="hljs-number">3000</span>);
+</code></pre>
+<h3 id="2-debouncing">2. Debouncing</h3>
+<p><strong>Utilisation</strong> : Limiter le nombre de fois qu'une fonction peut être exécutée sur une période. C'est utile pour les événements qui se déclenchent fréquemment, comme le redimensionnement de la fenêtre ou la saisie dans un champ de recherche.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> debounceTimer;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">recherche</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-built_in">clearTimeout</span>(debounceTimer);
+    debounceTimer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Recherche effectuée&quot;</span>);
+    }, <span class="hljs-number">300</span>);
+}
+
+<span class="hljs-comment">// Simuler l&#x27;appel de la fonction `recherche` à chaque frappe de l&#x27;utilisateur</span>
+<span class="hljs-title function_">recherche</span>(); <span class="hljs-comment">// Appelé à chaque saisie de l&#x27;utilisateur</span>
+</code></pre>
+<h3 id="3-throttling">3. Throttling</h3>
+<p><strong>Utilisation</strong> : Assurer qu'une fonction ne s'exécute pas plus d'une fois toutes les X millisecondes. C'est utile pour les événements de scroll ou de redimensionnement pour éviter des performances médiocres.</p>
+<p><strong>Exemple</strong> : Bien que <code>setTimeout</code> ne soit pas directement utilisé pour le throttling, on peut combiner <code>setTimeout</code> et <code>clearTimeout</code> pour un effet similaire.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> throttleTimer;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">handleScroll</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">if</span> (!throttleTimer) {
+        throttleTimer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+            throttleTimer = <span class="hljs-literal">null</span>;
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Scroll event handled&quot;</span>);
+        }, <span class="hljs-number">100</span>);
+    }
+}
+
+<span class="hljs-comment">// Simuler l&#x27;appel de la fonction `handleScroll` lors du défilement de la page</span>
+<span class="hljs-title function_">handleScroll</span>();
+<span class="hljs-title function_">handleScroll</span>();
+</code></pre>
+<h3 id="4-exécuter-du-code-après-le-chargement-complet-de-la-page">4. Exécuter du code après le chargement complet de la page</h3>
+<p><strong>Utilisation</strong> : Retarder l'exécution de script jusqu'à ce que tous les éléments de la page soient chargés.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Page entièrement chargée et prête&quot;</span>);
+    }, <span class="hljs-number">1000</span>);
+};
+</code></pre>
+<h3 id="5-créer-des-animations-ou-des-transitions-temporisées">5. Créer des animations ou des transitions temporisées</h3>
+<p><strong>Utilisation</strong> : Créer des effets d'animation ou de transition en retardant l'exécution de fonctions liées au style ou à la position des éléments HTML.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;monElement&quot;</span>).<span class="hljs-property">style</span>.<span class="hljs-property">opacity</span> = <span class="hljs-number">1</span>;
+}, <span class="hljs-number">500</span>);
+</code></pre>
+<h3 id="6-simuler-des-opérations-asynchrones">6. Simuler des opérations asynchrones</h3>
+<p><strong>Utilisation</strong> : Simuler un appel réseau ou une opération de base de données dans des environnements de développement ou d'apprentissage.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchDataSimulated</span>(<span class="hljs-params">callback</span>) {
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-title function_">callback</span>(<span class="hljs-string">&quot;Données reçues&quot;</span>);
+    }, <span class="hljs-number">2000</span>);
+}
+
+<span class="hljs-title function_">fetchDataSimulated</span>(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data); <span class="hljs-comment">// &quot;Données reçues&quot;</span>
+});
+</code></pre>
+<p>Chacune de ces utilisations démontre la flexibilité de <code>setTimeout</code> pour gérer des opérations asynchrones, des animations, des optimisations de performance, et plus encore dans le développement web.</p>
+
+            
+            
+        </body>
+        </html>

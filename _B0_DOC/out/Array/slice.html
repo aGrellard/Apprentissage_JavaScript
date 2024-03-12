@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Utilisation avec les Tableaux &lpar;&DiacriticalGrave;Array&period;slice&lpar;&rpar;&DiacriticalGrave;&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>slice()</code> en JavaScript est une méthode utilisée à la fois sur les objets <code>Array</code> et <code>String</code> pour retourner une portion sélectionnée du tableau ou de la chaîne de caractères. Cette méthode est non destructive, c'est-à-dire qu'elle ne modifie pas le tableau ou la chaîne de caractères original(e).</p>
+<h3 id="utilisation-avec-les-tableaux-arrayslice">Utilisation avec les Tableaux (<code>Array.slice()</code>)</h3>
+<h4 id="syntaxe">Syntaxe</h4>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">slice</span>(start, end)
+</code></pre>
+<ul>
+<li><strong>start</strong> (optionnel) : L'indice de début pour la découpe. Si omis, la découpe commence à l'indice 0. Si la valeur est négative, elle indique un offset à partir de la fin du tableau.</li>
+<li><strong>end</strong> (optionnel) : L'indice de fin (exclusif) pour la découpe. Si omis, la découpe s'étend jusqu'à la fin du tableau. Si la valeur est négative, elle indique un offset à partir de la fin du tableau.</li>
+</ul>
+<h4 id="fonctionnement">Fonctionnement</h4>
+<ul>
+<li><code>slice()</code> retourne un nouveau tableau contenant les éléments du tableau original entre l'indice <code>start</code> et <code>end</code> (non inclus).</li>
+<li>Si <code>start</code> est supérieur à la longueur du tableau, un tableau vide est retourné.</li>
+</ul>
+<h4 id="exemple">Exemple</h4>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> sliced = numbers.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// Renvoie [2, 3, 4]</span>
+</code></pre>
+<h3 id="utilisation-avec-les-chaînes-de-caractères-stringslice">Utilisation avec les Chaînes de Caractères (<code>String.slice()</code>)</h3>
+<h4 id="syntaxe-1">Syntaxe</h4>
+<pre><code class="language-javascript">string.<span class="hljs-title function_">slice</span>(start, end)
+</code></pre>
+<ul>
+<li><strong>start</strong> (optionnel) : L'indice de début pour la découpe dans la chaîne. Si la valeur est négative, elle indique un offset à partir de la fin de la chaîne.</li>
+<li><strong>end</strong> (optionnel) : L'indice de fin (exclusif) pour la découpe dans la chaîne. Si omis, la découpe s'étend jusqu'à la fin de la chaîne. Si la valeur est négative, elle indique un offset à partir de la fin de la chaîne.</li>
+</ul>
+<h4 id="fonctionnement-1">Fonctionnement</h4>
+<ul>
+<li><code>slice()</code> retourne une nouvelle chaîne de caractères contenant une partie de la chaîne originale, entre les indices <code>start</code> et <code>end</code> (non inclus).</li>
+<li>Si <code>start</code> est supérieur à la longueur de la chaîne, une chaîne vide est retournée.</li>
+</ul>
+<h4 id="exemple-1">Exemple</h4>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> text = <span class="hljs-string">&quot;Hello, world!&quot;</span>;
+<span class="hljs-keyword">let</span> sliced = text.<span class="hljs-title function_">slice</span>(<span class="hljs-number">7</span>, <span class="hljs-number">12</span>); <span class="hljs-comment">// Renvoie &quot;world&quot;</span>
+</code></pre>
+<h3 id="points-importants">Points Importants</h3>
+<ul>
+<li><code>slice()</code> ne modifie pas le tableau ou la chaîne de caractères original(e). Il/elle en retourne une copie avec les éléments ou caractères sélectionnés.</li>
+<li>Les indices négatifs permettent de commencer la coupe depuis la fin du tableau ou de la chaîne.</li>
+<li>Cette méthode est particulièrement utile pour obtenir des sous-ensembles d'un tableau ou d'une chaîne sans affecter l'original.</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3 id="utilisation-avec-les-tableaux-arrayprototypeslice">Utilisation avec les Tableaux (<code>Array.prototype.slice()</code>)</h3>
+<ol>
+<li>
+<p><strong>Extraire une Partie d'un Tableau :</strong></p>
+<ul>
+<li>Créer un sous-tableau à partir d'un tableau existant.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> subArray = numbers.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// Renvoie [2, 3, 4]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Copier un Tableau :</strong></p>
+<ul>
+<li>Faire une copie superficielle d'un tableau.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> original = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> copy = original.<span class="hljs-title function_">slice</span>(); <span class="hljs-comment">// Renvoie une copie de &#x27;original&#x27;</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Extraire des Éléments Jusqu'à la Fin d'un Tableau :</strong></p>
+<ul>
+<li>Extraire une partie d'un tableau depuis un index donné jusqu'à la fin.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> sliced = numbers.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>); <span class="hljs-comment">// Renvoie [3, 4, 5]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Utilisation d'Indices Négatifs :</strong></p>
+<ul>
+<li>Utiliser un index négatif pour commencer à partir de la fin du tableau.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> sliced = numbers.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">3</span>); <span class="hljs-comment">// Renvoie [3, 4, 5]</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="utilisation-avec-les-chaînes-de-caractères-stringprototypeslice">Utilisation avec les Chaînes de Caractères (<code>String.prototype.slice()</code>)</h3>
+<ol>
+<li>
+<p><strong>Extraire une Sous-Chaîne :</strong></p>
+<ul>
+<li>Extraire une partie d'une chaîne de caractères.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> text = <span class="hljs-string">&quot;Hello, world!&quot;</span>;
+<span class="hljs-keyword">let</span> subText = text.<span class="hljs-title function_">slice</span>(<span class="hljs-number">7</span>, <span class="hljs-number">12</span>); <span class="hljs-comment">// Renvoie &quot;world&quot;</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Extraire des Caractères Jusqu'à la Fin d'une Chaîne :</strong></p>
+<ul>
+<li>Obtenir une sous-chaîne à partir d'un index donné jusqu'à la fin.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> text = <span class="hljs-string">&quot;Hello, world!&quot;</span>;
+<span class="hljs-keyword">let</span> subText = text.<span class="hljs-title function_">slice</span>(<span class="hljs-number">7</span>); <span class="hljs-comment">// Renvoie &quot;world!&quot;</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Utilisation d'Indices Négatifs avec les Chaînes :</strong></p>
+<ul>
+<li>Extraire une sous-chaîne en commençant par la fin.</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> text = <span class="hljs-string">&quot;Hello, world!&quot;</span>;
+<span class="hljs-keyword">let</span> subText = text.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">6</span>); <span class="hljs-comment">// Renvoie &quot;world!&quot;</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-1">Points Importants</h3>
+<ul>
+<li><code>slice()</code> est non destructive, c'est-à-dire qu'elle ne modifie pas le tableau ou la chaîne de caractères original(e).</li>
+<li>Les indices spécifiés pour <code>slice()</code> sont inclusifs pour le début et exclusifs pour la fin. Par exemple, <code>slice(1, 4)</code> inclut les éléments aux indices 1 et 2, mais pas l'élément à l'indice 4.</li>
+<li>Lors de l'utilisation d'indices négatifs, la méthode compte à rebours à partir de la fin du tableau ou de la chaîne.</li>
+<li>Pour les tableaux, <code>slice()</code> effectue une copie superficielle, ce qui signifie que les objets et tableaux imbriqués ne sont pas clonés mais référencés.</li>
+</ul>
+<p><code>slice()</code> est donc un outil extrêmement utile pour manipuler des tableaux et des chaînes de caractères, surtout lorsque vous avez besoin de portions de ces structures de données sans modifier les originaux.</p>
+
+            
+            
+        </body>
+        </html>

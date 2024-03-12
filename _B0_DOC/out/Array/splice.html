@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>splice()</code> en JavaScript est une méthode très versatile de l'objet <code>Array</code> qui est utilisée pour modifier le contenu d'un tableau en ajoutant, enlevant, ou remplaçant des éléments. Contrairement à <code>slice()</code>, <code>splice()</code> modifie directement le tableau sur lequel elle est appelée.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">splice</span>(start, deleteCount, item1, item2, ..., itemN)
+</code></pre>
+<ul>
+<li><strong>start</strong> : L'indice auquel commencer à changer le tableau.</li>
+<li><strong>deleteCount</strong> (optionnel) : Le nombre d'éléments à supprimer à partir de l'indice <code>start</code>.</li>
+<li><strong>item1, item2, ..., itemN</strong> (optionnels) : Les éléments à ajouter au tableau à partir de l'indice <code>start</code>.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ol>
+<li>
+<p><strong>Suppression d'Éléments :</strong></p>
+<ul>
+<li>Si <code>deleteCount</code> est spécifié et non nul, <code>splice()</code> supprime le nombre d'éléments indiqué à partir de l'indice <code>start</code>.</li>
+<li>Exemple :<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&quot;pomme&quot;</span>, <span class="hljs-string">&quot;banane&quot;</span>, <span class="hljs-string">&quot;cerise&quot;</span>, <span class="hljs-string">&quot;datte&quot;</span>];
+fruits.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// Supprime &quot;banane&quot; et &quot;cerise&quot;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ajout d'Éléments :</strong></p>
+<ul>
+<li>Si des éléments supplémentaires (<code>item1</code>, <code>item2</code>, ..., <code>itemN</code>) sont fournis, ils sont ajoutés au tableau à partir de l'indice <code>start</code>.</li>
+<li>Exemple :<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&quot;pomme&quot;</span>, <span class="hljs-string">&quot;banane&quot;</span>];
+fruits.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;cerise&quot;</span>, <span class="hljs-string">&quot;datte&quot;</span>); <span class="hljs-comment">// Ajoute &quot;cerise&quot; et &quot;datte&quot; après &quot;pomme&quot;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Remplacement d'Éléments :</strong></p>
+<ul>
+<li><code>splice()</code> peut également être utilisé pour remplacer des éléments, en supprimant certains éléments et en ajoutant de nouveaux éléments à leur place.</li>
+<li>Exemple :<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&quot;pomme&quot;</span>, <span class="hljs-string">&quot;banane&quot;</span>, <span class="hljs-string">&quot;cerise&quot;</span>];
+fruits.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;datte&quot;</span>); <span class="hljs-comment">// Remplace &quot;banane&quot; par &quot;datte&quot;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="retour-de-la-fonction-">Retour de la Fonction :</h3>
+<ul>
+<li><code>splice()</code> renvoie un tableau contenant les éléments supprimés, qui peut être vide si aucun élément n'est supprimé.</li>
+<li>Le tableau original est modifié.</li>
+</ul>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>splice()</code> est une méthode puissante pour manipuler des tableaux car elle peut effectuer trois opérations (suppression, insertion et remplacement) en une seule méthode.</li>
+<li>Elle modifie le tableau original, ce qui est un aspect important à considérer pour éviter des effets secondaires indésirables.</li>
+<li>Les indices négatifs peuvent être utilisés pour <code>start</code>, ce qui signifie que le comptage se fait à partir de la fin du tableau. Par exemple, <code>splice(-2, 1)</code> supprimerait l'avant-dernier élément du tableau.</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3 id="1-suppression-déléments-">1. Suppression d'Éléments :</h3>
+<ul>
+<li><strong>Enlever des éléments spécifiques d'un tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// Supprime &quot;3&quot;, numbers devient [1, 2, 4, 5]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="2-ajout-déléments-">2. Ajout d'Éléments :</h3>
+<ul>
+<li><strong>Insérer des éléments à une position spécifique dans un tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&quot;pomme&quot;</span>, <span class="hljs-string">&quot;banane&quot;</span>];
+fruits.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;orange&quot;</span>); <span class="hljs-comment">// Insère &quot;orange&quot; à l&#x27;indice 1, fruits devient [&quot;pomme&quot;, &quot;orange&quot;, &quot;banane&quot;]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3-remplacement-déléments-">3. Remplacement d'Éléments :</h3>
+<ul>
+<li><strong>Remplacer un ou plusieurs éléments :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> months = [<span class="hljs-string">&quot;Jan&quot;</span>, <span class="hljs-string">&quot;March&quot;</span>, <span class="hljs-string">&quot;April&quot;</span>];
+months.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;Feb&quot;</span>); <span class="hljs-comment">// Remplace &quot;March&quot; par &quot;Feb&quot;, months devient [&quot;Jan&quot;, &quot;Feb&quot;, &quot;April&quot;]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="4-suppression-et-ajout-simultanés-">4. Suppression et Ajout Simultanés :</h3>
+<ul>
+<li><strong>Supprimer des éléments et en ajouter de nouveaux simultanément :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// Supprime &quot;4&quot; et insère &quot;3&quot;, numbers devient [1, 2, 3, 5]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="5-suppression-sans-ajout-">5. Suppression sans Ajout :</h3>
+<ul>
+<li><strong>Supprimer des éléments sans en insérer de nouveaux :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> letters = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>];
+letters.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// Supprime &quot;c&quot; et &quot;d&quot;, letters devient [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;e&#x27;]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6-utilisation-dindices-négatifs-">6. Utilisation d'Indices Négatifs :</h3>
+<ul>
+<li><strong>Utiliser des indices négatifs pour compter à partir de la fin du tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">splice</span>(-<span class="hljs-number">2</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// Supprime &quot;4&quot;, numbers devient [1, 2, 3, 5]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="7-suppression-de-tous-les-éléments-à-partir-dun-indice-">7. Suppression de Tous les Éléments à Partir d'un Indice :</h3>
+<ul>
+<li><strong>Effacer une partie du tableau à partir d'un certain indice :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">splice</span>(<span class="hljs-number">3</span>); <span class="hljs-comment">// Supprime tous les éléments à partir de l&#x27;indice 3, numbers devient [1, 2, 3]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="points-importants--1">Points Importants :</h3>
+<ul>
+<li><code>splice()</code> modifie directement le tableau sur lequel il est appelé.</li>
+<li>Il peut être utilisé pour effectuer des modifications complexes sur un tableau avec une seule opération.</li>
+<li>La méthode renvoie un tableau contenant les éléments supprimés, ou un tableau vide si aucun élément n'est supprimé.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

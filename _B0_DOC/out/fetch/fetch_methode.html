@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>L'utilisation de la méthode <code>fetch()</code> dans JavaScript sert à réaliser des requêtes HTTP. Elle retourne une promesse qui, une fois résolue, donne accès à un objet <code>Response</code>. Cet objet <code>Response</code> encapsule la réponse HTTP et offre plusieurs méthodes pour interpréter le contenu de cette réponse. Voici les différentes méthodes pour traiter la réponse :</p>
+<ol>
+<li>
+<p><strong>.json()</strong>: Cette méthode est utilisée pour lire le corps de la réponse et le convertir en JSON. Elle est souvent utilisée avec des API qui renvoient des données au format JSON.</p>
+</li>
+<li>
+<p><strong>.text()</strong>: Elle lit le corps de la réponse et le retourne sous forme de texte brut. Cette méthode est utile pour lire des réponses qui sont de simples textes (comme du HTML ou du texte brut).</p>
+</li>
+<li>
+<p><strong>.blob()</strong>: Utilisée pour lire le corps de la réponse et le retourner sous forme d'objet Blob, qui peut être utilisé pour manipuler des données binaires (comme des images ou des documents).</p>
+</li>
+<li>
+<p><strong>.formData()</strong>: Cette méthode permet de lire le corps de la réponse et de le retourner sous forme d'objet FormData, utilisé pour manipuler des formulaires et leurs données associées.</p>
+</li>
+<li>
+<p><strong>.arrayBuffer()</strong>: Cette méthode est utilisée pour lire le corps de la réponse et le retourner sous forme de ArrayBuffer, qui est utile pour traiter des données binaires de bas niveau.</p>
+</li>
+<li>
+<p><strong>.clone()</strong>: Cette méthode crée une copie de l'objet <code>Response</code>. Cela peut être utile si vous avez besoin de lire la réponse de plusieurs manières différentes.</p>
+</li>
+<li>
+<p><strong>.redirected</strong>: Une propriété qui indique si la requête a été redirigée.</p>
+</li>
+<li>
+<p><strong>.status</strong>: Une propriété qui retourne le code de statut de la réponse (comme 200 pour une réussite, 404 pour une page non trouvée, etc.).</p>
+</li>
+<li>
+<p><strong>.ok</strong>: Une propriété qui retourne <code>true</code> si le statut de la réponse est dans la plage des succès (200–299).</p>
+</li>
+<li>
+<p><strong>.statusText</strong>: Cette propriété retourne le message de statut associé au code de statut (comme &quot;OK&quot; ou &quot;Not Found&quot;).</p>
+</li>
+<li>
+<p><strong>.headers</strong>: C'est une propriété qui retourne un objet Headers contenant les en-têtes de la réponse HTTP.</p>
+</li>
+<li>
+<p><strong>.url</strong>: Retourne l'URL de la réponse.</p>
+</li>
+</ol>
+<p>Chacune de ces méthodes et propriétés offre un moyen différent d'accéder et de manipuler les données renvoyées par une requête HTTP effectuée avec <code>fetch()</code>.</p>
+
+            
+            
+        </body>
+        </html>

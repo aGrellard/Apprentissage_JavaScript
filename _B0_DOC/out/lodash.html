@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Qu&apos;est-ce que Lodash &quest;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h3 id="quest-ce-que-lodash-">Qu'est-ce que Lodash ?</h3>
+<p>Lodash est une bibliothèque JavaScript populaire qui fournit de nombreuses fonctions utilitaires pour faciliter le travail avec des tableaux, des nombres, des objets, des chaînes de caractères, etc. Elle est conçue pour simplifier le code JavaScript en réduisant la nécessité de réinventer la roue pour des tâches communes de programmation.</p>
+<h3 id="à-quoi-sert-lodash-">À Quoi Sert Lodash ?</h3>
+<ol>
+<li>
+<p><strong>Manipulation d'Objets et de Tableaux :</strong></p>
+<ul>
+<li>Lodash offre des fonctions pour manipuler des objets et des tableaux, comme le filtrage, le tri, la cartographie, la réduction, etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilitaires pour les Fonctions :</strong></p>
+<ul>
+<li>Elle fournit des utilitaires pour créer des fonctions curry, pour retarder l'exécution de fonctions, pour limiter le nombre de fois qu'une fonction peut être appelée, etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Travail avec des Chaînes de Caractères :</strong></p>
+<ul>
+<li>Lodash dispose d'outils pour manipuler des chaînes, comme le découpage, la conversion en casse, l'échappement de chaînes pour l'insertion dans le HTML, etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilitaires Divers :</strong></p>
+<ul>
+<li>La bibliothèque inclut également une variété d'autres utilitaires utiles, comme la génération de nombres aléatoires, le clonage en profondeur, la vérification des types, etc.</li>
+</ul>
+</li>
+</ol>
+<h3 id="comment-utiliser-lodash-">Comment Utiliser Lodash ?</h3>
+<ol>
+<li>
+<p><strong>Installation :</strong></p>
+<ul>
+<li>Vous pouvez ajouter Lodash à votre projet via npm :<pre><code class="language-bash">npm install lodash
+</code></pre>
+</li>
+<li>Ou l'inclure directement dans votre fichier HTML :<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Importation de Lodash dans votre Projet :</strong></p>
+<ul>
+<li>Dans un projet Node.js :<pre><code class="language-javascript"><span class="hljs-keyword">const</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;lodash&#x27;</span>);
+</code></pre>
+</li>
+<li>Avec ES6 modules :<pre><code class="language-javascript"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lodash&#x27;</span>;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilisation des Fonctions Lodash :</strong></p>
+<ul>
+<li>Une fois importé, vous pouvez utiliser les fonctions Lodash dans votre code. Par exemple, pour cloner un objet :<pre><code class="language-javascript"><span class="hljs-keyword">let</span> obj = { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: { <span class="hljs-attr">c</span>: <span class="hljs-number">2</span> } };
+<span class="hljs-keyword">let</span> clonedObj = _.<span class="hljs-title function_">cloneDeep</span>(obj);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Importation Sélective de Fonctions :</strong></p>
+<ul>
+<li>Pour réduire la taille de votre bundle, vous pouvez importer seulement les fonctions dont vous avez besoin :<pre><code class="language-javascript"><span class="hljs-keyword">import</span> cloneDeep <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lodash/cloneDeep&#x27;</span>;
+<span class="hljs-keyword">let</span> clonedObj = <span class="hljs-title function_">cloneDeep</span>(obj);
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="bonnes-pratiques-">Bonnes Pratiques :</h3>
+<ul>
+<li><strong>Importation Sélective :</strong> Pour les projets de grande taille ou les applications web, il est conseillé d'importer uniquement les fonctions nécessaires pour réduire la taille du bundle final.</li>
+<li><strong>Documentation :</strong> Consultez la <a href="https://lodash.com/docs/">documentation de Lodash</a> pour une liste complète des fonctions et de leurs utilisations.</li>
+<li><strong>Compatibilité :</strong> Lodash est largement compatible avec différents environnements JavaScript, y compris le navigateur et Node.js.</li>
+</ul>
+<br>
+<hr>
+<br>
+<blockquote>
+<p>Lodash est une bibliothèque JavaScript très populaire qui fournit une multitude de fonctions utilitaires pour faciliter la programmation JavaScript, en particulier pour les opérations sur les tableaux, les objets, les chaînes de caractères et les fonctions. Voici une liste de ses différentes utilisations :</p>
+</blockquote>
+<h3 id="1-manipulation-de-tableaux-">1. Manipulation de Tableaux :</h3>
+<ul>
+<li><strong>Filtrage et Tri :</strong> Fonctions comme <code>_.filter()</code>, <code>_.sortBy()</code>.</li>
+<li><strong>Recherche :</strong> <code>_.find()</code>, <code>_.indexOf()</code>, <code>_.findLastIndex()</code>.</li>
+<li><strong>Agrégation :</strong> <code>_.reduce()</code>, <code>_.sum()</code>, <code>_.max()</code>, <code>_.min()</code>.</li>
+<li><strong>Transformation :</strong> <code>_.map()</code>, <code>_.flatMap()</code>.</li>
+<li><strong>Suppression de Doublons :</strong> <code>_.uniq()</code>, <code>_.uniqBy()</code>.</li>
+</ul>
+<h3 id="2-manipulation-dobjets-">2. Manipulation d'Objets :</h3>
+<ul>
+<li><strong>Clonage :</strong> <code>_.cloneDeep()</code>.</li>
+<li><strong>Fusion :</strong> <code>_.merge()</code>, <code>_.assign()</code>.</li>
+<li><strong>Récupération et Mise à Jour de Propriétés :</strong> <code>_.get()</code>, <code>_.set()</code>, <code>_.has()</code>, <code>_.update()</code>.</li>
+<li><strong>Liste de Clés/Valeurs :</strong> <code>_.keys()</code>, <code>_.values()</code>.</li>
+</ul>
+<h3 id="3-utilitaires-pour-les-chaînes-de-caractères-">3. Utilitaires pour les Chaînes de Caractères :</h3>
+<ul>
+<li><strong>Manipulation :</strong> <code>_.trim()</code>, <code>_.capitalize()</code>, <code>_.kebabCase()</code>, <code>_.snakeCase()</code>.</li>
+<li><strong>Génération :</strong> <code>_.repeat()</code>, <code>_.random()</code>.</li>
+<li><strong>Échappement :</strong> <code>_.escape()</code>, <code>_.unescape()</code>.</li>
+</ul>
+<h3 id="4-fonctions-et-débogage-">4. Fonctions et Débogage :</h3>
+<ul>
+<li><strong>Contrôle de Fonction :</strong> <code>_.debounce()</code>, <code>_.throttle()</code>, <code>_.once()</code>.</li>
+<li><strong>Composition :</strong> <code>_.flow()</code>, <code>_.curry()</code>.</li>
+</ul>
+<h3 id="5-utilitaires-divers-">5. Utilitaires Divers :</h3>
+<ul>
+<li><strong>Gestion des Types :</strong> <code>_.isString()</code>, <code>_.isArray()</code>, <code>_.isObject()</code>.</li>
+<li><strong>Itération :</strong> <code>_.forEach()</code>, <code>_.mapValues()</code>.</li>
+<li><strong>Génération de Nombres Aléatoires :</strong> <code>_.random()</code>.</li>
+</ul>
+<h3 id="6-collections-tableaux-et-objets-">6. Collections (Tableaux et Objets) :</h3>
+<ul>
+<li><strong>Opérations sur les Collections :</strong> <code>_.groupBy()</code>, <code>_.countBy()</code>, <code>_.sortBy()</code>.</li>
+</ul>
+<h3 id="7-opérations-logiques-et-mathématiques-">7. Opérations Logiques et Mathématiques :</h3>
+<ul>
+<li><strong>Mathématiques :</strong> <code>_.add()</code>, <code>_.subtract()</code>, <code>_.multiply()</code>, <code>_.divide()</code>.</li>
+<li><strong>Comparaison :</strong> <code>_.isEqual()</code>, <code>_.gt()</code>, <code>_.lt()</code>.</li>
+</ul>
+<h3 id="8-gestion-des-dates-">8. Gestion des Dates :</h3>
+<ul>
+<li><strong>Opérations sur les Dates :</strong> Bien que Lodash n'offre pas de fonctions spécifiques pour la manipulation de dates, elle peut être utilisée pour formater et comparer des timestamps.</li>
+</ul>
+<h3 id="utilisation-de-lodash-">Utilisation de Lodash :</h3>
+<ul>
+<li>Lodash est souvent utilisée pour simplifier des tâches complexes, réduire la quantité de code nécessaire pour réaliser des opérations courantes, et augmenter la lisibilité et la maintenabilité du code.</li>
+</ul>
+<h3 id="bon-à-savoir-">Bon à Savoir :</h3>
+<ul>
+<li>Lodash est optimisée pour la performance et la fiabilité, ce qui en fait un choix populaire pour les développeurs JavaScript dans divers environnements, comme les applications Node.js, les applications front-end, et même dans les projets basés sur des frameworks comme React, Angular, et Vue.js.</li>
+</ul>
+<br>
+<hr>
+<br>
+<blockquote>
+<p>Pour utiliser Lodash dans un environnement de serveur web local <strong>ans Node.js</strong>s ou un framework, vous devez d'abord inclure Lodash dans votre projet. Vous pouvez le faire en ajoutant le script Lodash à votre fichier HTML. Ensuite, vous pourrez utiliser ses fonctions directement dans vos scripts JavaScript. Voici comment procéder et quelques exemples d'utilisation :</p>
+</blockquote>
+<h3 id="étape-1-inclure-lodash">Étape 1: Inclure Lodash</h3>
+<p>Dans votre fichier HTML, ajoutez la balise <code>&lt;script&gt;</code> pour inclure Lodash. Utilisez un CDN pour obtenir la bibliothèque :</p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Lodash Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;script.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3 id="étape-2-écrire-des-exemples-dutilisation-dans-scriptjs">Étape 2: Écrire des Exemples d'Utilisation dans <code>script.js</code></h3>
+<pre><code class="language-javascript"><span class="hljs-comment">// Exemple 1: Utilisation de _.filter pour filtrer un tableau d&#x27;objets</span>
+<span class="hljs-keyword">let</span> users = [
+    { <span class="hljs-string">&#x27;user&#x27;</span>: <span class="hljs-string">&#x27;barney&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">36</span>, <span class="hljs-string">&#x27;active&#x27;</span>: <span class="hljs-literal">true</span> },
+    { <span class="hljs-string">&#x27;user&#x27;</span>: <span class="hljs-string">&#x27;fred&#x27;</span>,   <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&#x27;active&#x27;</span>: <span class="hljs-literal">false</span> }
+];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(_.<span class="hljs-title function_">filter</span>(users, <span class="hljs-function">(<span class="hljs-params">o</span>) =&gt;</span> o.<span class="hljs-property">active</span>));
+
+<span class="hljs-comment">// Exemple 2: Utilisation de _.sortBy pour trier des utilisateurs par âge</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(_.<span class="hljs-title function_">sortBy</span>(users, [<span class="hljs-string">&#x27;age&#x27;</span>]));
+
+<span class="hljs-comment">// Exemple 3: Utilisation de _.cloneDeep pour cloner un tableau d&#x27;objets</span>
+<span class="hljs-keyword">let</span> clonedUsers = _.<span class="hljs-title function_">cloneDeep</span>(users);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(clonedUsers);
+
+<span class="hljs-comment">// Exemple 4: Utilisation de _.uniq pour supprimer les doublons dans un tableau</span>
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(_.<span class="hljs-title function_">uniq</span>(numbers));
+
+<span class="hljs-comment">// Exemple 5: Utilisation de _.debounce (Note: Cet exemple ne fonctionnera pas dans un script statique comme ici. Il est conçu pour être utilisé dans un contexte où les événements DOM sont disponibles)</span>
+<span class="hljs-comment">// window.addEventListener(&#x27;resize&#x27;, _.debounce(() =&gt; {</span>
+<span class="hljs-comment">//     console.log(&#x27;Fenêtre redimensionnée!&#x27;);</span>
+<span class="hljs-comment">// }, 200));</span>
+</code></pre>
+<h3 id="étape-3-exécuter-votre-serveur-web-local">Étape 3: Exécuter votre Serveur Web Local</h3>
+<p>Si vous avez un serveur web local (comme Apache, Nginx, ou même Python SimpleHTTPServer), placez votre fichier HTML et votre fichier JavaScript dans le dossier racine de votre serveur et ouvrez votre navigateur à l'adresse de votre serveur local.</p>
+<p>Ces exemples montrent quelques-unes des fonctionnalités courantes de Lodash. Notez que pour la fonction <code>_.debounce()</code>, vous auriez besoin d'un contexte interactif, comme un navigateur avec des événements DOM, pour observer son comportement.</p>
+<br>
+<hr>
+<br>
+<p>Pour utiliser Lodash dans un environnement Node.js, suivez ces étapes :</p>
+<h3 id="étape-1--installation-de-lodash">Étape 1 : Installation de Lodash</h3>
+<p>Ouvrez votre terminal ou invite de commande et exécutez la commande suivante dans votre projet Node.js pour installer Lodash :</p>
+<pre><code class="language-bash">npm install lodash
+</code></pre>
+<h3 id="étape-2--importer-et-utiliser-lodash-dans-votre-script-nodejs">Étape 2 : Importer et Utiliser Lodash dans votre Script Node.js</h3>
+<p>Créez un fichier JavaScript (par exemple, <code>script.js</code>) et utilisez Lodash comme suit :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Importer Lodash</span>
+<span class="hljs-keyword">const</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;lodash&#x27;</span>);
+
+<span class="hljs-comment">// Exemple 1: Utilisation de _.filter pour filtrer un tableau d&#x27;objets</span>
+<span class="hljs-keyword">let</span> users = [
+    { <span class="hljs-string">&#x27;user&#x27;</span>: <span class="hljs-string">&#x27;barney&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">36</span>, <span class="hljs-string">&#x27;active&#x27;</span>: <span class="hljs-literal">true</span> },
+    { <span class="hljs-string">&#x27;user&#x27;</span>: <span class="hljs-string">&#x27;fred&#x27;</span>,   <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&#x27;active&#x27;</span>: <span class="hljs-literal">false</span> }
+];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Filtered users:&quot;</span>, _.<span class="hljs-title function_">filter</span>(users, <span class="hljs-function">(<span class="hljs-params">o</span>) =&gt;</span> o.<span class="hljs-property">active</span>));
+
+<span class="hljs-comment">// Exemple 2: Utilisation de _.sortBy pour trier des utilisateurs par âge</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Sorted by age:&quot;</span>, _.<span class="hljs-title function_">sortBy</span>(users, [<span class="hljs-string">&#x27;age&#x27;</span>]));
+
+<span class="hljs-comment">// Exemple 3: Utilisation de _.cloneDeep pour cloner un tableau d&#x27;objets</span>
+<span class="hljs-keyword">let</span> clonedUsers = _.<span class="hljs-title function_">cloneDeep</span>(users);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Cloned users:&quot;</span>, clonedUsers);
+
+<span class="hljs-comment">// Exemple 4: Utilisation de _.uniq pour supprimer les doublons dans un tableau</span>
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Unique numbers:&quot;</span>, _.<span class="hljs-title function_">uniq</span>(numbers));
+
+<span class="hljs-comment">// Exemple 5: Utilisation de _.debounce</span>
+<span class="hljs-comment">// Note: _.debounce est une fonction qui est généralement utilisée dans les environnements de navigateur pour limiter le taux d&#x27;exécution d&#x27;une fonction (comme les gestionnaires d&#x27;événements). Son utilisation dans Node.js est moins courante et dépend du contexte d&#x27;utilisation.</span>
+</code></pre>
+<h3 id="étape-3--exécuter-le-script">Étape 3 : Exécuter le Script</h3>
+<p>Dans votre terminal ou invite de commande, exécutez le script avec Node.js :</p>
+<pre><code class="language-bash">node script.js
+</code></pre>
+<p>Cela exécutera le script <code>script.js</code> et affichera les résultats des exemples dans la console. Chaque exemple illustre une utilisation différente des fonctions de Lodash, allant de la manipulation de tableaux et d'objets à l'utilisation de fonctions utilitaires comme <code>_.uniq</code> et <code>_.cloneDeep</code>.</p>
+
+            
+            
+        </body>
+        </html>

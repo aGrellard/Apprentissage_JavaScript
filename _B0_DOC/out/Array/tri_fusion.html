@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Principe de Base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>Le tri par fusion (ou merge sort) est un algorithme de tri efficace et comparatif, basé sur la méthode de diviser pour régner. Voici une description concrète de son fonctionnement :</p>
+<h3 id="principe-de-base-">Principe de Base :</h3>
+<ol>
+<li>
+<p><strong>Diviser :</strong> L'algorithme divise récursivement le tableau en deux moitiés (gauche et droite) jusqu'à ce que chaque sous-tableau contienne un seul élément (ou aucun élément, dans le cas d'un tableau vide).</p>
+</li>
+<li>
+<p><strong>Conquérir :</strong> Ensuite, il trie et fusionne ces sous-tableaux pour former un nouveau tableau trié. Cette étape de fusion est la clé de l'algorithme.</p>
+</li>
+<li>
+<p><strong>Combiner :</strong> Finalement, il combine ces tableaux triés pour produire le tableau trié final.</p>
+</li>
+</ol>
+<h3 id="fonctionnement-détaillé-">Fonctionnement Détaillé :</h3>
+<ol>
+<li>
+<p><strong>Division du Tableau :</strong></p>
+<ul>
+<li>L'algorithme commence par diviser le tableau en deux parties égales (ou presque égales) en calculant l'indice du milieu.</li>
+<li>Cette étape de division se poursuit de manière récursive sur chaque sous-tableau jusqu'à ce que chaque sous-tableau ne contienne qu'un seul élément ou soit vide.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fusion et Tri :</strong></p>
+<ul>
+<li>L'étape de fusion commence lorsque l'algorithme commence à remonter dans l'arbre de récursion.</li>
+<li>Pendant la fusion, les éléments des deux sous-tableaux sont comparés et placés dans l'ordre dans un nouveau tableau.</li>
+<li>Cette étape est cruciale car c'est là que le tri se produit réellement. Les sous-tableaux plus petits et triés sont fusionnés en tableaux plus grands et triés.</li>
+</ul>
+</li>
+<li>
+<p><strong>Construction du Tableau Trié :</strong></p>
+<ul>
+<li>L'algorithme remonte l'arbre de récursion, fusionnant et triant progressivement les sous-tableaux en plus grands, jusqu'à ce que le tableau entier soit à nouveau assemblé et entièrement trié.</li>
+</ul>
+</li>
+</ol>
+<h3 id="avantages-du-tri-par-fusion-">Avantages du Tri par Fusion :</h3>
+<ul>
+<li><strong>Stabilité :</strong> Le tri par fusion est un algorithme de tri stable, ce qui signifie qu'il conserve l'ordre des éléments égaux.</li>
+<li><strong>Efficacité :</strong> Il a une complexité temporelle toujours garantie de O(n log n), ce qui le rend efficace pour de grands ensembles de données.</li>
+<li><strong>Efficace pour les Listes Liées :</strong> Particulièrement efficace pour trier des listes liées.</li>
+</ul>
+<h3 id="inconvénients-">Inconvénients :</h3>
+<ul>
+<li><strong>Espace Mémoire Supplémentaire :</strong> Contrairement à certains autres algorithmes de tri (comme le tri rapide), le tri par fusion nécessite un espace mémoire supplémentaire pour les sous-tableaux temporaires lors de la fusion.</li>
+<li><strong>Moins Efficace pour de Petits Ensembles de Données :</strong> Pour de petits ensembles de données, des algorithmes plus simples comme le tri par insertion peuvent être plus rapides.</li>
+</ul>
+<h3 id="utilisation-">Utilisation :</h3>
+<p>Le tri par fusion est souvent utilisé dans des situations où la stabilité du tri est importante et où le coût en espace mémoire supplémentaire n'est pas un problème majeur, comme dans le tri de grandes listes de données qui ne peuvent pas être triées en mémoire (par exemple, tri externe).</p>
+<br>
+<hr>
+<br>
+<p>Le tri par fusion (merge sort) est un algorithme de tri efficace qui utilise une approche diviser pour régner. Pour trier le tableau <code>fruits</code> sans utiliser la méthode <code>sort</code> intégrée, nous allons implémenter une fonction de tri par fusion. Voici le code en JavaScript :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeSort</span>(<span class="hljs-params">arr, compareFn</span>) {
+    <span class="hljs-keyword">if</span> (arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> arr;
+    }
+
+    <span class="hljs-keyword">const</span> middle = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(arr.<span class="hljs-property">length</span> / <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">const</span> left = arr.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, middle);
+    <span class="hljs-keyword">const</span> right = arr.<span class="hljs-title function_">slice</span>(middle);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">merge</span>(
+        <span class="hljs-title function_">mergeSort</span>(left, compareFn),
+        <span class="hljs-title function_">mergeSort</span>(right, compareFn),
+        compareFn
+    );
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">merge</span>(<span class="hljs-params">left, right, compareFn</span>) {
+    <span class="hljs-keyword">let</span> resultArray = [], leftIndex = <span class="hljs-number">0</span>, rightIndex = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> (leftIndex &lt; left.<span class="hljs-property">length</span> &amp;&amp; rightIndex &lt; right.<span class="hljs-property">length</span>) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-title function_">compareFn</span>(left[leftIndex], right[rightIndex]) &lt;= <span class="hljs-number">0</span>) {
+            resultArray.<span class="hljs-title function_">push</span>(left[leftIndex]);
+            leftIndex++;
+        } <span class="hljs-keyword">else</span> {
+            resultArray.<span class="hljs-title function_">push</span>(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> resultArray
+        .<span class="hljs-title function_">concat</span>(left.<span class="hljs-title function_">slice</span>(leftIndex))
+        .<span class="hljs-title function_">concat</span>(right.<span class="hljs-title function_">slice</span>(rightIndex));
+}
+
+<span class="hljs-keyword">const</span> fruits = [<span class="hljs-string">&#x27;Pomme&#x27;</span>, <span class="hljs-string">&#x27;banane&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>, <span class="hljs-string">&#x27;kiwi&#x27;</span>, <span class="hljs-string">&#x27;mangue&#x27;</span>];
+
+<span class="hljs-keyword">const</span> sortedFruits = <span class="hljs-title function_">mergeSort</span>(fruits, <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span> }));
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sortedFruits);
+</code></pre>
+<h3 id="explication-du-code">Explication du Code</h3>
+<ol>
+<li>
+<p><strong>mergeSort</strong> : Cette fonction divise récursivement le tableau en deux moitiés jusqu'à ce que les sous-tableaux ne contiennent qu'un seul élément ou aucun élément. Elle appelle ensuite la fonction <code>merge</code> pour combiner les sous-tableaux triés en un seul tableau trié.</p>
+</li>
+<li>
+<p><strong>merge</strong> : Cette fonction fusionne deux sous-tableaux triés en un seul tableau trié. Elle utilise la fonction <code>compareFn</code> pour comparer les éléments.</p>
+</li>
+<li>
+<p><strong>compareFn</strong> : Une fonction de comparaison personnalisée qui utilise <code>localeCompare</code> pour trier les chaînes de caractères en français, en ignorant la casse et les accents.</p>
+</li>
+<li>
+<p><strong>sortedFruits</strong> : Le tableau <code>fruits</code> est trié en utilisant <code>mergeSort</code> avec la fonction de comparaison personnalisée.</p>
+</li>
+</ol>
+<p>Ce code triera le tableau <code>fruits</code> en français, en ignorant la casse et les accents, en utilisant l'algorithme de tri par fusion.</p>
+<br>
+<hr>
+<br>
+<p>Le tri par fusion (ou &quot;merge sort&quot; en anglais) est un algorithme de tri efficace qui utilise une approche &quot;diviser pour régner&quot;. Voici une explication étape par étape de son fonctionnement en JavaScript, avec des exemples :</p>
+<h3 id="principe-de-base">Principe de Base</h3>
+<ol>
+<li><strong>Diviser</strong> : L'algorithme divise récursivement le tableau en deux moitiés jusqu'à ce que chaque sous-tableau ne contienne qu'un seul élément.</li>
+<li><strong>Conquérir</strong> : Il fusionne ensuite ces sous-tableaux pour obtenir un nouveau tableau trié.</li>
+</ol>
+<h3 id="exemple-en-javascript">Exemple en JavaScript</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeSort</span>(<span class="hljs-params">arr</span>) {
+    <span class="hljs-keyword">if</span> (arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> arr;
+    }
+
+    <span class="hljs-comment">// Diviser le tableau en deux</span>
+    <span class="hljs-keyword">const</span> middle = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(arr.<span class="hljs-property">length</span> / <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">const</span> left = arr.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, middle);
+    <span class="hljs-keyword">const</span> right = arr.<span class="hljs-title function_">slice</span>(middle);
+
+    <span class="hljs-comment">// Trier récursivement chaque moitié</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">merge</span>(<span class="hljs-title function_">mergeSort</span>(left), <span class="hljs-title function_">mergeSort</span>(right));
+}
+
+<span class="hljs-comment">// Fusionner deux tableaux triés</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">merge</span>(<span class="hljs-params">left, right</span>) {
+    <span class="hljs-keyword">let</span> result = [];
+    <span class="hljs-keyword">let</span> leftIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> rightIndex = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Tant qu&#x27;il y a des éléments dans les deux tableaux</span>
+    <span class="hljs-keyword">while</span> (leftIndex &lt; left.<span class="hljs-property">length</span> &amp;&amp; rightIndex &lt; right.<span class="hljs-property">length</span>) {
+        <span class="hljs-keyword">if</span> (left[leftIndex] &lt; right[rightIndex]) {
+            result.<span class="hljs-title function_">push</span>(left[leftIndex]);
+            leftIndex++;
+        } <span class="hljs-keyword">else</span> {
+            result.<span class="hljs-title function_">push</span>(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    <span class="hljs-comment">// Concaténer les éléments restants</span>
+    <span class="hljs-keyword">return</span> result.<span class="hljs-title function_">concat</span>(left.<span class="hljs-title function_">slice</span>(leftIndex)).<span class="hljs-title function_">concat</span>(right.<span class="hljs-title function_">slice</span>(rightIndex));
+}
+
+<span class="hljs-comment">// Exemple d&#x27;utilisation</span>
+<span class="hljs-keyword">const</span> array = [<span class="hljs-number">12</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Tableau trié:&#x27;</span>, <span class="hljs-title function_">mergeSort</span>(array));
+</code></pre>
+<h3 id="explication-du-code-1">Explication du Code</h3>
+<ol>
+<li>
+<p><strong>mergeSort(arr)</strong> : Cette fonction est la fonction principale qui implémente le tri par fusion.</p>
+<ul>
+<li>Si le tableau contient 0 ou 1 élément, il est déjà trié, donc on le retourne tel quel.</li>
+<li>Sinon, le tableau est divisé en deux parties (<code>left</code> et <code>right</code>).</li>
+<li>Chaque partie est triée récursivement en appelant <code>mergeSort</code>.</li>
+<li>Enfin, les deux parties triées sont fusionnées en utilisant la fonction <code>merge</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>merge(left, right)</strong> : Cette fonction fusionne deux tableaux triés.</p>
+<ul>
+<li>On crée un tableau vide <code>result</code> pour stocker les éléments triés.</li>
+<li>Les indices <code>leftIndex</code> et <code>rightIndex</code> sont utilisés pour parcourir les tableaux <code>left</code> et <code>right</code>.</li>
+<li>Dans une boucle, on compare les éléments des deux tableaux et on ajoute le plus petit dans <code>result</code>.</li>
+<li>Une fois qu'on a parcouru l'un des tableaux, on ajoute les éléments restants de l'autre tableau à <code>result</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="complexité">Complexité</h3>
+<ul>
+<li>Temporelle : O(n log n) dans tous les cas.</li>
+<li>Spatiale : O(n) à cause de l'espace supplémentaire nécessaire pour le tableau <code>result</code>.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

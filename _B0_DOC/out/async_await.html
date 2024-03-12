@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>async et await</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="async-et-await">async et await</h1>
+<p><code>async</code> et <code>await</code> sont des mots-clés introduits dans ECMAScript 2017 (ES8) pour simplifier l'écriture de code asynchrone en JavaScript, le rendant plus lisible et plus facile à comprendre par rapport à l'utilisation des callbacks et des Promises. Ces mots-clés permettent d'écrire des fonctions asynchrones qui semblent se comporter de manière synchrone.</p>
+<ul>
+<li><a href="#async-et-await">async et await</a>
+<ul>
+<li><a href="#documentation">Documentation</a>
+<ul>
+<li><a href="#async"><code>async</code></a></li>
+<li><a href="#await"><code>await</code></a></li>
+<li><a href="#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li><a href="#utilisation-dans-les-boucles">Utilisation dans les boucles</a>
+<ul>
+<li><a href="#boucles-s%C3%A9quentielles">Boucles Séquentielles</a></li>
+<li><a href="#boucles-parall%C3%A8les">Boucles Parallèles</a></li>
+</ul>
+</li>
+<li><a href="#asyncawait-avec-des-fonctions-imm%C3%A9diatement-invoqu%C3%A9es"><code>async</code>/<code>await</code> avec des fonctions immédiatement invoquées</a></li>
+<li><a href="#bonnes-pratiques">Bonnes pratiques</a></li>
+<li><a href="#points-cl%C3%A9s">Points clés</a></li>
+</ul>
+</li>
+<li><a href="#exemples">Exemples</a>
+<ul>
+<li><a href="#1-r%C3%A9cup%C3%A9ration-de-donn%C3%A9es-asynchrones">1. Récupération de Données Asynchrones</a></li>
+<li><a href="#2-attente-de-plusieurs-promesses-en-parall%C3%A8le">2. Attente de Plusieurs Promesses en Parallèle</a></li>
+<li><a href="#3-gestion-des-erreurs">3. Gestion des Erreurs</a></li>
+<li><a href="#4-cha%C3%AEnage-de-promesses">4. Chaînage de Promesses</a></li>
+<li><a href="#5-boucles-asynchrones">5. Boucles Asynchrones</a></li>
+<li><a href="#6-fonctions-asynchrones-imm%C3%A9diatement-invoqu%C3%A9es-iife">6. Fonctions Asynchrones Immédiatement Invoquées (IIFE)</a></li>
+<li><a href="#7-utilisation-avec-des-apis-modernes">7. Utilisation avec des APIs Modernes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<h3 id="async"><code>async</code></h3>
+<p>Le mot-clé <code>async</code> est utilisé pour déclarer une fonction asynchrone, qui retourne implicitement une <code>Promise</code>. Lorsqu'une fonction est déclarée avec <code>async</code>, elle enveloppe son résultat dans une <code>Promise</code>. Si la fonction renvoie une valeur, la promise sera résolue avec cette valeur. Si la fonction lève une exception, la promise sera rejetée avec cette erreur.</p>
+<p><strong>Syntaxe</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">nomDeLaFonction</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Code asynchrone ici</span>
+}
+</code></pre>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerDonnees</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Données chargées&quot;</span>;
+}
+
+<span class="hljs-title function_">chargerDonnees</span>().<span class="hljs-title function_">then</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>); <span class="hljs-comment">// Affiche: Données chargées</span>
+</code></pre>
+<p>Dans cet exemple, <code>chargerDonnees</code> est une fonction asynchrone qui retourne une chaîne de caractères. La fonction retourne une <code>Promise</code> qui est résolue avec la valeur <code>&quot;Données chargées&quot;</code>.</p>
+<h3 id="await"><code>await</code></h3>
+<p>Le mot-clé <code>await</code> est utilisé pour attendre la résolution d'une <code>Promise</code>. Il ne peut être utilisé qu'à l'intérieur d'une fonction <code>async</code>. Lorsqu'il est utilisé, l'exécution de la fonction est mise en pause jusqu'à ce que la <code>Promise</code> soit résolue ou rejetée.</p>
+<p><strong>Syntaxe</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> valeur = <span class="hljs-keyword">await</span> unePromise;
+</code></pre>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">afficherDonnees</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">let</span> donnees = <span class="hljs-keyword">await</span> <span class="hljs-title function_">chargerDonnees</span>(); <span class="hljs-comment">// Attend que la promise soit résolue</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(donnees); <span class="hljs-comment">// Affiche: Données chargées</span>
+}
+
+<span class="hljs-title function_">afficherDonnees</span>();
+</code></pre>
+<p>Dans cet exemple, la fonction <code>afficherDonnees</code> attend que <code>chargerDonnees</code> soit terminée et que la <code>Promise</code> soit résolue avant de continuer son exécution.</p>
+<h3 id="gestion-des-erreurs">Gestion des erreurs</h3>
+<p>Les erreurs dans les fonctions asynchrones peuvent être gérées en utilisant <code>try...catch</code> autour des opérations <code>await</code>.</p>
+<p><code>try...catch</code> permet de gérer les erreurs dans les fonctions asynchrones de manière synchrone.</p>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerEtAfficherDonnees</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">let</span> donnees = <span class="hljs-keyword">await</span> <span class="hljs-title function_">chargerDonnees</span>();
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(donnees);
+    } <span class="hljs-keyword">catch</span> (erreur) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;Erreur lors du chargement des données&quot;</span>, erreur);
+    }
+}
+</code></pre>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerDonneesAvecGestionDesErreurs</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> donnees = <span class="hljs-keyword">await</span> <span class="hljs-title function_">chargerDonnees</span>();
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(donnees);
+    } <span class="hljs-keyword">catch</span> (erreur) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;Une erreur est survenue&quot;</span>, erreur);
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Exécuté après le try/catch, succès ou échec&quot;</span>);
+    }
+}
+</code></pre>
+<h3 id="utilisation-dans-les-boucles">Utilisation dans les boucles</h3>
+<p>L'utilisation de <code>await</code> dans les boucles permet de gérer des séquences d'opérations asynchrones de manière efficace. Cependant, il est crucial de comprendre comment combiner <code>async</code>/<code>await</code> avec des boucles pour contrôler le comportement asynchrone séquentiel ou parallèle.</p>
+<h4 id="boucles-séquentielles">Boucles Séquentielles</h4>
+<p>Pour exécuter des tâches asynchrones de manière séquentielle dans une boucle, utilisez <code>await</code> à l'intérieur d'une boucle <code>for</code>, <code>for...of</code> ou <code>while</code>.</p>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">traiterElementsSequentiellement</span>(<span class="hljs-params">elements</span>) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> element <span class="hljs-keyword">of</span> elements) {
+        <span class="hljs-keyword">await</span> <span class="hljs-title function_">traiterElement</span>(element);
+    }
+}
+</code></pre>
+<p>Dans cet exemple, chaque appel à <code>traiterElement</code> doit être terminé avant que le prochain puisse commencer. Cela est utile lorsque chaque itération dépend du résultat de la précédente.</p>
+<h4 id="boucles-parallèles">Boucles Parallèles</h4>
+<p>Pour lancer plusieurs tâches asynchrones en parallèle et attendre qu'elles soient toutes terminées, vous pouvez combiner <code>await</code> avec <code>Promise.all</code>.</p>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">traiterElementsEnParallele</span>(<span class="hljs-params">elements</span>) {
+    <span class="hljs-keyword">const</span> promesses = elements.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> <span class="hljs-title function_">traiterElement</span>(element));
+    <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(promesses);
+}
+</code></pre>
+<p>Dans cet exemple, <code>Promise.all</code> est utilisé pour attendre que toutes les promesses dans le tableau <code>promesses</code> soient résolues. Cela permet d'exécuter les tâches asynchrones en parallèle, ce qui peut améliorer considérablement la performance pour des opérations indépendantes.</p>
+<h3 id="asyncawait-avec-des-fonctions-immédiatement-invoquées"><code>async</code>/<code>await</code> avec des fonctions immédiatement invoquées</h3>
+<p>Vous pouvez utiliser une IIFE (Immediately Invoked Function Expression) asynchrone pour exécuter du code asynchrone immédiatement, sans avoir besoin de définir une fonction asynchrone séparée.</p>
+<p><strong>Exemple</strong>:</p>
+<pre><code class="language-javascript">(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> resultat = <span class="hljs-keyword">await</span> <span class="hljs-title function_">uneOperationAsynchrone</span>();
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(resultat);
+    } <span class="hljs-keyword">catch</span> (erreur) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(erreur);
+    }
+})();
+</code></pre>
+<h3 id="bonnes-pratiques">Bonnes pratiques</h3>
+<ul>
+<li><strong>Ne pas oublier <code>await</code></strong> : Omettre <code>await</code> devant une opération asynchrone peut conduire à des bugs subtils, car le code exécutera la suite sans attendre la résolution de la promesse.</li>
+<li><strong>Utiliser <code>Promise.all</code> pour la parallélisation</strong> : Lorsque vous avez plusieurs tâches asynchrones indépendantes, <code>Promise.all</code> permet d'exécuter ces tâches en parallèle, améliorant la performance.</li>
+<li><strong>Gérer les erreurs avec <code>try...catch</code></strong> : La gestion des erreurs est cruciale dans les fonctions asynchrones pour éviter que les exceptions non capturées interrompent l'exécution de votre programme.</li>
+</ul>
+<p>La compréhension profonde d'<code>async</code> et <code>await</code> vous permettra de gérer efficacement l'asynchronisme dans vos applications JavaScript, en rendant votre code plus lisible, plus robuste et plus facile à maintenir.</p>
+<h3 id="points-clés">Points clés</h3>
+<ul>
+<li>Les fonctions <code>async</code> rendent le code asynchrone plus lisible et facile à maintenir.</li>
+<li>Le mot-clé <code>await</code> permet d'attendre la résolution d'une <code>Promise</code> de manière élégante, en suspendant l'exécution de la fonction asynchrone jusqu'à ce que la <code>Promise</code> soit résolue.</li>
+<li>L'utilisation de <code>async</code> et <code>await</code> permet une gestion des erreurs plus intuitive grâce à <code>try...catch</code>.</li>
+<li>Bien que <code>async</code> et <code>await</code> simplifient l'écriture de code asynchrone, il est important de comprendre comment fonctionnent les <code>Promises</code> puisqu'elles en sont la base.</li>
+</ul>
+<p><code>async</code> et <code>await</code> améliorent significativement la lisibilité du code asynchrone en JavaScript, permettant aux développeurs de gérer des opérations asynchrones de manière plus efficace et plus claire.</p>
+<h2 id="exemples">Exemples</h2>
+<h3 id="1-récupération-de-données-asynchrones">1. Récupération de Données Asynchrones</h3>
+<p><strong>Utilisation</strong> : Charger des données depuis une source externe, comme une API.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerUtilisateurs</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> reponse = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/utilisateurs&#x27;</span>);
+    <span class="hljs-keyword">const</span> utilisateurs = <span class="hljs-keyword">await</span> reponse.<span class="hljs-title function_">json</span>();
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(utilisateurs);
+}
+</code></pre>
+<h3 id="2-attente-de-plusieurs-promesses-en-parallèle">2. Attente de Plusieurs Promesses en Parallèle</h3>
+<p><strong>Utilisation</strong> : Exécuter plusieurs tâches asynchrones en parallèle et attendre que toutes soient terminées.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerDonneesEnParallele</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> [utilisateurs, articles] = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
+        <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/utilisateurs&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>()),
+        <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/articles&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>())
+    ]);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(utilisateurs, articles);
+}
+</code></pre>
+<h3 id="3-gestion-des-erreurs">3. Gestion des Erreurs</h3>
+<p><strong>Utilisation</strong> : Attraper et gérer les erreurs qui peuvent survenir dans les opérations asynchrones.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">chargerDonneesAvecGestionDesErreurs</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> donnees = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">await</span> donnees.<span class="hljs-title function_">json</span>());
+    } <span class="hljs-keyword">catch</span> (erreur) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;Erreur lors du chargement des données&quot;</span>, erreur);
+    }
+}
+</code></pre>
+<h3 id="4-chaînage-de-promesses">4. Chaînage de Promesses</h3>
+<p><strong>Utilisation</strong> : Effectuer des opérations asynchrones séquentielles, où chaque opération dépend du résultat de la précédente.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">obtenirDetailUtilisateur</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> utilisateur = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/utilisateur/1&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>());
+    <span class="hljs-keyword">const</span> profil = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">`https://api.example.com/profil/<span class="hljs-subst">${utilisateur.id}</span>`</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>());
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(profil);
+}
+</code></pre>
+<h3 id="5-boucles-asynchrones">5. Boucles Asynchrones</h3>
+<p><strong>Utilisation</strong> : Itérer sur une collection et effectuer une opération asynchrone pour chaque élément.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">verifierUtilisateurs</span>(<span class="hljs-params">utilisateurs</span>) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> utilisateur <span class="hljs-keyword">of</span> utilisateurs) {
+        <span class="hljs-keyword">const</span> estValide = <span class="hljs-keyword">await</span> <span class="hljs-title function_">verifierUtilisateur</span>(utilisateur);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Utilisateur: <span class="hljs-subst">${utilisateur}</span>, Valide: <span class="hljs-subst">${estValide}</span>`</span>);
+    }
+}
+</code></pre>
+<h3 id="6-fonctions-asynchrones-immédiatement-invoquées-iife">6. Fonctions Asynchrones Immédiatement Invoquées (IIFE)</h3>
+<p><strong>Utilisation</strong> : Exécuter immédiatement du code asynchrone sans avoir à définir une fonction externe.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript">(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> donnees = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>());
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(donnees);
+})();
+</code></pre>
+<h3 id="7-utilisation-avec-des-apis-modernes">7. Utilisation avec des APIs Modernes</h3>
+<p><strong>Utilisation</strong> : Interagir avec des APIs modernes qui retournent des Promises, en utilisant une syntaxe plus lisible.</p>
+<p><strong>Exemple</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">lireFichierAsynchrone</span>(<span class="hljs-params">path</span>) {
+    <span class="hljs-keyword">const</span> contenu = <span class="hljs-keyword">await</span> fs.<span class="hljs-property">promises</span>.<span class="hljs-title function_">readFile</span>(path, <span class="hljs-string">&#x27;utf8&#x27;</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(contenu);
+}
+</code></pre>
+<p>Chaque exemple montre comment <code>async</code> et <code>await</code> rendent le code asynchrone plus simple à écrire et à comprendre, comparé à l'utilisation de callbacks ou de chaînes de Promises. Cette approche facilite la gestion de l'asynchronisme, rendant les opérations complexes plus accessibles et moins sujettes aux erreurs.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

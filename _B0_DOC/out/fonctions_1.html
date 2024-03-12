@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>En JavaScript, plusieurs fonctions sont considérées comme essentielles pour tout développeur web. Ces fonctions font partie du noyau de JavaScript et sont souvent utilisées dans divers contextes de développement web. Voici une liste de certaines de ces fonctions clés :</p>
+<ol>
+<li>
+<p><strong>Manipulation de tableaux</strong> :</p>
+<ul>
+<li><code>Array.prototype.map()</code>: Transforme les éléments d'un tableau en appliquant une fonction.</li>
+<li><code>Array.prototype.filter()</code>: Crée un nouveau tableau avec tous les éléments qui passent un test implémenté par une fonction fournie.</li>
+<li><code>Array.prototype.reduce()</code>: Applique une fonction qui est un &quot;accumulateur&quot; et traite chaque valeur d'un tableau (de gauche à droite) afin de le réduire à une seule valeur.</li>
+<li><code>Array.prototype.forEach()</code>: Exécute une fonction donnée sur chaque élément du tableau.</li>
+<li><code>Array.prototype.find()</code>: Retourne la valeur du premier élément dans le tableau qui satisfait la fonction de test fournie.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions asynchrones</strong> :</p>
+<ul>
+<li><code>Promise</code>: Représente une opération qui n'a pas encore été complétée, mais qui est attendue dans le futur.</li>
+<li><code>async/await</code>: Syntaxe spéciale pour travailler avec des promesses de manière plus confortable.</li>
+</ul>
+</li>
+<li>
+<p><strong>Manipulation de chaînes de caractères</strong> :</p>
+<ul>
+<li><code>String.prototype.includes()</code>: Détermine si une chaîne de caractères contient une sous-chaîne spécifiée.</li>
+<li><code>String.prototype.split()</code>: Divise une chaîne de caractères en un tableau de chaînes en séparant la chaîne en sous-chaînes.</li>
+<li><code>String.prototype.replace()</code>: Retourne une nouvelle chaîne avec un ou plusieurs remplacements.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions temporisatrices</strong> :</p>
+<ul>
+<li><code>setTimeout()</code>: Définit une minuterie qui exécute une fonction ou un fragment de code après que le délai spécifié soit écoulé.</li>
+<li><code>setInterval()</code>: Répète l'exécution d'une fonction à des intervalles spécifiés.</li>
+</ul>
+</li>
+<li>
+<p><strong>Contrôle de flux</strong> :</p>
+<ul>
+<li><code>if...else</code>: Structure de contrôle de base pour l'exécution conditionnelle.</li>
+<li><code>switch</code>: Permet d'exécuter différents blocs de code en fonction de la valeur d'une expression.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions de gestion d'erreurs</strong> :</p>
+<ul>
+<li><code>try...catch</code>: Permet la gestion des exceptions générées par des erreurs de programmation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions de travail avec des objets</strong> :</p>
+<ul>
+<li><code>Object.keys()</code>: Retourne un tableau contenant les noms des propriétés propres (non héritées) d'un objet.</li>
+<li><code>Object.values()</code>: Retourne un tableau contenant les valeurs des propriétés propres d'un objet.</li>
+<li><code>Object.entries()</code>: Retourne un tableau de paires [clé, valeur] propres à l'objet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions mathématiques</strong> :</p>
+<ul>
+<li><code>Math.max()</code>, <code>Math.min()</code>: Retournent respectivement le plus grand et le plus petit nombre parmi les arguments.</li>
+<li><code>Math.random()</code>: Génère un nombre pseudo-aléatoire entre 0 et 1.</li>
+</ul>
+</li>
+</ol>
+<p>Ces fonctions sont souvent la base de nombreux scripts et applications JavaScript, et leur maîtrise est essentielle pour tout développeur web.</p>
+
+            
+            
+        </body>
+        </html>

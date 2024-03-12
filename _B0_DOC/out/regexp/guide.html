@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Guide sur l&apos;utilisation des expressions r&eacute;guli&egrave;res &lpar;Regex&rpar; en JavaScript</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="guide-sur-lutilisation-des-expressions-régulières-regex-en-javascript">Guide sur l'utilisation des expressions régulières (Regex) en JavaScript</h1>
+<p>Les expressions régulières, également connues sous le nom de regex, sont des séquences de caractères qui forment un modèle de recherche. En JavaScript, les regex sont utilisées pour la recherche de correspondances de chaînes de caractères, la validation de formulaires, le remplacement de texte, et bien plus encore. Ce guide vous fournira une vue d'ensemble concrète et détaillée de l'utilisation des regex en JavaScript, accompagnée d'exemples pratiques.</p>
+<h2 id="création-dune-regex-en-javascript">Création d'une Regex en JavaScript</h2>
+<p>En JavaScript, une expression régulière peut être créée de deux manières :</p>
+<ol>
+<li>
+<p><strong>Littéraux de regex</strong> : entourée de barres obliques (<code>/pattern/flags</code>)</p>
+<p>Exemple : <code>/abc/</code></p>
+</li>
+<li>
+<p><strong>Constructeur de l'objet RegExp</strong> : <code>new RegExp('pattern', 'flags')</code></p>
+<p>Exemple : <code>new RegExp('abc')</code></p>
+</li>
+</ol>
+<h3 id="drapeaux-flags">Drapeaux (Flags)</h3>
+<p>Les drapeaux modifient la recherche. Voici les plus couramment utilisés :</p>
+<ul>
+<li><code>g</code> : Correspondance globale (recherche toutes les correspondances).</li>
+<li><code>i</code> : Insensible à la casse (ignore la différence entre majuscules et minuscules).</li>
+<li><code>m</code> : Plusieurs lignes (les caractères de début et de fin <code>^</code> et <code>$</code> correspondent au début/fin de chaque ligne).</li>
+</ul>
+<h2 id="méthodes-et-propriétés-courantes">Méthodes et Propriétés Courantes</h2>
+<h3 id="méthodes-de-regexp">Méthodes de RegExp</h3>
+<ul>
+<li><code>test()</code> : Retourne <code>true</code> si le motif est trouvé dans la chaîne; sinon, <code>false</code>.</li>
+<li><code>exec()</code> : Trouve une correspondance et retourne un tableau contenant les détails de cette correspondance ou <code>null</code>.</li>
+</ul>
+<h3 id="méthodes-de-string">Méthodes de String</h3>
+<ul>
+<li><code>match()</code> : Retourne un tableau contenant toutes les correspondances.</li>
+<li><code>search()</code> : Retourne l'index de la première correspondance, sinon -1.</li>
+<li><code>replace()</code> : Remplace les correspondances trouvées avec un nouveau sous-string.</li>
+<li><code>split()</code> : Utilise une regex pour diviser une chaîne en un tableau de sous-strings.</li>
+</ul>
+<h2 id="exemples">Exemples</h2>
+<h3 id="recherche-simple">Recherche Simple</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = <span class="hljs-regexp">/abc/</span>;
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;abcde&#x27;</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(regex.<span class="hljs-title function_">test</span>(str)); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="utilisation-des-drapeaux">Utilisation des Drapeaux</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = <span class="hljs-regexp">/abc/i</span>; <span class="hljs-comment">// Insensible à la casse</span>
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;AbCdE&#x27;</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(regex.<span class="hljs-title function_">test</span>(str)); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="recherche-globale">Recherche Globale</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = <span class="hljs-regexp">/a/g</span>;
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;abcAdeAfg&#x27;</span>;
+<span class="hljs-keyword">const</span> matches = str.<span class="hljs-title function_">match</span>(regex);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(matches); <span class="hljs-comment">// [&#x27;a&#x27;, &#x27;A&#x27;, &#x27;A&#x27;]</span>
+</code></pre>
+<h3 id="remplacement-de-texte">Remplacement de Texte</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> regex = <span class="hljs-regexp">/a/g</span>;
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;abcAdeAfg&#x27;</span>;
+<span class="hljs-keyword">const</span> newStr = str.<span class="hljs-title function_">replace</span>(regex, <span class="hljs-string">&#x27;x&#x27;</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(newStr); <span class="hljs-comment">// xbcXdeXfg</span>
+</code></pre>
+<h3 id="validation-de-formulaire">Validation de Formulaire</h3>
+<p>Exemple de validation d'une adresse email :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> emailRegex = <span class="hljs-regexp">/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/</span>;
+<span class="hljs-keyword">const</span> email = <span class="hljs-string">&quot;exemple@domaine.com&quot;</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(emailRegex.<span class="hljs-title function_">test</span>(email)); <span class="hljs-comment">// true si valide, false sinon</span>
+</code></pre>
+<h2 id="conseils-pour-écrire-des-regex">Conseils pour Écrire des Regex</h2>
+<ol>
+<li><strong>Commencez Simple</strong> : Commencez avec des motifs simples et augmentez progressivement la complexité.</li>
+<li><strong>Utilisez des Outils en Ligne</strong> : Des outils comme <a href="https://regex101.com/">regex101.com</a> peuvent être très utiles pour tester et déboguer vos expressions.</li>
+<li><strong>Familiarisez-vous avec les Caractères Spéciaux</strong> : Certains caractères ont des significations spéciales dans les regex (par exemple, <code>.</code> , <code>*</code>, <code>?</code>, <code>+</code>, <code>^</code>, <code>$</code>, etc.). Utilisez un antislash (<code>\</code>) pour les échapper si vous voulez rechercher ces caractères littéralement.</li>
+<li><strong>Optez pour la Lisibilité</strong> : Les regex peuvent rapidement devenir compliquées. Commentez votre code et envisagez de décomposer des expressions complexes en sous-parties.</li>
+</ol>
+<p>En suivant ces principes et en pratiquant régulièrement, vous deviendrez de plus en plus à l'aise avec les regex en JavaScript. Elles sont un outil puissant qui, une fois maîtrisé, peuvent grandement simplifier le traitement des chaînes de caractères.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

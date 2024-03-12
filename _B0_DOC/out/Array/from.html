@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>from()</code> en JavaScript est une méthode statique de l'objet <code>Array</code>. Elle est conçue pour créer de nouveaux tableaux à partir d'objets itérables ou de tableaux-like (objets ressemblant à des tableaux). Cette méthode est particulièrement utile pour transformer des structures de données qui ne sont pas des tableaux en tableaux, afin de pouvoir utiliser les méthodes et les fonctionnalités des tableaux sur ces structures.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(source[, mapFn[, thisArg]])
+</code></pre>
+<ul>
+<li><strong>source</strong> : L'objet itérable ou tableau-like à convertir en tableau. Cela peut être n'importe quel objet sur lequel on peut itérer, comme une chaîne de caractères, un Node List, ou même un objet avec une propriété <code>length</code> et des éléments indexés.</li>
+<li><strong>mapFn</strong> (optionnel) : Une fonction de mappage à appeler sur chaque élément de l'objet source. Cette fonction est appliquée avant que l'élément ne soit ajouté au nouveau tableau.</li>
+<li><strong>thisArg</strong> (optionnel) : La valeur à utiliser comme <code>this</code> lors de l'exécution de <code>mapFn</code>.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li><code>Array.from()</code> crée un nouveau tableau à partir de l'objet source.</li>
+<li>Si <code>mapFn</code> est fourni, elle est appelée sur chaque élément de l'objet source, et le résultat de cette fonction est utilisé pour construire le nouveau tableau.</li>
+<li>Si <code>mapFn</code> n'est pas fourni, le nouveau tableau est une copie directe des éléments de l'objet source.</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Créer un Tableau à partir d'une Chaîne de Caractères :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello&quot;</span>;
+<span class="hljs-keyword">let</span> charsArray = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(str);
+<span class="hljs-comment">// charsArray = [&#x27;H&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Utiliser <code>Array.from()</code> avec une Fonction de Mappage :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> doubled = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(numbers, <span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num * <span class="hljs-number">2</span>);
+<span class="hljs-comment">// doubled = [2, 4, 6]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Convertir un Node List en Tableau :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Supposons que vous avez plusieurs éléments div dans votre document HTML</span>
+<span class="hljs-keyword">let</span> divs = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+<span class="hljs-keyword">let</span> divsArray = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(divs);
+</code></pre>
+</li>
+<li>
+<p><strong>Utiliser <code>Array.from()</code> pour Générer des Séquences :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> range = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>({ <span class="hljs-attr">length</span>: <span class="hljs-number">5</span> }, <span class="hljs-function">(<span class="hljs-params">v, i</span>) =&gt;</span> i);
+<span class="hljs-comment">// range = [0, 1, 2, 3, 4]</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>Array.from()</code> est particulièrement utile pour travailler avec des objets qui ressemblent à des tableaux (comme les Node Lists dans le DOM) ou des objets itérables (comme les chaînes de caractères) en les convertissant en tableaux.</li>
+<li>Elle permet l'utilisation de fonctions de mappage pendant la conversion, offrant ainsi une grande flexibilité pour transformer les éléments du nouvel tableau.</li>
+<li><code>Array.from()</code> renvoie toujours un nouveau tableau sans modifier l'objet source.</li>
+</ul>
+<br>
+<hr>
+<br>
+<p>La méthode <code>Array.from()</code> en JavaScript crée une nouvelle instance de tableau (un &quot;clone superficiel&quot;) à partir d'un objet itérable ou tableau-like. Cependant, il est important de noter que cette méthode effectue une copie superficielle (shallow copy) et non une copie profonde (deep copy).</p>
+<h3 id="copie-superficielle-shallow-copy-">Copie Superficielle (Shallow Copy) :</h3>
+<ul>
+<li>Si l'objet source contient des objets ou des tableaux imbriqués, <code>Array.from()</code> copie leurs références dans le nouveau tableau. Cela signifie que les objets ou tableaux imbriqués ne sont pas clonés. Si vous modifiez l'un de ces objets ou tableaux imbriqués dans le tableau original, le changement sera également visible dans le nouveau tableau, car les deux tableaux référencent le même objet/tableau imbriqué.</li>
+</ul>
+<h3 id="exemple-illustratif-">Exemple Illustratif :</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> original = [{<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-number">2</span>}];
+<span class="hljs-keyword">let</span> newArray = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(original);
+
+<span class="hljs-comment">// Modifier un objet dans le tableau original affecte aussi le nouveau tableau</span>
+original[<span class="hljs-number">0</span>].<span class="hljs-property">a</span> = <span class="hljs-number">3</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(newArray[<span class="hljs-number">0</span>].<span class="hljs-property">a</span>); <span class="hljs-comment">// Affichera 3, car newArray[0] fait référence au même objet que original[0]</span>
+</code></pre>
+<p>Dans cet exemple, bien que <code>newArray</code> soit un nouveau tableau, les éléments à l'intérieur de <code>newArray</code> sont des références aux mêmes objets que ceux dans <code>original</code>. Ainsi, les modifications apportées aux objets dans <code>original</code> se reflètent également dans <code>newArray</code>.</p>
+<h3 id="conclusion-">Conclusion :</h3>
+<ul>
+<li><code>Array.from()</code> est utile pour créer un nouveau tableau à partir d'une source itérable ou tableau-like, mais il ne crée pas de copies profondes des objets ou tableaux imbriqués.</li>
+<li>Pour les tableaux contenant uniquement des valeurs primitives (comme des nombres, des chaînes de caractères ou des booléens), les valeurs sont copiées et non les références, donc les modifications dans un tableau n'affectent pas l'autre.</li>
+<li>Pour les objets ou tableaux imbriqués, seules les références sont copiées, pas les objets/tableaux eux-mêmes.</li>
+</ul>
+<br>
+<hr>
+<br>
+<p>Pour effectuer une copie profonde (deep copy) d'un tableau en JavaScript, il est nécessaire de s'assurer que tous les éléments du tableau, y compris les objets et tableaux imbriqués, sont également clonés. Voici quelques méthodes courantes pour réaliser une copie profonde :</p>
+<h3 id="1-utilisation-de-jsonparse-et-jsonstringify">1. Utilisation de <code>JSON.parse()</code> et <code>JSON.stringify()</code></h3>
+<p>C'est une technique simple et largement utilisée pour les objets qui peuvent être sérialisés en JSON et désérialisés sans perdre d'informations.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> original = [{ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> }, { <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> }];
+<span class="hljs-keyword">let</span> deepCopy = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(original));
+
+<span class="hljs-comment">// Les modifications sur deepCopy ne vont pas affecter original</span>
+deepCopy[<span class="hljs-number">0</span>].<span class="hljs-property">a</span> = <span class="hljs-number">3</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(original[<span class="hljs-number">0</span>].<span class="hljs-property">a</span>); <span class="hljs-comment">// Affiche 1</span>
+</code></pre>
+<p><strong>Limitations :</strong></p>
+<ul>
+<li>Ne fonctionne pas avec des valeurs non sérialisables en JSON, comme les fonctions, les objets contenant des références circulaires, les <code>Map</code>, <code>Set</code>, <code>Date</code>, <code>RegExp</code>, etc.</li>
+<li>Peut être inefficace en termes de performances pour de très grands objets.</li>
+</ul>
+<h3 id="2-utilisation-de-bibliothèques-externes">2. Utilisation de Bibliothèques Externes</h3>
+<p>Des bibliothèques comme Lodash offrent une fonction <code>cloneDeep()</code> qui peut gérer une grande variété de cas, y compris des types de données non sérialisables en JSON.</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Avec Lodash</span>
+<span class="hljs-keyword">let</span> deepCopy = _.<span class="hljs-title function_">cloneDeep</span>(original);
+</code></pre>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Plus robuste et capable de gérer une large gamme de types de données.</li>
+<li>Gère les références circulaires et les types spéciaux comme <code>Date</code>, <code>RegExp</code>, etc.</li>
+</ul>
+<h3 id="3-écriture-dune-fonction-de-copie-profonde-personnalisée">3. Écriture d'une Fonction de Copie Profonde Personnalisée</h3>
+<p>Pour des cas spécifiques ou pour éviter d'ajouter des dépendances externes, vous pouvez écrire votre propre fonction de copie profonde.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepCopy</span>(<span class="hljs-params">obj</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span> || obj === <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">return</span> obj;
+    }
+
+    <span class="hljs-keyword">let</span> copy = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(obj) ? [] : {};
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> obj) {
+        <span class="hljs-keyword">let</span> value = obj[key];
+        copy[key] = <span class="hljs-title function_">deepCopy</span>(value);
+    }
+
+    <span class="hljs-keyword">return</span> copy;
+}
+
+<span class="hljs-keyword">let</span> copiedArray = <span class="hljs-title function_">deepCopy</span>(original);
+</code></pre>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Personnalisable selon les besoins spécifiques du projet.</li>
+<li>Pas de dépendance à des bibliothèques externes.</li>
+</ul>
+<h3 id="choisir-la-méthode-appropriée">Choisir la Méthode Appropriée</h3>
+<p>La méthode à choisir dépend des exigences spécifiques de votre cas d'utilisation, notamment :</p>
+<ul>
+<li>Le type de données que contient votre tableau.</li>
+<li>Les préoccupations de performances.</li>
+<li>La complexité des objets contenus dans le tableau.</li>
+</ul>
+<p>Pour des objets simples qui sont compatibles JSON, la combinaison <code>JSON.parse()</code> / <code>JSON.stringify()</code> est souvent la plus simple. Pour des structures de données plus complexes, une bibliothèque externe comme Lodash ou une fonction personnalisée serait plus appropriée.</p>
+<br>
+<hr>
+<br>
+<p>Dans la bibliothèque Lodash, pour réaliser une copie profonde (deep copy) d'un objet ou d'un tableau, vous pouvez utiliser la fonction <code>_.cloneDeep()</code>. Cette méthode est conçue spécifiquement pour créer une copie intégrale et indépendante de chaque niveau de l'objet ou du tableau, y compris les objets et tableaux imbriqués.</p>
+<h3 id="exemple-dutilisation-de-_clonedeep-">Exemple d'utilisation de <code>_.cloneDeep()</code> :</h3>
+<pre><code class="language-javascript"><span class="hljs-comment">// Avec Lodash</span>
+<span class="hljs-keyword">let</span> originalObject = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>,
+    <span class="hljs-attr">address</span>: {
+        <span class="hljs-attr">street</span>: <span class="hljs-string">&quot;123 Main St&quot;</span>,
+        <span class="hljs-attr">city</span>: <span class="hljs-string">&quot;Anytown&quot;</span>
+    }
+};
+
+<span class="hljs-keyword">let</span> deepCopiedObject = _.<span class="hljs-title function_">cloneDeep</span>(originalObject);
+
+<span class="hljs-comment">// Modifier deepCopiedObject ne va pas affecter originalObject</span>
+deepCopiedObject.<span class="hljs-property">address</span>.<span class="hljs-property">street</span> = <span class="hljs-string">&quot;456 Elm St&quot;</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(originalObject.<span class="hljs-property">address</span>.<span class="hljs-property">street</span>); <span class="hljs-comment">// &quot;123 Main St&quot;</span>
+</code></pre>
+<p>Dans cet exemple, <code>_.cloneDeep()</code> crée une copie de <code>originalObject</code>, y compris une copie séparée de l'objet <code>address</code> imbriqué. Les modifications apportées à <code>deepCopiedObject</code> n'affectent pas <code>originalObject</code>, ce qui indique que la copie est profonde.</p>
+<h3 id="avantages-de-_clonedeep-">Avantages de <code>_.cloneDeep()</code> :</h3>
+<ol>
+<li><strong>Copie Complète :</strong> Il s'agit d'une véritable copie profonde, ce qui signifie que tous les niveaux d'imbrication sont copiés, et les modifications sur les copies n'affectent pas les originaux.</li>
+<li><strong>Gestion des Types Complexes :</strong> <code>_.cloneDeep()</code> est capable de gérer divers types de données, y compris des objets, des tableaux, des dates, des expressions régulières, et d'autres types de données spéciaux qui ne sont pas bien gérés par des méthodes plus simples comme <code>JSON.parse(JSON.stringify())</code>.</li>
+<li><strong>Gestion des Références Circulaires :</strong> Elle peut gérer correctement les références circulaires sans causer d'erreurs.</li>
+</ol>
+<h3 id="à-prendre-en-compte-">À Prendre en Compte :</h3>
+<ul>
+<li><strong>Performances :</strong> Pour de très grands objets ou tableaux, ou pour des structures avec de nombreux niveaux d'imbrication, la copie profonde peut être coûteuse en termes de performances.</li>
+<li><strong>Compatibilité :</strong> Alors que <code>_.cloneDeep()</code> est très polyvalente, il est toujours bon de tester et de valider son comportement avec vos structures de données spécifiques, surtout si elles contiennent des types de données non standard.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

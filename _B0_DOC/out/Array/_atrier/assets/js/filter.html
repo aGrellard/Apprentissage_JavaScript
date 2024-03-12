@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>filter()</code> en JavaScript est une méthode de tableau qui permet de créer un nouveau tableau contenant seulement les éléments qui passent un test spécifié par une fonction. C'est un outil puissant pour filtrer des ensembles de données selon des critères définis. Voici une description plus détaillée :</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> resultArray = array.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">element, index, array</span>) {
+    <span class="hljs-comment">// condition de test</span>
+}, thisArg);
+</code></pre>
+<ul>
+<li><strong>array</strong> : Le tableau sur lequel la méthode <code>filter()</code> est appelée.</li>
+<li><strong>function(element, index, array)</strong> : La fonction de rappel exécutée sur chaque élément du tableau.
+<ul>
+<li><strong>element</strong> : L'élément courant du tableau en cours de traitement.</li>
+<li><strong>index</strong> (optionnel) : L'indice de l'élément courant dans le tableau.</li>
+<li><strong>array</strong> (optionnel) : Le tableau sur lequel la méthode <code>filter()</code> a été appelée.</li>
+</ul>
+</li>
+<li><strong>thisArg</strong> (optionnel) : Une valeur à utiliser comme <code>this</code> lors de l'exécution de la fonction de rappel.</li>
+<li><strong>resultArray</strong> : Le nouveau tableau créé, contenant tous les éléments pour lesquels la fonction de rappel a renvoyé une valeur truthy (qui évalue à <code>true</code>).</li>
+</ul>
+<h3 id="fonctionnement-de-filter-">Fonctionnement de <code>filter()</code> :</h3>
+<ol>
+<li>
+<p><strong>Itération sur le Tableau :</strong></p>
+<ul>
+<li><code>filter()</code> passe en revue chaque élément du tableau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Application de la Fonction de Rappel :</strong></p>
+<ul>
+<li>À chaque élément, la fonction de rappel est appelée.</li>
+<li>Si la fonction de rappel renvoie une valeur truthy pour un élément, cet élément est ajouté au nouveau tableau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Création d'un Nouveau Tableau :</strong></p>
+<ul>
+<li>Les éléments qui passent le test (pour lesquels la fonction de rappel renvoie <code>true</code>) sont collectés dans un nouveau tableau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Renvoi du Nouveau Tableau :</strong></p>
+<ul>
+<li>Après avoir parcouru tous les éléments, <code>filter()</code> renvoie un nouveau tableau contenant les éléments filtrés.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exemple-dutilisation-">Exemple d'Utilisation :</h3>
+<p>Filtrer un tableau pour conserver uniquement les nombres pairs :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> evenNumbers = numbers.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>);
+<span class="hljs-comment">// evenNumbers est maintenant [2, 4]</span>
+</code></pre>
+<p>Dans cet exemple, <code>filter()</code> passe en revue chaque élément du tableau <code>numbers</code>. La fonction de rappel teste si chaque nombre est pair. Si c'est le cas, ce nombre est inclus dans <code>evenNumbers</code>.</p>
+<h3 id="utilisations-courantes-de-filter-">Utilisations courantes de <code>filter()</code> :</h3>
+<ul>
+<li>Filtrer des données en fonction de critères spécifiques.</li>
+<li>Créer des sous-ensembles d'un tableau sans modifier le tableau original.</li>
+<li>Être chaînée avec d'autres méthodes de tableau, comme <code>map()</code> ou <code>reduce()</code>, pour des transformations de données complexes.</li>
+</ul>
+<p>En résumé, <code>filter()</code> est une méthode très pratique pour créer des tableaux dérivés en excluant les éléments qui ne répondent pas à certains critères, tout en préservant l'immuabilité des données d'origine.</p>
+<p>La méthode <code>filter()</code> en JavaScript permet de créer un nouveau tableau contenant tous les éléments d'un tableau existant qui satisfont à une condition définie par une fonction de rappel. L'argument <code>thisArg</code> dans <code>filter()</code> est une caractéristique un peu plus avancée, qui permet de spécifier le contexte (<code>this</code>) dans lequel la fonction de rappel doit être exécutée.</p>
+<p>Voici comment <code>filter()</code> fonctionne avec l'utilisation de <code>thisArg</code> :</p>
+<br>
+<h3 id="utilisation-de-thisarg">Utilisation de <code>thisArg</code></h3>
+<p>La valeur <code>thisArg</code> est utilisée pour définir ce que sera <code>this</code> dans la fonction de rappel. C'est utile lorsque vous avez besoin de faire référence à un certain contexte (comme un objet) dans votre fonction de rappel.</p>
+<h4 id="exemple-sans-thisarg">Exemple Sans <code>thisArg</code></h4>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> oddNumbers = numbers.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>) {
+    <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> !== <span class="hljs-number">0</span>;
+});
+</code></pre>
+<p>Ici, <code>this</code> dans la fonction de rappel n'est pas défini ou se réfère à l'objet global (<code>window</code> dans les navigateurs, <code>global</code> dans Node.js).</p>
+<h4 id="exemple-avec-thisarg">Exemple Avec <code>thisArg</code></h4>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isSmallerThanThreshold</span>(<span class="hljs-params">number</span>) {
+    <span class="hljs-keyword">return</span> number &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">threshold</span>;
+}
+
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> thresholdObject = { <span class="hljs-attr">threshold</span>: <span class="hljs-number">4</span> };
+<span class="hljs-keyword">let</span> smallerNumbers = numbers.<span class="hljs-title function_">filter</span>(isSmallerThanThreshold, thresholdObject);
+</code></pre>
+<p>Dans cet exemple, <code>isSmallerThanThreshold</code> utilise <code>this.threshold</code>. Lorsque nous appelons <code>filter()</code>, nous passons <code>thresholdObject</code> comme <code>thisArg</code>, donc dans <code>isSmallerThanThreshold</code>, <code>this</code> se réfère à <code>thresholdObject</code>.</p>
+<h3 id="points-importants">Points Importants</h3>
+<ul>
+<li><code>thisArg</code> est utile lorsque la fonction de rappel doit accéder à des propriétés ou méthodes d'un objet spécifique.</li>
+<li>Si vous n'utilisez pas <code>thisArg</code>, <code>this</code> dans la fonction de rappel se réfère à l'objet global par défaut, ou est <code>undefined</code> en mode strict (<code>'use strict'</code>).</li>
+<li>Les fonctions fléchées n'ont pas leur propre <code>this</code>, donc <code>thisArg</code> est moins utile avec elles. Dans les fonctions fléchées, <code>this</code> est hérité du contexte englobant.</li>
+</ul>
+<p>En résumé, <code>filter()</code> avec <code>thisArg</code> vous permet de contrôler le contexte dans lequel la fonction de rappel est exécutée, ce qui peut être très utile dans certaines situations, en particulier lors de l'utilisation de fonctions qui ne sont pas des fonctions fléchées et qui ont besoin d'accéder à un <code>this</code> spécifique.</p>
+<p>L'utilisation de l'argument <code>thisArg</code> avec la méthode <code>filter()</code> en JavaScript permet de définir le contexte (<code>this</code>) dans lequel la fonction de rappel est exécutée. Voici différents exemples illustrant l'utilisation de <code>thisArg</code> avec <code>filter()</code> :</p>
+<h3 id="exemple-1-filtrage-basé-sur-une-propriété-dobjet">Exemple 1: Filtrage Basé sur une Propriété d'Objet</h3>
+<p>Imaginons que nous ayons un objet représentant un filtre et un tableau de nombres. Nous voulons filtrer ce tableau en fonction d'une propriété de l'objet.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isGreater</span>(<span class="hljs-params">element</span>) {
+    <span class="hljs-keyword">return</span> element &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">threshold</span>;
+}
+
+<span class="hljs-keyword">const</span> numberSet = {
+    <span class="hljs-attr">threshold</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">numbers</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+};
+
+<span class="hljs-keyword">const</span> filteredNumbers = numberSet.<span class="hljs-property">numbers</span>.<span class="hljs-title function_">filter</span>(isGreater, numberSet);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(filteredNumbers); <span class="hljs-comment">// [4, 5]</span>
+</code></pre>
+<p>Dans cet exemple, <code>isGreater</code> utilise <code>this.threshold</code> pour filtrer les nombres. <code>numberSet</code> est passé comme <code>thisArg</code>, donc <code>this</code> dans <code>isGreater</code> fait référence à <code>numberSet</code>.</p>
+<h3 id="exemple-2-filtrage-en-utilisant-les-méthodes-de-lobjet">Exemple 2: Filtrage en Utilisant les Méthodes de l'Objet</h3>
+<p>Supposons que nous ayons un objet avec une méthode de filtrage et un tableau de chaînes. Nous utilisons la méthode de l'objet pour filtrer le tableau.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> stringFilter = {
+    <span class="hljs-attr">accepted</span>: [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>],
+    <span class="hljs-attr">filterString</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">accepted</span>.<span class="hljs-title function_">includes</span>(str);
+    }
+};
+
+<span class="hljs-keyword">const</span> fruits = [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;grape&#x27;</span>];
+<span class="hljs-keyword">const</span> acceptedFruits = fruits.<span class="hljs-title function_">filter</span>(stringFilter.<span class="hljs-property">filterString</span>, stringFilter);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(acceptedFruits); <span class="hljs-comment">// [&#x27;apple&#x27;, &#x27;banana&#x27;]</span>
+</code></pre>
+<p>Ici, <code>filterString</code> vérifie si une chaîne fait partie des éléments acceptés définis dans <code>stringFilter</code>. <code>stringFilter</code> est passé en tant que <code>thisArg</code> à <code>filter()</code>.</p>
+<h3 id="exemple-3-utilisation-avec-des-méthodes-de-classe">Exemple 3: Utilisation avec des Méthodes de Classe</h3>
+<p>Si vous travaillez avec des classes en JavaScript, vous pouvez également utiliser <code>thisArg</code> pour passer une instance de classe à la fonction de rappel.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">NumberChecker</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">limit</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">limit</span> = limit;
+    }
+
+    <span class="hljs-title function_">checkNumber</span>(<span class="hljs-params">number</span>) {
+        <span class="hljs-keyword">return</span> number &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">limit</span>;
+    }
+}
+
+<span class="hljs-keyword">const</span> checker = <span class="hljs-keyword">new</span> <span class="hljs-title class_">NumberChecker</span>(<span class="hljs-number">10</span>);
+<span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">8</span>, <span class="hljs-number">20</span>];
+<span class="hljs-keyword">const</span> numbersBelowLimit = numbers.<span class="hljs-title function_">filter</span>(checker.<span class="hljs-property">checkNumber</span>, checker);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(numbersBelowLimit); <span class="hljs-comment">// [5, 8]</span>
+</code></pre>
+<p>Dans cet exemple, <code>checkNumber</code> est une méthode de l'instance <code>checker</code> de <code>NumberChecker</code>. En passant <code>checker</code> en tant que <code>thisArg</code>, <code>this.limit</code> dans <code>checkNumber</code> se réfère à la propriété <code>limit</code> de l'instance <code>checker</code>.</p>
+<p>Ces exemples montrent comment <code>thisArg</code> peut être utilisé avec <code>filter()</code> pour contrôler le contexte de la fonction de rappel, rendant ainsi le filtrage flexible et adapté à divers scénarios.</p>
+<br>
+<hr>
+<br>
+<p>La méthode <code>filter()</code> en JavaScript est utilisée pour créer un nouveau tableau contenant tous les éléments d'un tableau existant qui passent un test spécifié par une fonction fournie. Voici quelques-unes des utilisations courantes de <code>filter()</code> :</p>
+<ol>
+<li>
+<p><strong>Filtrer par Condition :</strong></p>
+<ul>
+<li>Sélectionner des éléments qui répondent à une condition spécifique.</li>
+<li>Exemple : Filtrer un tableau de nombres pour ne conserver que les nombres pairs.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> evenNums = nums.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Recherche dans un Tableau d'Objets :</strong></p>
+<ul>
+<li>Filtrer un tableau d'objets en fonction des propriétés de ces objets.</li>
+<li>Exemple : Sélectionner des utilisateurs ayant un âge spécifique dans un tableau d'objets utilisateur.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> youngUsers = users.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> user.<span class="hljs-property">age</span> &lt; <span class="hljs-number">30</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Éliminer les Doublons :</strong></p>
+<ul>
+<li>Utiliser <code>filter()</code> pour éliminer les doublons d'un tableau.</li>
+<li>Exemple : Enlever les valeurs en double dans un tableau.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> uniqueNumbers = numbers.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">value, index, array</span>) =&gt;</span> array.<span class="hljs-title function_">indexOf</span>(value) === index);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Supprimer des Éléments Spécifiques :</strong></p>
+<ul>
+<li>Supprimer des éléments qui ne sont pas désirés dans un tableau.</li>
+<li>Exemple : Enlever les valeurs <code>null</code> ou <code>undefined</code> d'un tableau.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> mix = [<span class="hljs-number">1</span>, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> cleaned = mix.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val != <span class="hljs-literal">null</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Chaînage avec d'Autres Méthodes de Tableau :</strong></p>
+<ul>
+<li>Combiner <code>filter()</code> avec d'autres méthodes telles que <code>map()</code> ou <code>reduce()</code> pour réaliser des opérations complexes en une seule chaîne.</li>
+<li>Exemple : Filtrer un tableau puis mapper les résultats.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> doubledEvenNums = nums.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num * <span class="hljs-number">2</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sélection Basée sur un Sous-ensemble d'un Autre Tableau :</strong></p>
+<ul>
+<li>Filtrer des éléments basés sur leur présence ou leur absence dans un autre tableau.</li>
+<li>Exemple : Sélectionner des éléments qui sont présents dans un autre tableau.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> nums1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> nums2 = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">let</span> common = nums1.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> nums2.<span class="hljs-title function_">includes</span>(num));
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Filtrage Avancé :</strong></p>
+<ul>
+<li>Appliquer des critères de filtrage plus complexes, comme des conditions multiples.</li>
+<li>Exemple : Filtrer un tableau en fonction de plusieurs conditions.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> products = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;fruit&quot;</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">10</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;carrot&quot;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;vegetable&quot;</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">5</span>}];
+<span class="hljs-keyword">let</span> fruits = products.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> product.<span class="hljs-property">type</span> === <span class="hljs-string">&quot;fruit&quot;</span> &amp;&amp; product.<span class="hljs-property">quantity</span> &gt; <span class="hljs-number">5</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><code>filter()</code> est une méthode très utile pour traiter et manipuler des tableaux en JavaScript, en permettant de créer facilement des sous-ensembles basés sur des conditions variées.</p>
+
+            
+            
+        </body>
+        </html>

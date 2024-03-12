@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>some()</code> en JavaScript est une méthode de l'objet <code>Array</code> utilisée pour tester si au moins un élément d'un tableau répond à une condition définie dans une fonction de rappel. Cette méthode est particulièrement utile pour vérifier rapidement la présence d'éléments satisfaisant à un critère spécifique dans un tableau.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">some</span>(<span class="hljs-title function_">callback</span>(element[, index[, array]])[, thisArg])
+</code></pre>
+<ul>
+<li><strong>callback</strong> : Une fonction qui teste chaque élément du tableau. Elle peut prendre jusqu'à trois arguments :
+<ul>
+<li><strong>element</strong> : L'élément actuel du tableau en cours de traitement.</li>
+<li><strong>index</strong> (optionnel) : L'indice de l'élément actuel dans le tableau.</li>
+<li><strong>array</strong> (optionnel) : Le tableau sur lequel <code>some()</code> a été appelé.</li>
+</ul>
+</li>
+<li><strong>thisArg</strong> (optionnel) : Une valeur à utiliser comme <code>this</code> lors de l'exécution de la fonction de rappel.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li><code>some()</code> exécute la fonction de rappel une fois pour chaque élément présent dans le tableau, jusqu'à ce qu'elle trouve un élément pour lequel la fonction renvoie une valeur truthy (vraie).</li>
+<li>Si la fonction de rappel renvoie <code>true</code> pour au moins un élément du tableau, <code>some()</code> renvoie <code>true</code>.</li>
+<li>Si la fonction de rappel ne renvoie <code>true</code> pour aucun élément du tableau, <code>some()</code> renvoie <code>false</code>.</li>
+<li>La méthode ne modifie pas le tableau sur lequel elle est appelée.</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Vérifier si un Tableau Contient au Moins un Élément Pair :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>];
+<span class="hljs-keyword">let</span> hasEvenNumber = numbers.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Vérifier la Présence d'une Valeur Supérieure à un Seuil :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> hasLargeNumber = numbers.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num &gt; <span class="hljs-number">4</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Vérification dans un Tableau d'Objets :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> hasMinor = people.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> person.<span class="hljs-property">age</span> &lt; <span class="hljs-number">18</span>); <span class="hljs-comment">// Renvoie false</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>some()</code> est utile pour les tests de validation où vous avez besoin de vérifier si au moins un élément du tableau répond à une condition.</li>
+<li>Elle est souvent utilisée dans des situations où différentes conditions peuvent être satisfaites pour obtenir un résultat positif.</li>
+<li><code>some()</code> renvoie <code>false</code> pour un tableau vide, indépendamment de la condition dans la fonction de rappel.</li>
+<li>Cette méthode est efficace pour les grands tableaux, car elle s'arrête dès qu'elle trouve un élément répondant à la condition.</li>
+</ul>
+<br>
+<hr>
+<br>
+<blockquote>
+<p>La méthode <code>some()</code> en JavaScript est utilisée pour vérifier si au moins un élément d'un tableau satisfait à une condition spécifiée par une fonction de rappel. Voici plusieurs utilisations courantes de <code>some()</code> :</p>
+</blockquote>
+<h3 id="1-vérifier-la-présence-dun-élément-correspondant-à-une-condition-">1. Vérifier la Présence d'un Élément Correspondant à une Condition :</h3>
+<ul>
+<li><strong>Tester si un tableau contient au moins un nombre pair :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>];
+<span class="hljs-keyword">let</span> hasEven = numbers.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="2-utilisation-avec-des-tableaux-dobjets-">2. Utilisation avec des Tableaux d'Objets :</h3>
+<ul>
+<li><strong>Vérifier si au moins un objet dans un tableau remplit une condition :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">24</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> }];
+<span class="hljs-keyword">let</span> hasMinor = people.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> person.<span class="hljs-property">age</span> &lt; <span class="hljs-number">18</span>); <span class="hljs-comment">// Renvoie false</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3-vérifier-si-un-tableau-contient-un-élément-spécifique-">3. Vérifier si un Tableau Contient un Élément Spécifique :</h3>
+<ul>
+<li><strong>Vérifier si un tableau contient une valeur spécifique :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;mango&#x27;</span>];
+<span class="hljs-keyword">let</span> hasApple = fruits.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">fruit</span> =&gt;</span> fruit === <span class="hljs-string">&#x27;apple&#x27;</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="4-utilisation-avec-des-conditions-composées-">4. Utilisation avec des Conditions Composées :</h3>
+<ul>
+<li><strong>Combiner plusieurs conditions pour une vérification :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> products = [{ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Phone&#x27;</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">700</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Laptop&#x27;</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">1200</span> }];
+<span class="hljs-keyword">let</span> hasExpensiveProduct = products.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> product.<span class="hljs-property">price</span> &gt; <span class="hljs-number">1000</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="5-valider-des-données-de-formulaire-ou-des-entrées-utilisateur-">5. Valider des Données de Formulaire ou des Entrées Utilisateur :</h3>
+<ul>
+<li><strong>Vérifier si au moins une entrée dans un formulaire ou un ensemble de données remplit une condition :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> formResponses = [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>];
+<span class="hljs-keyword">let</span> hasPositiveResponse = formResponses.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response === <span class="hljs-literal">true</span>); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6-utilisation-avec-des-tableaux-complexes-">6. Utilisation avec des Tableaux Complexes :</h3>
+<ul>
+<li><strong>Vérifier des conditions dans des tableaux contenant des structures de données complexes :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> matrix = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]];
+<span class="hljs-keyword">let</span> hasNonZero = matrix.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">row</span> =&gt;</span> row.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">cell</span> =&gt;</span> cell !== <span class="hljs-number">0</span>)); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="7-recherche-de-sous-chaînes-dans-un-tableau-de-chaînes-de-caractères-">7. Recherche de Sous-Chaînes dans un Tableau de Chaînes de Caractères :</h3>
+<ul>
+<li><strong>Vérifier si au moins une chaîne dans un tableau contient une sous-chaîne spécifique :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> strings = [<span class="hljs-string">&quot;JavaScript&quot;</span>, <span class="hljs-string">&quot;Python&quot;</span>, <span class="hljs-string">&quot;C++&quot;</span>];
+<span class="hljs-keyword">let</span> hasScript = strings.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> str.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&quot;Script&quot;</span>)); <span class="hljs-comment">// Renvoie true</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="points-importants--1">Points Importants :</h3>
+<ul>
+<li><code>some()</code> renvoie <code>true</code> dès qu'un élément du tableau satisfait à la condition, et <code>false</code> si aucun élément ne satisfait à la condition.</li>
+<li>Elle ne modifie pas le tableau original.</li>
+<li><code>some()</code> s'arrête et renvoie immédiatement <code>true</code> dès que la condition est satisfaite, ce qui la rend plus efficace pour les grands tableaux que des méthodes comme <code>forEach</code> ou <code>for</code> qui parcourraient tout le tableau.</li>
+<li><code>some()</code> renvoie <code>false</code> pour un tableau vide.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

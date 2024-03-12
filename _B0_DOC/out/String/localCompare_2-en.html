@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Parameters or Arguments</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p><img src="file:////js/images/js.png" alt="totn JavaScript"></p>
+<hr>
+<h1 id="javascript-string-localecompare-method">JavaScript: String localeCompare() method</h1>
+<p>This JavaScript tutorial explains how to use the string method called localeCompare() with syntax and examples.</p>
+<h2 id="description">Description</h2>
+<p>In JavaScript, localeCompare() is a string method that is used to compare two strings and return a numeric value indicating which string comes first in the sort order based on locale. Because the localeCompare() method is a method of the String object, it must be invoked through a particular instance of the String class.</p>
+<h2 id="syntax">Syntax</h2>
+<p>In JavaScript, the syntax for the localeCompare() method is:</p>
+<p><em>string</em>.localeCompare(compare_string [, locale [, options]]);</p>
+<h3 id="parameters-or-arguments">Parameters or Arguments</h3>
+<p>compare_string</p>
+<p>It is a string value that will be compared against the localeCompare() method's calling string.</p>
+<p>locale</p>
+<p>Optional. It is a <a href="language_tags.php">BCP 47 language tag</a> or an array of such tags that will be used to determine the sort order. A BCP 47 language tag defines a language that may contain a primary language code as well as an extension. If this parameter is not provided, the localeCompare() method will use the host environment's current locale.</p>
+<p>options</p>
+<p>Optional. The options to apply to the sort order. It can be one or more of the following:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>caseFirst</td>
+<td>Determines how &quot;case&quot; will be handled when sorting. It can be one of the following values:<br><br>* <em>upper</em> - uppercase will be sorted first<br>* <em>lower</em> - lowercase will be sorted first<br>* <em>false</em> - use the locale's default sorting (<em>default</em>)</td>
+</tr>
+<tr>
+<td>ignorePunctuation</td>
+<td>Determines whether punctuation will be ignored. It can be one of the following values:<br><br>* <em>true</em> - punctuation will be ignored when sorting<br>* <em>false</em> - punctuation will not be ignored when sorting (<em>default</em>)</td>
+</tr>
+<tr>
+<td>localeMatcher</td>
+<td>Determines the locale matching algorithm to use. It can be one of the following values:<br><br>* <em>lookup</em><br>* <em>best fit</em> (<em>default</em>)</td>
+</tr>
+<tr>
+<td>numeric</td>
+<td>Determines whether numeric collation will be used. It can be one of the following values:<br><br>* <em>true</em> - numeric collation will be used when sorting<br>* <em>false</em> - numeric collation will not be used when sorting (<em>default</em>)</td>
+</tr>
+<tr>
+<td>sensitivity</td>
+<td>Determines whether numeric collation will be used. It can be one of the following values:<br><br>* <em>base</em> - strings that do not have the same base letters are considered unequal<br>* <em>accent</em> - strings that do not have the same base letters or accents are considered unequal<br>* <em>case</em> - strings that do not have the same base letters or case are considered unequal<br>* <em>variant</em> - strings that do not have the same base letters, accents or case are considered unequal (<em>default</em>)</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>Determines whether the method will perform sorting or searching for matching string. It can be one of the following values:<br><br>* <em>sort</em> - method will perform sorting (<em>default</em>)<br>* <em>search</em> - method will search for matching strings</td>
+</tr>
+</tbody>
+</table>
+<h2 id="returns">Returns</h2>
+<p>The localeCompare() method returns a <strong>negative number</strong> if the calling <em>string</em> appears before the <em>compare_string</em> in the sort order.</p>
+<p>The localeCompare() method returns a <strong>positive number</strong> if the calling <em>string</em> appears after the <em>compare_string</em> in the sort order.</p>
+<p>The localeCompare() method returns <strong>0</strong> if the calling <em>string</em> is equivalent to the <em>compare_string</em> and thus appears at the same position in the sort order.</p>
+<h2 id="note">Note</h2>
+<ul>
+<li>The localeCompare() method does not change the value of the original <em>string</em>.</li>
+<li>Depending on the browser, the localeCompare() method may return different positive or negative values when the strings are not equivalent, such as 1, 2, -1, or -2. So when using this method, be sure to test for a positive or negative value and not a specific numeric value such as -1.</li>
+<li>It is okay to test for a value of 0 when the calling <em>string</em> and <em>compare_string</em> are equivalent. This return value does not differ between browsers.</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Let's take a look at an example of how to use the localeCompare() method in JavaScript.</p>
+<p>For example:</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.localeCompare('abc'));
+</code></pre>
+<p>In this example, we have declared a variable called <em>totn_string</em> that is assigned the string value of 'TechOnTheNet'. We have then invoked the localeCompare() method of the <em>totn_string</em> variable to compare this string value to 'abc'.</p>
+<p>We have written the output of the localeCompare() method to the <a href="open_console_log.php">web browser console log</a>, for demonstration purposes, to show what the localeCompare() method returns.</p>
+<p>The following will be output to the <a href="open_console_log.php">web browser console log</a>:</p>
+<p>1</p>
+<p>In this example, the localeCompare() method returned a positive value of 1 because the string 'TechOnTheNet' appeared after 'abc' in the sort order.</p>
+<p>Depending on the browser, the localeCompare() method may return a different positive value such as 1 or 2, or any other positive value. Don't assume that it will be a return value of 1.</p>
+<h3 id="specifying-a-locale-parameter">Specifying a Locale Parameter</h3>
+<p>You can also provide a <a href="language_tags.php">BCP 47 language tag</a> for the <em>locale</em> parameter to change the sort order based on locale.</p>
+<p>For example:</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.localeCompare('xyz','en-US'));
+</code></pre>
+<p>The following will be output to the <a href="open_console_log.php">web browser console log</a>:</p>
+<p>-1</p>
+<p>In this example, the localeCompare() method used a parameter of 'en-US' that sorted the strings using US English. The method returned a negative value of -1 because the string 'TechOnTheNet' appeared before 'xyz' using this sort order.</p>
+<p>Again, remember that depending on the browser, the localeCompare() method may return a different negative value such as -1 or -2, or any other negative value. Don't assume that it will be a return value of -1.</p>
+<h3 id="specifying-an-option-parameter">Specifying an Option Parameter</h3>
+<p>Next, the localeCompare() method has many options that you can specify that affects the sort order.</p>
+<p>For example:</p>
+<pre><code>var totn_string = '8';
+
+console.log(totn_string.localeCompare('30'));
+</code></pre>
+<p>The following will be output to the <a href="open_console_log.php">web browser console log</a>:</p>
+<p>1</p>
+<p>In this example, the localeCompare() method returned 1 because the string value '8' comes after '30' using a string sort.</p>
+<p>However, what if we want to sort our values numerically? We can apply a numeric sort using an option parameter as follows:</p>
+<pre><code>var totn_string = '8';
+
+console.log(totn_string.localeCompare('30', 'en-US', {numeric:&quot;true&quot;}));
+</code></pre>
+<p>The following will be output to the <a href="open_console_log.php">web browser console log</a>:</p>
+<p>-1</p>
+<p>Now the localeCompare() method returned -1 because the value '8' comes before '30' when sorting the values numerically.</p>
+<p><a href="/js/string_link.php"><img src="file:////images/previous.png" alt="previous"></a><a href="/js/string_match.php">NEXT: match<img src="file:////images/next.png" alt="next"></a></p>
+
+            
+            
+        </body>
+        </html>

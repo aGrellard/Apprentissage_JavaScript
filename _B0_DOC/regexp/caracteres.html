@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Caract&egrave;res simples</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>Les expressions régulières (Regex) en JavaScript sont une méthode puissante pour rechercher et manipuler des chaînes de caractères. Voici une liste des caractères et constructions spéciales utilisés dans les expressions régulières, accompagnée de brèves explications :</p>
+<h3 id="caractères-simples">Caractères simples</h3>
+<ul>
+<li><code>.</code> : Correspond à n'importe quel caractère, sauf les terminaisons de ligne.</li>
+<li><code>\</code> : Échappe un caractère spécial, le traitant comme un caractère littéral.</li>
+</ul>
+<h3 id="classes-de-caractères">Classes de caractères</h3>
+<ul>
+<li><code>[abc]</code> : Correspond à n'importe quel caractère unique parmi ceux entre crochets (ici a, b, ou c).</li>
+<li><code>[^abc]</code> : Correspond à tout caractère qui n'est pas entre les crochets.</li>
+<li><code>[0-9]</code> : Correspond à n'importe quel caractère numérique.</li>
+<li><code>[a-z]</code> : Correspond à n'importe quel caractère alphabétique en minuscule.</li>
+<li><code>[A-Z]</code> : Correspond à n'importe quel caractère alphabétique en majuscule.</li>
+<li><code>[a-zA-Z]</code> : Correspond à n'importe quel caractère alphabétique.</li>
+</ul>
+<h3 id="classes-de-caractères-spéciaux">Classes de caractères spéciaux</h3>
+<ul>
+<li><code>\d</code> : Correspond à n'importe quel chiffre (équivalent à <code>[0-9]</code>).</li>
+<li><code>\D</code> : Correspond à tout ce qui n'est pas un chiffre (équivalent à <code>[^0-9]</code>).</li>
+<li><code>\w</code> : Correspond à n'importe quel caractère alphanumérique, y compris le souligné (équivalent à <code>[a-zA-Z0-9_]</code>).</li>
+<li><code>\W</code> : Correspond à tout ce qui n'est pas un caractère alphanumérique.</li>
+<li><code>\s</code> : Correspond à n'importe quel espace blanc (espaces, tabulations, sauts de ligne).</li>
+<li><code>\S</code> : Correspond à tout ce qui n'est pas un espace blanc.</li>
+</ul>
+<h3 id="assertions">Assertions</h3>
+<ul>
+<li><code>^</code> : Correspond au début d'une chaîne.</li>
+<li><code>$</code> : Correspond à la fin d'une chaîne.</li>
+<li><code>\b</code> : Correspond à une limite de mot (par exemple, l'espace autour d'un mot).</li>
+<li><code>\B</code> : Correspond à une position qui n'est pas une limite de mot.</li>
+</ul>
+<h3 id="quantificateurs">Quantificateurs</h3>
+<ul>
+<li><code>*</code> : Correspond à zéro ou plusieurs occurrences de l'élément précédent.</li>
+<li><code>+</code> : Correspond à une ou plusieurs occurrences de l'élément précédent.</li>
+<li><code>?</code> : Rend l'élément précédent facultatif (zéro ou une occurrence).</li>
+<li><code>{n}</code> : Correspond exactement à n occurrences de l'élément précédent.</li>
+<li><code>{n,}</code> : Correspond à n ou plus occurrences de l'élément précédent.</li>
+<li><code>{n,m}</code> : Correspond à un nombre d'occurrences de l'élément précédent compris entre n et m, inclusivement.</li>
+</ul>
+<h3 id="groupement-et-références-arrière">Groupement et références arrière</h3>
+<ul>
+<li><code>(abc)</code> : Capture le groupe entre parenthèses pour référence ultérieure.</li>
+<li><code>\1</code>, <code>\2</code>, etc. : Référence arrière à un groupe capturé précédemment selon sa position.</li>
+</ul>
+<h3 id="alternance">Alternance</h3>
+<ul>
+<li><code>|</code> : Opérateur OR, correspond à l'expression précédente ou suivante.</li>
+</ul>
+<h3 id="drapeaux-modificateurs">Drapeaux (modificateurs)</h3>
+<ul>
+<li><code>g</code> : Global, effectue une recherche sur toute la chaîne.</li>
+<li><code>i</code> : Insensible à la casse.</li>
+<li><code>m</code> : Multiligne, <code>^</code> et <code>$</code> peuvent correspondre au début et à la fin de chaque ligne.</li>
+</ul>
+<h3 id="exemple-dutilisation">Exemple d'utilisation</h3>
+<pre><code class="language-javascript"><span class="hljs-comment">// Recherche de tous les numéros dans une chaîne</span>
+<span class="hljs-keyword">const</span> text = <span class="hljs-string">&quot;Les numéros sont 123 et 456&quot;</span>;
+<span class="hljs-keyword">const</span> regex = <span class="hljs-regexp">/\d+/g</span>;
+<span class="hljs-keyword">const</span> found = text.<span class="hljs-title function_">match</span>(regex);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(found); <span class="hljs-comment">// [&quot;123&quot;, &quot;456&quot;]</span>
+</code></pre>
+<p>Cette liste couvre les éléments de base des expressions régulières en JavaScript. Les expressions régulières sont un outil puissant mais complexe, et leur utilisation efficace nécessite de la pratique et une compréhension approfondie.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La méthode <code>localeCompare()</code> est une fonction de l'objet <code>String</code> en JavaScript qui est utilisée pour comparer deux chaînes de caractères selon la langue (locale) et les options de tri spécifiques. Elle est particulièrement utile pour trier des chaînes de manière sensible à la locale, en tenant compte des règles linguistiques spécifiques, telles que les accents, les cédilles, et d'autres particularités linguistiques.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">str1.<span class="hljs-title function_">localeCompare</span>(str2, locales, options);
+</code></pre>
+<ul>
+<li><strong>str1</strong> : La chaîne de caractères à partir de laquelle la méthode est appelée.</li>
+<li><strong>str2</strong> : La chaîne de caractères avec laquelle <code>str1</code> est comparée.</li>
+<li><strong>locales</strong> (optionnel) : Un code de langue ou un tableau de codes de langue qui indique la locale à utiliser pour la comparaison. Par exemple, <code>'en'</code> pour l'anglais, <code>'fr'</code> pour le français.</li>
+<li><strong>options</strong> (optionnel) : Un objet qui spécifie des options de comparaison supplémentaires, comme la sensibilité aux cas (majuscules/minuscules), l'ordre de tri, etc.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li><strong>Résultat de la Comparaison :</strong>
+<ul>
+<li><code>localeCompare()</code> renvoie un nombre :
+<ul>
+<li><strong>Négatif</strong> si <code>str1</code> vient avant <code>str2</code> dans l'ordre de tri.</li>
+<li><strong>Zéro</strong> si <code>str1</code> et <code>str2</code> sont considérées équivalentes dans l'ordre de tri.</li>
+<li><strong>Positif</strong> si <code>str1</code> vient après <code>str2</code> dans l'ordre de tri.</li>
+</ul>
+</li>
+<li>Cette valeur de retour permet d'utiliser <code>localeCompare()</code> pour le tri de tableaux de chaînes de caractères.</li>
+</ul>
+</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Comparaison Simple :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-string">&#x27;réservé&#x27;</span>; <span class="hljs-comment">// avec accent</span>
+<span class="hljs-keyword">let</span> b = <span class="hljs-string">&#x27;reserve&#x27;</span>; <span class="hljs-comment">// sans accent</span>
+
+<span class="hljs-keyword">let</span> result = a.<span class="hljs-title function_">localeCompare</span>(b);
+<span class="hljs-comment">// result sera positif ou négatif selon la locale par défaut</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Comparaison avec Locale Spécifique :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> result = a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>); <span class="hljs-comment">// Comparaison en français</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Comparaison avec Options :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> options = { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span> }; <span class="hljs-comment">// Ignorer les différences de cas et d&#x27;accents</span>
+<span class="hljs-keyword">let</span> result = a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>, options);
+</code></pre>
+</li>
+<li>
+<p><strong>Utilisation dans le Tri de Tableaux :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&#x27;réservé&#x27;</span>, <span class="hljs-string">&#x27;reserve&#x27;</span>, <span class="hljs-string">&#x27;Réserve&#x27;</span>];
+words.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span> }));
+<span class="hljs-comment">// Trie les mots de manière insensible aux accents et à la casse</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>localeCompare()</code> est particulièrement utile pour trier des chaînes de caractères de manière conforme aux règles linguistiques, en gérant correctement les caractères accentués, les cédilles, et autres spécificités linguistiques.</li>
+<li>Les performances de <code>localeCompare()</code> peuvent être moindres que les comparaisons simples pour des opérations de tri sur de grands ensembles de données, en raison de sa complexité liée à la prise en charge des spécificités locales.</li>
+<li>L'utilisation des paramètres <code>locales</code> et <code>options</code> fournit une grande flexibilité pour personnaliser le comportement de la comparaison selon les besoins linguistiques et culturels spécifiques.</li>
+</ul>
+<br>
+<hr>
+<br>
+<p>La méthode <code>localeCompare()</code> en JavaScript est une fonction puissante et polyvalente pour la comparaison de chaînes de caractères, en tenant compte des spécificités linguistiques et culturelles. Elle peut être utilisée dans divers contextes pour des comparaisons sensibles à la locale. Voici plusieurs utilisations courantes de <code>localeCompare()</code> :</p>
+<h3 id="1-tri-alphabétique-sensible-à-la-locale-">1. Tri Alphabétique Sensible à la Locale :</h3>
+<ul>
+<li><strong>Tri de chaînes selon l'ordre alphabétique spécifique d'une langue :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&#x27;ä&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;z&#x27;</span>];
+words.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;de&#x27;</span>)); <span class="hljs-comment">// Tri en allemand</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="2-tri-insensible-à-la-casse-">2. Tri Insensible à la Casse :</h3>
+<ul>
+<li><strong>Comparer des chaînes sans tenir compte de la casse :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-string">&#x27;apple&#x27;</span>;
+<span class="hljs-keyword">let</span> b = <span class="hljs-string">&#x27;Apple&#x27;</span>;
+a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-literal">undefined</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span> });
+</code></pre>
+</li>
+</ul>
+<h3 id="3-tri-ignorant-les-accents-et-diacritiques-">3. Tri Ignorant les Accents et Diacritiques :</h3>
+<ul>
+<li><strong>Comparer des chaînes en ignorant les accents et autres marques diacritiques :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-string">&#x27;café&#x27;</span>;
+<span class="hljs-keyword">let</span> b = <span class="hljs-string">&#x27;cafe&#x27;</span>;
+a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-literal">undefined</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span> });
+</code></pre>
+</li>
+</ul>
+<h3 id="4-comparaison-avec-des-options-de-tri-spécifiques-">4. Comparaison avec des Options de Tri Spécifiques :</h3>
+<ul>
+<li><strong>Utilisation d'options spécifiques pour influencer le tri (par exemple, numérique, sensibilité aux cas, etc.) :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> filenames = [<span class="hljs-string">&#x27;File10&#x27;</span>, <span class="hljs-string">&#x27;File2&#x27;</span>];
+filenames.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-literal">undefined</span>, { <span class="hljs-attr">numeric</span>: <span class="hljs-literal">true</span> }));
+</code></pre>
+</li>
+</ul>
+<h3 id="5-utilisation-avec-différentes-locales-">5. Utilisation avec Différentes Locales :</h3>
+<ul>
+<li><strong>Comparer des chaînes en spécifiant explicitement une locale :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-string">&#x27;réservé&#x27;</span>;
+<span class="hljs-keyword">let</span> b = <span class="hljs-string">&#x27;reserve&#x27;</span>;
+a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>); <span class="hljs-comment">// Comparaison en français</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6-comparaison-dans-un-contexte-multilingue-">6. Comparaison dans un Contexte Multilingue :</h3>
+<ul>
+<li><strong>Comparer des chaînes dans un contexte où plusieurs langues sont présentes :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> names = [<span class="hljs-string">&#x27;Özil&#x27;</span>, <span class="hljs-string">&#x27;Öztürk&#x27;</span>, <span class="hljs-string">&#x27;Oezdemir&#x27;</span>];
+names.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;de-DE&#x27;</span>));
+</code></pre>
+</li>
+</ul>
+<h3 id="7-comparaison-sensible-aux-accents-et-variantes-">7. Comparaison Sensible aux Accents et Variantes :</h3>
+<ul>
+<li><strong>Tri en tenant compte des accents et variantes :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&#x27;cote&#x27;</span>, <span class="hljs-string">&#x27;coté&#x27;</span>, <span class="hljs-string">&#x27;côte&#x27;</span>, <span class="hljs-string">&#x27;côté&#x27;</span>];
+words.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;fr&#x27;</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;accent&#x27;</span> }));
+</code></pre>
+</li>
+</ul>
+<h3 id="8-utilisation-dans-le-tri-de-tableaux-">8. Utilisation dans le Tri de Tableaux :</h3>
+<ul>
+<li><strong>Utilisation de <code>localeCompare()</code> pour trier des tableaux de chaînes de caractères en tenant compte des particularités locales :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> cities = [<span class="hljs-string">&#x27;Warsaw&#x27;</span>, <span class="hljs-string">&#x27;Paris&#x27;</span>, <span class="hljs-string">&#x27;Zürich&#x27;</span>, <span class="hljs-string">&#x27;Berlin&#x27;</span>];
+cities.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b));
+</code></pre>
+</li>
+</ul>
+<p><code>localeCompare()</code> est particulièrement utile pour des applications multilingues et pour garantir que le tri et la comparaison des chaînes respectent les règles linguistiques et culturelles spécifiques. Elle offre une grande flexibilité et précision dans le traitement des chaînes de caractères.</p>
+<br>
+<hr>
+<br>
+<p>Pour effectuer une comparaison de chaînes de caractères en JavaScript qui est sensible à la casse mais pas aux accents, vous pouvez utiliser la méthode <code>localeCompare</code> avec des options spécifiques. L'option <code>sensitivity</code> dans les paramètres de <code>localeCompare</code> permet de contrôler ce comportement.</p>
+<p>Voici comment vous pouvez le faire :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> string1 = <span class="hljs-string">&quot;éclair&quot;</span>;
+<span class="hljs-keyword">let</span> string2 = <span class="hljs-string">&quot;Eclair&quot;</span>;
+
+<span class="hljs-comment">// Compare les chaînes en étant sensible à la casse mais pas aux accents</span>
+<span class="hljs-keyword">let</span> comparisonResult = string1.<span class="hljs-title function_">localeCompare</span>(string2, <span class="hljs-literal">undefined</span>, { <span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;case&#x27;</span>, <span class="hljs-attr">ignorePunctuation</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(comparisonResult); <span class="hljs-comment">// Renvoie un nombre positif, négatif ou 0 selon le résultat de la comparaison</span>
+</code></pre>
+<p>Dans cet exemple, le paramètre <code>sensitivity: 'case'</code> indique que la comparaison doit être sensible à la casse (donc &quot;a&quot; est différent de &quot;A&quot;) mais pas aux différences d'accents (donc &quot;é&quot; est considéré comme équivalent à &quot;e&quot;). L'option <code>ignorePunctuation: true</code> est utilisée pour ignorer les différences de ponctuation, ce qui peut être utile dans certains contextes.</p>
+<p>Ce type de comparaison est utile dans des scénarios où vous souhaitez différencier les majuscules des minuscules, mais où les variations d'accents ne sont pas considérées comme significatives.</p>
+
+            
+            
+        </body>
+        </html>

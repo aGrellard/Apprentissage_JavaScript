@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>concat()</code> en JavaScript est une méthode de l'objet <code>Array</code> utilisée pour fusionner deux ou plusieurs tableaux en un seul nouveau tableau. Cette méthode est non destructive, ce qui signifie qu'elle ne modifie pas les tableaux existants mais renvoie plutôt un nouveau tableau qui est la concaténation des tableaux d'origine.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">nouveauTableau = tableauOriginal.<span class="hljs-title function_">concat</span>(tableau1[, tableau2[, ...[, tableauN]]])
+</code></pre>
+<ul>
+<li><strong>tableauOriginal</strong> : Le tableau à partir duquel <code>concat()</code> est appelé.</li>
+<li><strong>tableau1, tableau2, ..., tableauN</strong> : Un ou plusieurs tableaux (ou valeurs) à concaténer avec le tableau original.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li><code>concat()</code> prend un ou plusieurs tableaux et/ou valeurs et les fusionne avec le tableau sur lequel elle est appelée.</li>
+<li>Les tableaux passés en arguments sont ajoutés à la fin du tableau original, dans l'ordre où ils sont fournis.</li>
+<li>Si les arguments fournis ne sont pas des tableaux, ils sont ajoutés au nouveau tableau en tant que valeurs individuelles.</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Concaténation de Deux Tableaux :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> alpha = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>];
+<span class="hljs-keyword">let</span> numeric = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> alphanumeric = alpha.<span class="hljs-title function_">concat</span>(numeric);
+<span class="hljs-comment">// alphanumeric = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, 1, 2, 3]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Concaténation de Plusieurs Tableaux :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> num1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> num2 = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">let</span> num3 = [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>];
+<span class="hljs-keyword">let</span> numbers = num1.<span class="hljs-title function_">concat</span>(num2, num3);
+<span class="hljs-comment">// numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Ajout d'Éléments Individuels :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> letters = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>];
+<span class="hljs-keyword">let</span> moreLetters = letters.<span class="hljs-title function_">concat</span>(<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>);
+<span class="hljs-comment">// moreLetters = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Concaténation de Tableaux et de Valeurs :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> moreNumbers = numbers.<span class="hljs-title function_">concat</span>([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-number">6</span>, <span class="hljs-number">7</span>);
+<span class="hljs-comment">// moreNumbers = [1, 2, 3, 4, 5, 6, 7]</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>concat()</code> ne modifie pas les tableaux existants mais renvoie plutôt un nouveau tableau.</li>
+<li>Il est possible de concaténer des valeurs primitives (comme des chaînes de caractères ou des nombres) en plus des tableaux.</li>
+<li>Si un élément passé à <code>concat()</code> est un tableau, ses éléments sont ajoutés. Si l'élément n'est pas un tableau, il est ajouté tel quel dans le nouveau tableau.</li>
+<li>Cette méthode est souvent utilisée pour fusionner des tableaux sans modifier les tableaux originaux, préservant ainsi l'immutabilité des données.</li>
+</ul>
+<br>
+<hr>
+<br>
+<blockquote>
+<p>La méthode <code>concat()</code> en JavaScript est utilisée pour combiner deux ou plusieurs tableaux en un seul. Voici différentes manières d'utiliser <code>concat()</code> :</p>
+</blockquote>
+<h3 id="1-fusionner-des-tableaux-">1. Fusionner des Tableaux :</h3>
+<ul>
+<li><strong>Combiner plusieurs tableaux en un seul :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> array1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> array2 = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">let</span> combinedArray = array1.<span class="hljs-title function_">concat</span>(array2);
+<span class="hljs-comment">// combinedArray = [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="2-ajouter-des-éléments-à-un-tableau-">2. Ajouter des Éléments à un Tableau :</h3>
+<ul>
+<li><strong>Ajouter des éléments individuels à un tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> moreNumbers = numbers.<span class="hljs-title function_">concat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+<span class="hljs-comment">// moreNumbers = [1, 2, 3, 4, 5]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3-combiner-des-tableaux-avec-des-valeurs-non-tableau-">3. Combiner des Tableaux avec des Valeurs Non-Tableau :</h3>
+<ul>
+<li><strong>Fusionner des tableaux avec des éléments non-tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> letters = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>];
+<span class="hljs-keyword">let</span> numbersAndBoolean = letters.<span class="hljs-title function_">concat</span>(<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// numbersAndBoolean = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, 1, 2, 3, true]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="4-concaténation-en-chaîne-">4. Concaténation en Chaîne :</h3>
+<ul>
+<li><strong>Utiliser <code>concat()</code> plusieurs fois de suite :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> array1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+<span class="hljs-keyword">let</span> array2 = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">let</span> array3 = [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">let</span> combinedArray = array1.<span class="hljs-title function_">concat</span>(array2).<span class="hljs-title function_">concat</span>(array3);
+<span class="hljs-comment">// combinedArray = [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="5-création-de-copies-superficielles-">5. Création de Copies Superficielles :</h3>
+<ul>
+<li><strong>Créer une copie superficielle d'un tableau :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> original = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> copy = original.<span class="hljs-title function_">concat</span>();
+<span class="hljs-comment">// copy = [1, 2, 3]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6-fusion-de-tableaux-contenant-des-objets-">6. Fusion de Tableaux Contenant des Objets :</h3>
+<ul>
+<li><strong>Combiner des tableaux qui contiennent des objets :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> obj1 = [{ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> }, { <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> }];
+<span class="hljs-keyword">let</span> obj2 = [{ <span class="hljs-attr">c</span>: <span class="hljs-number">3</span> }];
+<span class="hljs-keyword">let</span> combinedObjects = obj1.<span class="hljs-title function_">concat</span>(obj2);
+<span class="hljs-comment">// combinedObjects = [{ a: 1 }, { b: 2 }, { c: 3 }]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="points-importants--1">Points Importants :</h3>
+<ul>
+<li><code>concat()</code> ne modifie pas les tableaux existants mais crée un nouveau tableau.</li>
+<li>Elle peut être utilisée pour combiner n'importe quel nombre de tableaux et/ou de valeurs supplémentaires.</li>
+<li><code>concat()</code> réalise une copie superficielle, ce qui signifie que les objets et les tableaux imbriqués dans les tableaux originaux sont copiés par référence plutôt que dupliqués.</li>
+</ul>
+<p>Ces différentes utilisations montrent la flexibilité de <code>concat()</code> pour fusionner des tableaux et ajouter des éléments à des tableaux en JavaScript.</p>
+
+            
+            
+        </body>
+        </html>

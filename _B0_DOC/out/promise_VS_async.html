@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Fonction Asynchrone &lpar;Async Function&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise#description">mdn_promise</a></p>
+<hr>
+<p>La différence principale entre une fonction asynchrone déclarée avec <code>async function mafonction()</code> et une fonction qui retourne explicitement une nouvelle promesse avec <code>function mafonction() { return new Promise((resolve, reject) =&gt; {}) }</code> réside dans la syntaxe et la lisibilité du code, mais les deux approches ont le même objectif fondamental : gérer les opérations asynchrones.</p>
+<h3 id="fonction-asynchrone-async-function">Fonction Asynchrone (Async Function)</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">mafonction</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Logique asynchrone ici</span>
+}
+</code></pre>
+<ul>
+<li><strong>Syntaxe simplifiée :</strong> L'utilisation du mot-clé <code>async</code> devant une fonction indique automatiquement que la fonction retournera une promesse.</li>
+<li><strong>Gestion des erreurs :</strong> Les erreurs peuvent être capturées avec des blocs <code>try...catch</code>.</li>
+<li><strong>Utilisation de <code>await</code> :</strong> Permet d'écrire du code asynchrone de manière plus lisible, presque comme s'il s'agissait de code synchrone. Le mot-clé <code>await</code> ne peut être utilisé que dans des fonctions asynchrones.</li>
+<li><strong>Retour implicite de promesse :</strong> Toute valeur retournée par une fonction asynchrone est automatiquement encapsulée dans une promesse. Si la fonction retourne une valeur non-promise, cette valeur est emballée dans une promesse résolue. Si la fonction lève une exception, elle retourne une promesse rejetée.</li>
+</ul>
+<h3 id="fonction-retournant-une-promesse">Fonction Retournant une Promesse</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mafonction</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        <span class="hljs-comment">// Logique asynchrone ici</span>
+    });
+}
+</code></pre>
+<ul>
+<li><strong>Contrôle explicite :</strong> Vous créez explicitement une nouvelle promesse. Cela vous donne un contrôle plus direct sur la résolution et le rejet de la promesse.</li>
+<li><strong>Gestion des erreurs :</strong> Les erreurs doivent être gérées en rejetant la promesse (<code>reject</code>).</li>
+<li><strong>Polyvalence :</strong> Peut être utile dans des situations où vous devez convertir des opérations basées sur des callbacks en promesses.</li>
+<li><strong>Pas d’utilisation de <code>await</code> à l’intérieur :</strong> Dans ce contexte, vous ne pouvez pas utiliser <code>await</code> à l'intérieur de la fonction à moins que la fonction elle-même ne soit déclarée <code>async</code>.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>En pratique, les fonctions asynchrones (<code>async/await</code>) sont souvent préférées pour leur syntaxe plus claire et leur facilité de gestion des erreurs. Elles rendent le code asynchrone plus lisible et plus proche d’un style synchrone. Cependant, dans certains cas, notamment lors de la conversion de fonctions basées sur des callbacks en promesses, il peut être nécessaire de retourner explicitement une nouvelle promesse.</p>
+
+            
+            
+        </body>
+        </html>

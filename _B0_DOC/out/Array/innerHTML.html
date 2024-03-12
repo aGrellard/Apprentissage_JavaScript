@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>L'attribut <code>innerHTML</code> en JavaScript est une propriété très utilisée pour interagir avec le contenu d'un élément dans le Document Object Model (DOM). Voici les points clés à connaître sur <code>innerHTML</code> :</p>
+<ol>
+<li>
+<p><strong>Définition</strong> : <code>innerHTML</code> est une propriété des éléments du DOM qui permet de récupérer ou de définir le contenu HTML à l'intérieur d'un élément donné. Ce contenu comprend tous les éléments enfants, y compris le texte, les balises HTML, et les espaces.</p>
+</li>
+<li>
+<p><strong>Utilisation</strong> :</p>
+<ul>
+<li><strong>Obtenir le contenu HTML</strong> : <code>innerHTML</code> peut être utilisé pour obtenir le contenu HTML actuel d'un élément.</li>
+<li><strong>Définir le contenu HTML</strong> : En affectant une chaîne de caractères à <code>innerHTML</code>, vous pouvez modifier le contenu HTML de l'élément. Cette chaîne peut contenir des balises HTML, qui seront interprétées et rendues par le navigateur.</li>
+</ul>
+</li>
+<li>
+<p><strong>Exemple de code</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Obtenir le contenu HTML</span>
+<span class="hljs-keyword">var</span> contenu = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;monElement&quot;</span>).<span class="hljs-property">innerHTML</span>;
+
+<span class="hljs-comment">// Définir le contenu HTML</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;monElement&quot;</span>).<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;&lt;p&gt;Nouveau contenu&lt;/p&gt;&quot;</span>;
+</code></pre>
+</li>
+<li>
+<p><strong>Sécurité</strong> : L'utilisation de <code>innerHTML</code> peut présenter des risques de sécurité, notamment en matière de Cross-Site Scripting (XSS) si le contenu inséré est contrôlé par l'utilisateur. Il est important de s'assurer que le contenu inséré via <code>innerHTML</code> est bien nettoyé et sécurisé.</p>
+</li>
+<li>
+<p><strong>Différence avec <code>textContent</code></strong> : Contrairement à <code>textContent</code>, qui modifie uniquement le texte d'un élément (sans interpréter les balises HTML), <code>innerHTML</code> peut modifier à la fois le texte et les balises HTML.</p>
+</li>
+<li>
+<p><strong>Performance</strong> : L'utilisation de <code>innerHTML</code> pour effectuer de multiples modifications peut être moins performante que d'autres méthodes de manipulation du DOM, comme <code>createElement</code> et <code>appendChild</code>, car elle force le navigateur à reparser et reconstruire une partie du DOM à chaque modification.</p>
+</li>
+</ol>
+<p>En résumé, <code>innerHTML</code> est un outil puissant pour la manipulation de contenu HTML dans des éléments du DOM, mais il doit être utilisé avec précaution, en tenant compte des implications en termes de performance et de sécurité.</p>
+<br>
+<hr>
+<br>
+<p>L'affirmation selon laquelle <code>innerHTML</code> n'est pas spécifié dans le DOM mais est bien supporté par les navigateurs modernes nécessite une clarification. Historiquement, <code>innerHTML</code> n'était pas une partie de la spécification officielle du DOM (Document Object Model) initialement, mais il est devenu une fonctionnalité standard et largement supportée dans les navigateurs modernes. Voici pourquoi :</p>
+<ol>
+<li>
+<p><strong>Origine non standard</strong> : <code>innerHTML</code> a été introduit par Internet Explorer de Microsoft avant de faire partie d'une norme officielle. D'autres navigateurs ont commencé à l'implémenter en raison de sa popularité et de son utilité pratique, bien qu'il n'ait pas été initialement défini dans les spécifications du W3C pour le DOM.</p>
+</li>
+<li>
+<p><strong>Adoption par les navigateurs</strong> : En raison de sa grande utilité pour les développeurs web, <code>innerHTML</code> a été rapidement adopté par d'autres navigateurs web. Cette adoption généralisée a créé un standard de facto, même avant que <code>innerHTML</code> soit inclus dans une spécification formelle.</p>
+</li>
+<li>
+<p><strong>Standardisation</strong> : Finalement, <code>innerHTML</code> a été officiellement standardisé. Il est maintenant inclus dans les spécifications du HTML Living Standard de WHATWG (Web Hypertext Application Technology Working Group). Cette standardisation est une reconnaissance de son rôle crucial dans le développement web et assure une meilleure cohérence et compatibilité entre les navigateurs.</p>
+</li>
+<li>
+<p><strong>Utilisation répandue</strong> : <code>innerHTML</code> est devenu un outil essentiel pour les développeurs web, permettant une manipulation facile et rapide du contenu HTML. Sa simplicité d'utilisation et sa puissance ont contribué à sa popularité.</p>
+</li>
+<li>
+<p><strong>Compatibilité</strong> : Les navigateurs modernes continuent de prendre en charge <code>innerHTML</code> pour des raisons de compatibilité et de facilité de développement. Il est largement utilisé dans de nombreux sites web et frameworks.</p>
+</li>
+</ol>
+<p>En résumé, bien que <code>innerHTML</code> n'ait pas été initialement spécifié dans les standards du DOM, son adoption généralisée et sa fonctionnalité utile ont conduit à sa standardisation ultérieure. Il est maintenant une partie intégrante de la spécification HTML et est largement supporté par tous les navigateurs modernes.</p>
+
+            
+            
+        </body>
+        </html>

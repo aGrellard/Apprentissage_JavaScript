@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Param&egrave;tres ou Arguments</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>Voici la traduction en français du texte :</p>
+<hr>
+<p><img src="file:////js/images/js.png" alt="totn JavaScript"></p>
+<hr>
+<h1 id="javascript--méthode-indexof-de-string">JavaScript : Méthode indexOf() de String</h1>
+<p>Ce tutoriel JavaScript explique comment utiliser la méthode de string appelée indexOf() avec la syntaxe et des exemples.</p>
+<h2 id="description">Description</h2>
+<p>En JavaScript, indexOf() est une méthode de string qui est utilisée pour trouver l'emplacement d'une sous-chaîne dans une chaîne. Étant donné que la méthode indexOf() est une méthode de l'objet String, elle doit être invoquée via une instance particulière de la classe String.</p>
+<h2 id="syntaxe">Syntaxe</h2>
+<p>En JavaScript, la syntaxe pour la méthode indexOf() est :</p>
+<p><em>string</em>.indexOf(substring [, start_position]);</p>
+<h3 id="paramètres-ou-arguments">Paramètres ou Arguments</h3>
+<p>substring</p>
+<p>Il s'agit de la sous-chaîne que vous souhaitez trouver dans <em>string</em>.</p>
+<p>start_position</p>
+<p>Facultatif. C'est la position dans <em>string</em> où la recherche commencera. La première position dans <em>string</em> est 0. Si ce paramètre n'est pas fourni, la recherche débutera au début de <em>string</em> et la chaîne entière sera recherchée.</p>
+<h2 id="retours">Retours</h2>
+<p>La méthode indexOf() renvoie la position de la première occurrence de substring dans <em>string</em>. La première position dans la chaîne est 0.</p>
+<p>Si la méthode indexOf() ne trouve pas le <em>substring</em> dans <em>string</em>, elle renverra -1.</p>
+<h2 id="note">Note</h2>
+<ul>
+<li>La méthode indexOf() effectue une recherche sensible à la casse.</li>
+<li>La méthode indexOf() ne change pas la valeur de la <em>string</em> originale.</li>
+</ul>
+<h2 id="exemple">Exemple</h2>
+<p>Voyons un exemple de comment utiliser la méthode indexOf() en JavaScript.</p>
+<p>Par exemple :</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.indexOf('t'));
+</code></pre>
+<p>Dans cet exemple, nous avons déclaré une variable appelée <em>totn_string</em> qui est assignée à la valeur de chaîne 'TechOnTheNet'. Nous avons ensuite invoqué la méthode indexOf() de la variable <em>totn_string</em> pour rechercher une <em>substring</em> dans <em>totn_string</em>.</p>
+<p>Nous avons écrit la sortie de la méthode indexOf() dans la <a href="open_console_log.php">console log du navigateur web</a>, à des fins de démonstration, pour montrer ce que la méthode indexOf() renvoie.</p>
+<p>Le résultat suivant sera affiché dans la <a href="open_console_log.php">console log du navigateur web</a> :</p>
+<p>11</p>
+<p>Dans cet exemple, la méthode indexOf() a renvoyé 11 car la première occurrence de 't' dans 'TechOnTheNet' se trouve à la position 11 dans la chaîne.</p>
+<h3 id="spécification-dun-paramètre-de-position-de-départ">Spécification d'un Paramètre de Position de Départ</h3>
+<p>Vous pouvez changer la position où la recherche commencera dans la chaîne en fournissant un paramètre <em>start_position</em> à la méthode indexOf().</p>
+<p>Par exemple :</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.indexOf('T',4));
+</code></pre>
+<p>Le résultat suivant sera affiché dans la <a href="open_console_log.php">console log du navigateur web</a> :</p>
+<p>6</p>
+<p>Dans cet exemple, nous avons défini le paramètre <em>start_position</em> à une valeur de 4. Cela signifie que la recherche commencera à chercher la valeur 'T' à partir de la position 4 dans la chaîne. Donc, dans ce cas, la sous-chaîne 'T' est trouvée à la position 6 dans la chaîne 'TechOnTheNet'.</p>
+<h3 id="spécification-de-plusieurs-caractères-comme-la-sous-chaîne">Spécification de Plusieurs Caractères comme la Sous-Chaîne</h3>
+<p>Ensuite, la méthode indexOf() peut rechercher plusieurs caractères dans une chaîne.</p>
+<p>Par exemple :</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.indexOf('The'));
+</code></pre>
+<p>Le résultat suivant sera affiché dans la <a href="open_console_log.php">console log du navigateur web</a> :</p>
+<p>6</p>
+<p>Dans cet exemple, la méthode indexOf() a renvoyé 6, qui est la position de 'The' dans la chaîne 'TechOnTheNet'.</p>
+<p>Puisque la méthode indexOf() ne peut renvoyer qu'une seule valeur, elle renverra la position du premier caractère de la <em>substring</em> lorsque l'occurrence est trouvée, même si la <em>substring</em> est composée de plusieurs caractères.</p>
+<h3 id="aucune-occurrence-trouvée">Aucune Occurrence Trouvée</h3>
+<p>Enfin, la méthode indexOf() renverra -1 si une occurrence de <em>substring</em> n'est pas trouvée dans <em>string</em>.</p>
+<p>Par exemple :</p>
+<pre><code>var totn_string = 'TechOnTheNet';
+
+console.log(totn_string.indexOf('z'));
+</code></pre>
+<p>Le résultat suivant sera affiché dans la [console</p>
+<p>log du navigateur web](open_console_log.php) :</p>
+<p>-1</p>
+<p>Dans cet exemple, la méthode indexOf() a renvoyé -1 car la sous-chaîne 'z' n'est pas trouvée dans la chaîne 'TechOnTheNet'.</p>
+
+            
+            
+        </body>
+        </html>

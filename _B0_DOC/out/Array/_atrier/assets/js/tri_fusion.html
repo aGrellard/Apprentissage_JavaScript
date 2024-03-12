@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Principe de Base</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>Le tri par fusion (ou &quot;merge sort&quot; en anglais) est un algorithme de tri efficace qui utilise une approche &quot;diviser pour régner&quot;. Voici une explication étape par étape de son fonctionnement en JavaScript, avec des exemples :</p>
+<h3 id="principe-de-base">Principe de Base</h3>
+<ol>
+<li><strong>Diviser</strong> : L'algorithme divise récursivement le tableau en deux moitiés jusqu'à ce que chaque sous-tableau ne contienne qu'un seul élément.</li>
+<li><strong>Conquérir</strong> : Il fusionne ensuite ces sous-tableaux pour obtenir un nouveau tableau trié.</li>
+</ol>
+<h3 id="exemple-en-javascript">Exemple en JavaScript</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeSort</span>(<span class="hljs-params">arr</span>) {
+    <span class="hljs-keyword">if</span> (arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> arr;
+    }
+
+    <span class="hljs-comment">// Diviser le tableau en deux</span>
+    <span class="hljs-keyword">const</span> middle = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(arr.<span class="hljs-property">length</span> / <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">const</span> left = arr.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, middle);
+    <span class="hljs-keyword">const</span> right = arr.<span class="hljs-title function_">slice</span>(middle);
+
+    <span class="hljs-comment">// Trier récursivement chaque moitié</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">merge</span>(<span class="hljs-title function_">mergeSort</span>(left), <span class="hljs-title function_">mergeSort</span>(right));
+}
+
+<span class="hljs-comment">// Fusionner deux tableaux triés</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">merge</span>(<span class="hljs-params">left, right</span>) {
+    <span class="hljs-keyword">let</span> result = [];
+    <span class="hljs-keyword">let</span> leftIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> rightIndex = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Tant qu&#x27;il y a des éléments dans les deux tableaux</span>
+    <span class="hljs-keyword">while</span> (leftIndex &lt; left.<span class="hljs-property">length</span> &amp;&amp; rightIndex &lt; right.<span class="hljs-property">length</span>) {
+        <span class="hljs-keyword">if</span> (left[leftIndex] &lt; right[rightIndex]) {
+            result.<span class="hljs-title function_">push</span>(left[leftIndex]);
+            leftIndex++;
+        } <span class="hljs-keyword">else</span> {
+            result.<span class="hljs-title function_">push</span>(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    <span class="hljs-comment">// Concaténer les éléments restants</span>
+    <span class="hljs-keyword">return</span> result.<span class="hljs-title function_">concat</span>(left.<span class="hljs-title function_">slice</span>(leftIndex)).<span class="hljs-title function_">concat</span>(right.<span class="hljs-title function_">slice</span>(rightIndex));
+}
+
+<span class="hljs-comment">// Exemple d&#x27;utilisation</span>
+<span class="hljs-keyword">const</span> array = [<span class="hljs-number">12</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Tableau trié:&#x27;</span>, <span class="hljs-title function_">mergeSort</span>(array));
+</code></pre>
+<h3 id="explication-du-code">Explication du Code</h3>
+<ol>
+<li>
+<p><strong>mergeSort(arr)</strong> : Cette fonction est la fonction principale qui implémente le tri par fusion.</p>
+<ul>
+<li>Si le tableau contient 0 ou 1 élément, il est déjà trié, donc on le retourne tel quel.</li>
+<li>Sinon, le tableau est divisé en deux parties (<code>left</code> et <code>right</code>).</li>
+<li>Chaque partie est triée récursivement en appelant <code>mergeSort</code>.</li>
+<li>Enfin, les deux parties triées sont fusionnées en utilisant la fonction <code>merge</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>merge(left, right)</strong> : Cette fonction fusionne deux tableaux triés.</p>
+<ul>
+<li>On crée un tableau vide <code>result</code> pour stocker les éléments triés.</li>
+<li>Les indices <code>leftIndex</code> et <code>rightIndex</code> sont utilisés pour parcourir les tableaux <code>left</code> et <code>right</code>.</li>
+<li>Dans une boucle, on compare les éléments des deux tableaux et on ajoute le plus petit dans <code>result</code>.</li>
+<li>Une fois qu'on a parcouru l'un des tableaux, on ajoute les éléments restants de l'autre tableau à <code>result</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="complexité">Complexité</h3>
+<ul>
+<li>Temporelle : O(n log n) dans tous les cas.</li>
+<li>Spatiale : O(n) à cause de l'espace supplémentaire nécessaire pour le tableau <code>result</code>.</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3 id="exemple-1-tri-dun-tableau-de-chaînes-de-caractères">Exemple 1: Tri d'un tableau de chaînes de caractères</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> words = [<span class="hljs-string">&quot;pomme&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>, <span class="hljs-string">&quot;banane&quot;</span>, <span class="hljs-string">&quot;fraise&quot;</span>, <span class="hljs-string">&quot;kiwi&quot;</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Tableau de mots trié :&quot;</span>, <span class="hljs-title function_">mergeSort</span>(words));
+</code></pre>
+<p>Dans cet exemple, le Tri par Fusion triera les chaînes de caractères alphabétiquement.</p>
+<h3 id="exemple-2-tri-dun-tableau-dobjets">Exemple 2: Tri d'un tableau d'objets</h3>
+<p>Supposons que nous ayons un tableau d'objets représentant des personnes avec un nom et un âge, et nous voulons trier ce tableau par âge.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> people = [
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">24</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Carol&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Dave&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> }
+];
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">compareByAge</span>(<span class="hljs-params">a, b</span>) {
+    <span class="hljs-keyword">return</span> a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span>;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeSortObjects</span>(<span class="hljs-params">arr, compare</span>) {
+    <span class="hljs-keyword">if</span> (arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> arr;
+    }
+
+    <span class="hljs-keyword">const</span> middle = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(arr.<span class="hljs-property">length</span> / <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">const</span> left = arr.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, middle);
+    <span class="hljs-keyword">const</span> right = arr.<span class="hljs-title function_">slice</span>(middle);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">mergeObjects</span>(<span class="hljs-title function_">mergeSortObjects</span>(left, compare), <span class="hljs-title function_">mergeSortObjects</span>(right, compare), compare);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeObjects</span>(<span class="hljs-params">left, right, compare</span>) {
+    <span class="hljs-keyword">let</span> result = [];
+    <span class="hljs-keyword">let</span> leftIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> rightIndex = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> (leftIndex &lt; left.<span class="hljs-property">length</span> &amp;&amp; rightIndex &lt; right.<span class="hljs-property">length</span>) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-title function_">compare</span>(left[leftIndex], right[rightIndex]) &lt; <span class="hljs-number">0</span>) {
+            result.<span class="hljs-title function_">push</span>(left[leftIndex]);
+            leftIndex++;
+        } <span class="hljs-keyword">else</span> {
+            result.<span class="hljs-title function_">push</span>(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> result.<span class="hljs-title function_">concat</span>(left.<span class="hljs-title function_">slice</span>(leftIndex)).<span class="hljs-title function_">concat</span>(right.<span class="hljs-title function_">slice</span>(rightIndex));
+}
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Personnes triées par âge :&quot;</span>, <span class="hljs-title function_">mergeSortObjects</span>(people, compareByAge));
+</code></pre>
+<p>Ici, <code>mergeSortObjects</code> et <code>mergeObjects</code> sont des variantes des fonctions précédentes, adaptées pour gérer un tableau d'objets et une fonction de comparaison personnalisée.</p>
+<h3 id="exemple-3-tri-en-ordre-décroissant">Exemple 3: Tri en ordre décroissant</h3>
+<p>Pour trier un tableau en ordre décroissant, on peut simplement ajuster la condition dans la fonction <code>merge</code>.</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Dans la fonction merge, changez la condition pour trier en ordre décroissant</span>
+<span class="hljs-keyword">if</span> (left[leftIndex] &gt; right[rightIndex]) {
+    result.<span class="hljs-title function_">push</span>(left[leftIndex]);
+    leftIndex++;
+} <span class="hljs-keyword">else</span> {
+    result.<span class="hljs-title function_">push</span>(right[rightIndex]);
+    rightIndex++;
+}
+
+<span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">34</span>, <span class="hljs-number">7</span>, <span class="hljs-number">23</span>, <span class="hljs-number">32</span>, <span class="hljs-number">5</span>, <span class="hljs-number">62</span>];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Tableau trié en ordre décroissant :&quot;</span>, <span class="hljs-title function_">mergeSort</span>(numbers));
+</code></pre>
+<p>Ces exemples illustrent la flexibilité de l'algorithme de Tri par Fusion. Il peut être adapté pour trier divers types de données, y compris des chaînes, des objets et des nombres, en ordre croissant ou décroissant.</p>
+
+            
+            
+        </body>
+        </html>

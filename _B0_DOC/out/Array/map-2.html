@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La méthode <code>map()</code> en JavaScript est une fonction très polyvalente et puissante pour travailler avec des tableaux. Elle crée un nouveau tableau en appliquant une fonction fournie à chaque élément du tableau sur lequel elle est appelée. Voici plusieurs utilisations courantes de <code>map()</code> :</p>
+<ol>
+<li>
+<p><strong>Transformation des Éléments :</strong></p>
+<ul>
+<li>Modifier chaque élément d'un tableau.</li>
+<li>Exemple : Doubler chaque nombre dans un tableau de nombres.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">let</span> doubled = numbers.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num * <span class="hljs-number">2</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Extraire des Propriétés d'Objets :</strong></p>
+<ul>
+<li>Extraire une propriété spécifique de chaque objet dans un tableau d'objets.</li>
+<li>Exemple : Extraire une liste de noms d'un tableau d'utilisateurs.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> names = users.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> user.<span class="hljs-property">name</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Conversion de Types de Données :</strong></p>
+<ul>
+<li>Convertir des éléments d'un type à un autre.</li>
+<li>Exemple : Convertir un tableau de chaînes de caractères en nombres.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> stringNumbers = [<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>];
+<span class="hljs-keyword">let</span> numbers = stringNumbers.<span class="hljs-title function_">map</span>(<span class="hljs-title class_">Number</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Réaliser des Opérations Complexes :</strong></p>
+<ul>
+<li>Effectuer des calculs ou des opérations plus complexes sur les éléments.</li>
+<li>Exemple : Ajouter une propriété à chaque objet dans un tableau.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>}];
+<span class="hljs-keyword">let</span> usersWithAge = users.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> ({ ...user, <span class="hljs-attr">age</span>: user.<span class="hljs-property">name</span>.<span class="hljs-property">length</span> * <span class="hljs-number">10</span> }));
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Créer une Nouvelle Représentation :</strong></p>
+<ul>
+<li>Construire un nouveau tableau d'objets ou de structures à partir d'un tableau existant.</li>
+<li>Exemple : Créer un tableau de chaînes de caractères à partir d'objets.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+<span class="hljs-keyword">let</span> userInfo = users.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${user.name}</span> is <span class="hljs-subst">${user.age}</span> years old`</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Combiner <code>map()</code> avec d'autres Méthodes de Tableau :</strong></p>
+<ul>
+<li>Chaîner <code>map()</code> avec d'autres méthodes comme <code>filter()</code>, <code>reduce()</code> pour des transformations de données plus complexes.</li>
+<li>Exemple : Filtrer un tableau puis mapper les résultats.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> doubledEvenNumbers = numbers.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num * <span class="hljs-number">2</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Manipulation de Structures de Données :</strong></p>
+<ul>
+<li>Utiliser <code>map()</code> pour manipuler des tableaux de tableaux ou d'autres structures de données complexes.</li>
+<li>Exemple : Aplatir un tableau de tableaux.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> matrix = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]];
+<span class="hljs-keyword">let</span> flat = matrix.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">row</span> =&gt;</span> row.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;, &#x27;</span>)).<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;; &#x27;</span>);
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><code>map()</code> est essentiellement une méthode de transformation de tableau qui permet d'appliquer une fonction à chaque élément d'un tableau et de construire un nouveau tableau avec les résultats. Cette méthode est largement utilisée pour sa simplicité, son élégance et sa puissance dans la manipulation des tableaux.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

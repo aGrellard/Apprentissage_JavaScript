@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Node.js</title>
+    <link rel="stylesheet" href="style.css"> <!-- Assurez-vous d'avoir un fichier CSS -->
+</head>
+<body>
+    <div class="button-group">
+        <div>
+            <button type="button" disabled>Demarer Sesseion</button>
+            <select id="questions-type">
+                <option value="0">--Type de questions--</option>
+                <option value="1">Array - 1</option>
+                <option value="2">Mixte - 1</option>
+            </select>
+        </div>
+        
+        <ul>
+            <li class="li-disabled"><p>Connection WebSocket</p></li>
+            <li class="li-disabled"><p>Session</p></li>
+            <li class="li-disabled"><p>Type</p></li>
+        </ul>
+
+    </div>
+    <h1>Envoyer du code</h1>
+    <form id="codeForm">
+        <textarea id="codeInput" name="code" rows="15" cols="50" placeholder="Entrez votre code ici"></textarea>
+        <button type="submit" disabled>Envoyer</button>
+        <button type="button" disabled>Envoyer et attendre</button>
+    </form>
+    <div id="messages"></div>
+    <div class="statistic">
+        <div class="sessions-list">
+                <select id="sessions-list">
+                </select>
+                <button id="sessions-list-get">Get</button>
+
+            <div class="statistic-status">
+                
+            </div>
+        </div>
+        <div class="statistic-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>id</th>
+                        <th>time</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script> <!-- Assurez-vous d'avoir ce fichier JavaScript -->
+</body>
+</html>

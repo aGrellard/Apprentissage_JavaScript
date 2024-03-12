@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.ws-activated {
+    background-color: #28a745;
+}
+
+.button-group {
+    width: 100%;
+    position: relative;    
+    display: flex;
+    height: 20vh;
+}
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    height: 40px;
+    box-shadow: 0 0 4px#000;
+}
+button:hover {
+    background-color: #0056b3;
+}
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+button:disabled:hover {
+    background-color: #6c757d;
+}
+button.bt-bg-green {
+    background-color: #28a745;
+}
+button.bt-bg-green:hover {
+    background-color: #218838;
+}
+button.bt-bg-green:disabled {
+    background-color: #28a745;
+}
+button.bt-bg-green:disabled:hover {
+    background-color: #28a745;
+}
+button.bt-bg-red {
+    background-color: #dc3545;
+}
+button.bt-bg-red:hover {
+    background-color: #c82333;
+}
+button.bt-bg-red:disabled {
+    background-color: #dc3545;
+}
+button.bt-bg-red:disabled:hover {
+    background-color: #dc3545;
+}
+.button-group div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+ul {
+    list-style: none;
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+ul li {
+    background-color: #28a745;
+    padding: .6rem;
+    margin: .2rem;
+    color: white;
+    user-select: none;
+    box-shadow: 0 0 4px#000;
+    height: 40px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: #000 1px 1px .5rem;
+
+}
+ul .li-disabled {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+}
+ul li:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+form button:not(:last-child) {
+    margin-right: .5rem;
+}
+
+form {
+    margin-top: .5rem;
+}
+
+select {
+    height: 40px;
+    padding: .5rem;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom: .7rem;
+}
+
+#messages {
+    margin-top: 20px;
+}
+
+.statistic {
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+.sessions-list {
+    width: fit-content;
+}
+.statistic-status {
+    margin-top: 1rem;
+}
+.statistic-table {
+    min-width: 50%;
+    max-width: 100%;
+    border:  1px solid #B8B8B8;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th, table td {
+    width: auto
+}
+table td {
+    height: 1.5rem;
+    cursor: pointer;
+
+}
+table tr:nth-of-type(even) {
+    background-color: #b1b1b1;
+}
+table tr:nth-of-type(odd) {
+    background-color: #f1efef;
+
+}
+table thead tr th{
+    text-align: left;
+    background-color: #abaaaa;
+}
+
+

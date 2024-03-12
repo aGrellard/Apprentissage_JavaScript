@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La méthode <code>sort()</code> en JavaScript est utilisée pour trier les éléments d'un tableau in place selon un critère spécifique fourni par une fonction de comparaison. Si aucune fonction de comparaison n'est fournie, le tableau est trié en convertissant ses éléments en chaînes de caractères et en les comparant selon l'ordre des unités de code UTF-16.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">sort</span>([compareFunction])
+</code></pre>
+<ul>
+<li><strong>array</strong> : Le tableau à trier.</li>
+<li><strong>compareFunction</strong> (optionnelle) : Une fonction qui définit l'ordre de tri. Elle doit renvoyer un nombre négatif, zéro ou un nombre positif, selon que le premier argument doit être classé avant, égal ou après le deuxième argument, respectivement.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ol>
+<li>
+<p><strong>Sans Fonction de Comparaison :</strong></p>
+<ul>
+<li>Si <code>compareFunction</code> n'est pas fournie, les éléments du tableau sont convertis en chaînes de caractères et triés selon les valeurs des unités de code UTF-16 de ces chaînes.</li>
+<li>Exemple : <code>[&quot;10&quot;, &quot;2&quot;, &quot;1&quot;].sort()</code> donnera <code>[&quot;1&quot;, &quot;10&quot;, &quot;2&quot;]</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Avec Fonction de Comparaison :</strong></p>
+<ul>
+<li>Si <code>compareFunction(a, b)</code> est fournie, alors elle détermine l'ordre des éléments <code>a</code> et <code>b</code>.</li>
+<li>Si elle renvoie un nombre <strong>inférieur à 0</strong>, <code>a</code> sera classé avant <code>b</code>.</li>
+<li>Si elle renvoie <strong>0</strong>, l'ordre de <code>a</code> et <code>b</code> reste inchangé par rapport à l'ordre original.</li>
+<li>Si elle renvoie un nombre <strong>supérieur à 0</strong>, <code>b</code> sera classé avant <code>a</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Tri de Nombres :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>];
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+<span class="hljs-comment">// Trie les nombres en ordre croissant : [1, 1, 3, 4, 5, 9]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Tri de Chaînes de Caractères :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&#x27;banane&#x27;</span>, <span class="hljs-string">&#x27;Pomme&#x27;</span>, <span class="hljs-string">&#x27;cerise&#x27;</span>];
+fruits.<span class="hljs-title function_">sort</span>();
+<span class="hljs-comment">// Trie les chaînes de caractères : [&#x27;Pomme&#x27;, &#x27;banane&#x27;, &#x27;cerise&#x27;]</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Tri Insensible à la Casse :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&#x27;banane&#x27;</span>, <span class="hljs-string">&#x27;Pomme&#x27;</span>, <span class="hljs-string">&#x27;cerise&#x27;</span>];
+fruits.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-literal">undefined</span>, {<span class="hljs-attr">sensitivity</span>: <span class="hljs-string">&#x27;base&#x27;</span>}));
+<span class="hljs-comment">// Trie les chaînes de caractères sans tenir compte de la casse</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Tri de Tableaux d'Objets :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span>}];
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">name</span>.<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-property">name</span>) || a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span>);
+<span class="hljs-comment">// Trie les personnes d&#x27;abord par nom, puis par âge en cas de noms identiques</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>sort()</code> trie le tableau sur place et modifie donc le tableau original.</li>
+<li>Le comportement de tri par défaut peut produire des résultats inattendus, en particulier pour des nombres. Toujours fournir une fonction de comparaison pour des tris autres que lexicographiques.</li>
+<li><code>sort()</code> est considéré comme stable à partir d'ECMAScript 2019, ce qui signifie que les éléments égaux selon la fonction de comparaison conservent leur ordre original.</li>
+</ul>
+<br>
+<hr>
+<br>
+<h3 id="1-tri-simple-de-tableaux-de-chaînes-de-caractères-">1. Tri Simple de Tableaux de Chaînes de Caractères :</h3>
+<ul>
+<li>Tri par ordre alphabétique.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&#x27;banane&#x27;</span>, <span class="hljs-string">&#x27;pomme&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>];
+fruits.<span class="hljs-title function_">sort</span>();
+</code></pre>
+</li>
+</ul>
+<h3 id="2-tri-de-tableaux-de-nombres-">2. Tri de Tableaux de Nombres :</h3>
+<ul>
+<li>Par défaut, <code>sort()</code> trie les éléments comme des chaînes de caractères. Pour trier numériquement, une fonction de comparaison est nécessaire.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+</code></pre>
+</li>
+</ul>
+<h3 id="3-tri-inverse-">3. Tri Inverse :</h3>
+<ul>
+<li>Tri en ordre décroissant.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>];
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> b - a);
+</code></pre>
+</li>
+</ul>
+<h3 id="4-tri-de-tableaux-dobjets-">4. Tri de Tableaux d'Objets :</h3>
+<ul>
+<li>Tri selon une propriété spécifique des objets.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="5-tri-stable-ou-instable-">5. Tri Stable ou Instable :</h3>
+<ul>
+<li>Depuis ES2019, <code>sort()</code> est stable pour les tableaux avec 10 éléments ou plus, ce qui signifie que l'ordre relatif des éléments égaux est préservé.</li>
+</ul>
+<h3 id="6-tri-avec-une-fonction-de-comparaison-complexe-">6. Tri avec une Fonction de Comparaison Complexe :</h3>
+<ul>
+<li>Utiliser une logique complexe pour déterminer l'ordre.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> items = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Banane&#x27;</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">5</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Pomme&#x27;</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">20</span>}];
+items.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">name</span>.<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-property">name</span>) || b.<span class="hljs-property">quantity</span> - a.<span class="hljs-property">quantity</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="7-tri-sensible-à-la-casse-et-insensible-à-la-casse-">7. Tri Sensible à la Casse et Insensible à la Casse :</h3>
+<ul>
+<li>Tri sensible à la casse (comportement par défaut).<pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>];
+words.<span class="hljs-title function_">sort</span>();
+</code></pre>
+</li>
+<li>Tri insensible à la casse.<pre><code class="language-javascript">words.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">toLowerCase</span>().<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-title function_">toLowerCase</span>()));
+</code></pre>
+</li>
+</ul>
+<h3 id="8-tri-basé-sur-des-critères-multiples-">8. Tri Basé sur des Critères Multiples :</h3>
+<ul>
+<li>Combinaison de plusieurs critères pour le tri.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> people = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}];
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">name</span>.<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-property">name</span>) || a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="9-utilisation-avec-des-chaînes-unicode-">9. Utilisation avec des Chaînes Unicode :</h3>
+<ul>
+<li>Tri de chaînes avec des caractères spéciaux ou dans différentes langues.<pre><code class="language-javascript"><span class="hljs-keyword">let</span> words = [<span class="hljs-string">&#x27;résumé&#x27;</span>, <span class="hljs-string">&#x27;café&#x27;</span>, <span class="hljs-string">&#x27;éclair&#x27;</span>];
+words.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b));
+</code></pre>
+</li>
+</ul>
+<p><code>sort()</code> est une méthode très puissante pour organiser des données en JavaScript. Cependant, il est important de se rappeler que <code>sort()</code> modifie le tableau original et que le tri par défaut est basé sur la conversion des éléments en chaînes de caractères, ce qui peut ne pas être intuitif pour les nombres et certains types de données.</p>
+<br>
+<hr>
+<br>
+<ol>
+<li>
+<p><strong>Tri de chaînes de caractères</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri simple de chaînes</span>
+<span class="hljs-keyword">let</span> fruits = [<span class="hljs-string">&quot;Banane&quot;</span>, <span class="hljs-string">&quot;Cerise&quot;</span>, <span class="hljs-string">&quot;Abricot&quot;</span>];
+fruits.<span class="hljs-title function_">sort</span>();
+
+<span class="hljs-comment">// Tri insensible à la casse</span>
+<span class="hljs-keyword">let</span> mixedCaseFruits = [<span class="hljs-string">&quot;banane&quot;</span>, <span class="hljs-string">&quot;Cerise&quot;</span>, <span class="hljs-string">&quot;abricot&quot;</span>];
+mixedCaseFruits.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">toLowerCase</span>().<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-title function_">toLowerCase</span>()));
+</code></pre>
+</li>
+<li>
+<p><strong>Tri de nombres</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri croissant</span>
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>];
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+
+<span class="hljs-comment">// Tri décroissant</span>
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> b - a);
+</code></pre>
+</li>
+<li>
+<p><strong>Tri de dates</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri de dates (croissant)</span>
+<span class="hljs-keyword">let</span> dates = [<span class="hljs-string">&quot;2024/01/02&quot;</span>, <span class="hljs-string">&quot;2024/01/01&quot;</span>, <span class="hljs-string">&quot;2024/01/03&quot;</span>];
+dates.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(a) - <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(b));
+
+<span class="hljs-comment">// Tri de dates (décroissant)</span>
+dates.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(b) - <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(a));
+</code></pre>
+</li>
+<li>
+<p><strong>Tri de tableaux d'objets</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri selon une propriété spécifique (ex: age)</span>
+<span class="hljs-keyword">let</span> people = [{ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Carol&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">35</span> }];
+
+<span class="hljs-comment">// Croissant</span>
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span>);
+
+<span class="hljs-comment">// Décroissant</span>
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> b.<span class="hljs-property">age</span> - a.<span class="hljs-property">age</span>);
+</code></pre>
+</li>
+<li>
+<p><strong>Tri avec des critères multiples</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri par nom puis par âge</span>
+people.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> nameOrder = a.<span class="hljs-property">name</span>.<span class="hljs-title function_">localeCompare</span>(b.<span class="hljs-property">name</span>);
+    <span class="hljs-keyword">return</span> nameOrder === <span class="hljs-number">0</span> ? a.<span class="hljs-property">age</span> - b.<span class="hljs-property">age</span> : nameOrder;
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Tri stable</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Le tri est stable par défaut dans les versions modernes de JavaScript</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Tri personnalisé</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Exemple de tri complexe selon une logique métier spécifique</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Tri selon la localisation</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri en respectant les règles linguistiques (exemple avec l&#x27;allemand)</span>
+<span class="hljs-keyword">let</span> germanWords = [<span class="hljs-string">&quot;äpfel&quot;</span>, <span class="hljs-string">&quot;fuss&quot;</span>, <span class="hljs-string">&quot;apfel&quot;</span>];
+germanWords.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-title function_">localeCompare</span>(b, <span class="hljs-string">&#x27;de&#x27;</span>));
+</code></pre>
+</li>
+<li>
+<p><strong>Tri inversé</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Après un tri initial, inverser l&#x27;ordre</span>
+numbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b).<span class="hljs-title function_">reverse</span>();
+</code></pre>
+</li>
+<li>
+<p><strong>Tri selon des conditions conditionnelles</strong> :</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// Tri selon des conditions spécifiques</span>
+<span class="hljs-keyword">let</span> mixedNumbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">3</span>];
+mixedNumbers.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span> &amp;&amp; b &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> a - b; <span class="hljs-comment">// Trier les nombres négatifs en ordre croissant</span>
+    <span class="hljs-keyword">if</span> (a &gt;= <span class="hljs-number">0</span> &amp;&amp; b &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> a - b; <span class="hljs-comment">// Trier les nombres positifs en ordre croissant</span>
+    <span class="hljs-keyword">return</span> a &lt; b ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>; <span class="hljs-comment">// Mettre les nombres négatifs en premier</span>
+});
+</code></pre>
+</li>
+</ol>
+<p>Ces exemples illustrent comment la méthode <code>sort</code> peut être utilisée de manière flexible pour différents types de données et besoins de tri.</p>
+
+            
+            
+        </body>
+        </html>

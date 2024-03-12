@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>find()</code> en JavaScript est une méthode de l'objet <code>Array</code> qui permet de trouver le premier élément d'un tableau qui satisfait à une condition définie dans une fonction de rappel. C'est une méthode très utile pour chercher des éléments dans un tableau lorsque ces éléments sont des objets ou des structures complexes.</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">find</span>(<span class="hljs-title function_">callback</span>(element[, index[, array]])[, thisArg])
+</code></pre>
+<ul>
+<li><strong>callback</strong> : Une fonction qui est appelée pour chaque élément du tableau, jusqu'à ce qu'elle renvoie <code>true</code>. Cette fonction peut prendre jusqu'à trois arguments :
+<ul>
+<li><strong>element</strong> : L'élément actuel du tableau en cours de traitement.</li>
+<li><strong>index</strong> (optionnel) : L'indice de l'élément actuel.</li>
+<li><strong>array</strong> (optionnel) : Le tableau sur lequel <code>find()</code> a été appelé.</li>
+</ul>
+</li>
+<li><strong>thisArg</strong> (optionnel) : Une valeur à utiliser comme <code>this</code> lors de l'exécution de la fonction de rappel.</li>
+</ul>
+<h3 id="fonctionnement-">Fonctionnement :</h3>
+<ul>
+<li>La méthode <code>find()</code> parcourt le tableau et exécute la fonction de rappel sur chaque élément.</li>
+<li>Si la fonction de rappel renvoie <code>true</code> pour un élément, <code>find()</code> renvoie immédiatement cet élément et arrête la recherche.</li>
+<li>Si aucun élément ne satisfait à la condition, <code>find()</code> renvoie <code>undefined</code>.</li>
+</ul>
+<h3 id="exemples-">Exemples :</h3>
+<ol>
+<li>
+<p><strong>Trouver un Élément dans un Tableau de Nombres :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> found = numbers.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num &gt; <span class="hljs-number">3</span>); <span class="hljs-comment">// Trouve le premier nombre supérieur à 3</span>
+<span class="hljs-comment">// found = 4</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Trouver un Objet dans un Tableau d'Objets :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}];
+<span class="hljs-keyword">let</span> user = users.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> user.<span class="hljs-property">name</span> === <span class="hljs-string">&quot;Bob&quot;</span>);
+<span class="hljs-comment">// user = {name: &quot;Bob&quot;, age: 25}</span>
+</code></pre>
+</li>
+<li>
+<p><strong>Utilisation avec des Indices ou le Tableau Complet :</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>}, {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>}];
+<span class="hljs-keyword">let</span> user = users.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">user, index, arr</span>) =&gt;</span> user.<span class="hljs-property">age</span> &lt; <span class="hljs-number">30</span> &amp;&amp; arr.<span class="hljs-property">length</span> &gt; <span class="hljs-number">1</span>);
+<span class="hljs-comment">// user = {name: &quot;Bob&quot;, age: 25}</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="points-importants-">Points Importants :</h3>
+<ul>
+<li><code>find()</code> est particulièrement utile pour les tableaux d'objets ou pour trouver un élément selon des critères spécifiques.</li>
+<li>Elle ne modifie pas le tableau sur lequel elle est appelée.</li>
+<li>Contrairement à des méthodes comme <code>filter()</code>, <code>find()</code> renvoie le premier élément qui satisfait à la condition, plutôt qu'un tableau d'éléments.</li>
+<li>Si la condition n'est remplie par aucun élément, <code>find()</code> renvoie <code>undefined</code>.</li>
+</ul>
+<br>
+<hr>
+<br>
+<blockquote>
+<p>La méthode <code>find()</code> en JavaScript est utilisée pour chercher le premier élément d'un tableau qui satisfait une condition définie par une fonction de rappel. Voici plusieurs utilisations courantes de <code>find()</code> :</p>
+</blockquote>
+<h3 id="1-trouver-un-élément-basé-sur-une-condition-simple-">1. Trouver un Élément Basé sur une Condition Simple :</h3>
+<ul>
+<li><strong>Rechercher un nombre spécifique dans un tableau de nombres :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">12</span>, <span class="hljs-number">15</span>];
+<span class="hljs-keyword">let</span> found = numbers.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num &gt; <span class="hljs-number">10</span>); <span class="hljs-comment">// Trouve 12, le premier nombre supérieur à 10</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="2-recherche-dans-un-tableau-dobjets-">2. Recherche dans un Tableau d'Objets :</h3>
+<ul>
+<li><strong>Trouver un objet qui correspond à des critères spécifiques :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">25</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Carol&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> }
+];
+<span class="hljs-keyword">let</span> user = users.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> user.<span class="hljs-property">name</span> === <span class="hljs-string">&#x27;Bob&#x27;</span>); <span class="hljs-comment">// Trouve l&#x27;objet utilisateur pour Bob</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3-utilisation-avec-des-indices-et-le-tableau-complet-">3. Utilisation avec des Indices et le Tableau Complet :</h3>
+<ul>
+<li><strong>Utiliser l'indice ou le tableau complet dans la condition de recherche :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> users = [<span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Carol&#x27;</span>];
+<span class="hljs-keyword">let</span> found = users.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">user, index</span>) =&gt;</span> user.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;C&#x27;</span>) &amp;&amp; index &gt; <span class="hljs-number">1</span>); <span class="hljs-comment">// Trouve &#x27;Carol&#x27;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="4-trouver-un-élément-dans-un-tableau-de-chaînes-de-caractères-">4. Trouver un Élément dans un Tableau de Chaînes de Caractères :</h3>
+<ul>
+<li><strong>Rechercher une chaîne de caractères qui remplit une condition :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;yellow&#x27;</span>];
+<span class="hljs-keyword">let</span> color = colors.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">color</span> =&gt;</span> color.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;g&#x27;</span>)); <span class="hljs-comment">// Trouve &#x27;green&#x27;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="5-utilisation-pour-la-validation-">5. Utilisation pour la Validation :</h3>
+<ul>
+<li><strong>Valider des éléments d'un tableau pour vérifier une condition :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>];
+<span class="hljs-keyword">let</span> invalidNumber = numbers.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">2</span> !== <span class="hljs-number">0</span>); <span class="hljs-comment">// undefined, car tous les nombres sont pairs</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6-recherche-avec-des-conditions-composées-">6. Recherche avec des Conditions Composées :</h3>
+<ul>
+<li><strong>Combiner plusieurs conditions pour trouver un élément :</strong><pre><code class="language-javascript"><span class="hljs-keyword">let</span> products = [
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Phone&#x27;</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">700</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Laptop&#x27;</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">1500</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tablet&#x27;</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">800</span> }
+];
+<span class="hljs-keyword">let</span> expensiveProduct = products.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> product.<span class="hljs-property">price</span> &gt; <span class="hljs-number">1000</span>); <span class="hljs-comment">// Trouve le &#x27;Laptop&#x27;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="points-importants--1">Points Importants :</h3>
+<ul>
+<li><code>find()</code> renvoie le premier élément qui satisfait à la condition de la fonction de rappel.</li>
+<li>Si aucun élément ne satisfait à la condition, <code>find()</code> renvoie <code>undefined</code>.</li>
+<li>La fonction de rappel peut prendre trois arguments : l'élément en cours, son indice et le tableau.</li>
+<li><code>find()</code> est particulièrement utile pour les tableaux d'objets ou les situations où il faut trouver un élément unique répondant à des critères spécifiques.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p><code>-Infinity</code> en JavaScript représente une valeur numérique qui est inférieure à toutes les autres valeurs numériques. En termes mathématiques, c'est l'équivalent de l'infini négatif. Voici quelques points clés pour comprendre <code>-Infinity</code> :</p>
+<ol>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li><code>-Infinity</code> est une propriété globale qui représente une valeur inférieure à la limite la plus basse des nombres représentables en JavaScript.</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Elle est souvent utilisée dans des calculs qui nécessitent une initialisation avec une valeur extrêmement basse, par exemple, lors de la recherche de la valeur maximale dans un tableau de nombres. En commençant avec <code>-Infinity</code>, n'importe quel autre nombre rencontré sera plus grand.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comparaison :</strong></p>
+<ul>
+<li>Tout nombre comparé à <code>-Infinity</code> sera plus grand, sauf <code>-Infinity</code> lui-même.</li>
+<li>Par exemple, <code>(-Infinity &lt; 0)</code> est <code>true</code> et <code>(-Infinity &lt; -1000000)</code> est également <code>true</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Arithmétique :</strong></p>
+<ul>
+<li>Des opérations mathématiques impliquant <code>-Infinity</code> suivront les règles normales de l'arithmétique infinie. Par exemple, <code>(-Infinity + 1)</code> est toujours <code>-Infinity</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Type :</strong></p>
+<ul>
+<li>Le type de <code>-Infinity</code>, selon l'opérateur <code>typeof</code>, est <code>'number'</code>. Cela signifie que <code>-Infinity</code> est considéré comme un nombre en JavaScript, bien qu'il représente une notion mathématique abstraite.</li>
+</ul>
+</li>
+<li>
+<p><strong>Overflow et Underflow :</strong></p>
+<ul>
+<li><code>-Infinity</code> peut également résulter d'un underflow, où une opération mathématique aboutit à un nombre plus petit que ce qui peut être représenté.</li>
+</ul>
+</li>
+<li>
+<p><strong>JSON :</strong></p>
+<ul>
+<li>Si vous encodez <code>-Infinity</code> en JSON en utilisant <code>JSON.stringify()</code>, il sera converti en <code>null</code>, car <code>Infinity</code> et <code>-Infinity</code> ne sont pas valides en JSON.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vérification :</strong></p>
+<ul>
+<li>Pour vérifier si une variable est <code>-Infinity</code>, utilisez l'égalité (<code>value === -Infinity</code>).</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> x = -<span class="hljs-number">1</span> / <span class="hljs-number">0</span>; <span class="hljs-comment">// Résultat en -Infinity</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x === -<span class="hljs-title class_">Infinity</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<p><code>-Infinity</code> est donc un concept important en JavaScript, surtout lors de la manipulation de calculs mathématiques et de comparaisons.</p>
+
+            
+            
+        </body>
+        </html>

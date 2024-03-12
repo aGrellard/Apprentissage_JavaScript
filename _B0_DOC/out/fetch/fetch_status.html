@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La méthode <code>fetch</code> en JavaScript est utilisée pour effectuer des requêtes HTTP vers des serveurs web. L'un des aspects les plus importants de cette méthode est l'objet de réponse, qui contient une propriété <code>.status</code>. Cette propriété renvoie le code de statut HTTP de la réponse. Voici une liste des codes de statut HTTP les plus courants et leur signification :</p>
+<ul>
+<li><code>200 OK</code> : La requête a réussi, et la réponse contient les données demandées.</li>
+<li><code>201 Created</code> : La requête a réussi, et une nouvelle ressource a été créée en conséquence.</li>
+<li><code>202 Accepted</code> : La requête a été acceptée pour traitement, mais le traitement n'est pas terminé.</li>
+<li><code>204 No Content</code> : La requête a réussi, mais il n'y a pas de contenu à renvoyer.</li>
+<li><code>301 Moved Permanently</code> : L'URI demandé a été déplacé de manière permanente vers un nouvel emplacement.</li>
+<li><code>302 Found</code> : L'URI demandé a été temporairement déplacé vers un nouvel emplacement.</li>
+<li><code>304 Not Modified</code> : Les données demandées n'ont pas été modifiées depuis la dernière requête.</li>
+<li><code>400 Bad Request</code> : La requête ne peut pas être traitée en raison d'une syntaxe incorrecte.</li>
+<li><code>401 Unauthorized</code> : Authentification requise pour accéder à la ressource.</li>
+<li><code>403 Forbidden</code> : Le serveur a compris la requête mais refuse de l'autoriser.</li>
+<li><code>404 Not Found</code> : La ressource demandée n'a pas été trouvée sur le serveur.</li>
+<li><code>405 Method Not Allowed</code> : La méthode de requête est connue par le serveur mais n'est pas prise en charge par la cible.</li>
+<li><code>500 Internal Server Error</code> : Erreur générique lorsque le serveur rencontre une situation inattendue.</li>
+<li><code>501 Not Implemented</code> : Le serveur ne prend pas en charge la fonctionnalité requise pour répondre à la requête.</li>
+<li><code>503 Service Unavailable</code> : Le serveur n'est pas disponible, souvent en raison d'une surcharge ou de travaux de maintenance.</li>
+</ul>
+<p>Ces codes sont une partie standard du protocole HTTP et sont utilisés par les serveurs web pour indiquer le résultat d'une requête client.</p>
+
+            
+            
+        </body>
+        </html>

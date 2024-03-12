@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Syntaxe de base &colon;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>La fonction <code>reduce()</code> en JavaScript est une méthode puissante et polyvalente appliquée aux tableaux. Elle est utilisée pour réduire un tableau à une seule valeur. Cette méthode exécute une fonction réductrice que vous fournissez sur chaque élément du tableau, en résultant en une seule valeur de sortie. Voici une description plus détaillée :</p>
+<h3 id="syntaxe-de-base-">Syntaxe de base :</h3>
+<pre><code class="language-javascript">array.<span class="hljs-title function_">reduce</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">accumulateur, valeurCourante, index, array</span>), valeurInitiale)
+</code></pre>
+<ul>
+<li><strong>accumulateur (acc)</strong> : Le cumul des valeurs retournées par la fonction réductrice. C'est la valeur accumulée renvoyée après chaque itération.</li>
+<li><strong>valeurCourante (val)</strong> : L'élément actuellement traité dans le tableau.</li>
+<li><strong>index (optionnel)</strong> : L'indice de l'élément actuellement traité dans le tableau.</li>
+<li><strong>array (optionnel)</strong> : Le tableau sur lequel la méthode <code>reduce()</code> a été appelée.</li>
+<li><strong>valeurInitiale (optionnel)</strong> : Une valeur à utiliser comme premier argument lors du premier appel de la fonction réductrice. Si aucune valeur initiale n'est fournie, le premier élément du tableau sera utilisé comme accumulateur initial et la réduction commencera à partir du deuxième élément.</li>
+</ul>
+<h3 id="fonctionnement-de-reduce-">Fonctionnement de <code>reduce()</code> :</h3>
+<ol>
+<li>
+<p><strong>Itération sur le Tableau :</strong></p>
+<ul>
+<li><code>reduce()</code> itère sur chaque élément du tableau, un par un.</li>
+</ul>
+</li>
+<li>
+<p><strong>Application de la Fonction Réductrice :</strong></p>
+<ul>
+<li>À chaque itération, la fonction réductrice est appelée avec quatre arguments : l'accumulateur, la valeur courante, l'indice courant et le tableau lui-même.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accumulation :</strong></p>
+<ul>
+<li>La valeur retournée par la fonction réductrice à chaque itération est passée comme accumulateur à la prochaine itération.</li>
+</ul>
+</li>
+<li>
+<p><strong>Valeur Finale :</strong></p>
+<ul>
+<li>Après la dernière itération, <code>reduce()</code> renvoie la valeur finale de l'accumulateur.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exemple-dutilisation-">Exemple d'Utilisation :</h3>
+<p>Pour illustrer, considérons un tableau <code>[1, 2, 3, 4]</code> et calculons la somme de ses éléments :</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> somme = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>].<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val, <span class="hljs-number">0</span>);
+</code></pre>
+<p>Ici, la fonction réductrice additionne chaque valeur (<code>val</code>) au total accumulé (<code>acc</code>). La valeur initiale de l'accumulateur est <code>0</code>. Ainsi, après avoir traité tous les éléments, <code>somme</code> contiendra <code>10</code>.</p>
+<h3 id="utilisations-courantes-de-reduce-">Utilisations courantes de <code>reduce()</code> :</h3>
+<ul>
+<li>Calculer des sommes ou des moyennes.</li>
+<li>Transformer des tableaux en objets ou d'autres structures de données.</li>
+<li>Filtrer et concaténer des éléments en une seule opération.</li>
+<li>Et bien plus, grâce à sa nature flexible et puissante.</li>
+</ul>
+<p>En résumé, <code>reduce()</code> est une méthode extrêmement versatile pour transformer un tableau en une seule valeur en appliquant une fonction réductrice spécifiée à chaque élément du tableau.</p>
+<br>
+<hr>
+<br>
+<p>La méthode <code>reduce()</code> en JavaScript est un outil puissant pour travailler avec des arrays. Elle permet d'exécuter une fonction réductrice sur chaque élément d'un array, en les accumulant pour produire une seule valeur. Voici quelques utilisations courantes de la méthode <code>reduce()</code> :</p>
+<ol>
+<li>
+<p><strong>Somme des éléments d'un array</strong> :
+Calculer la somme de tous les éléments d'un array numérique.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">const</span> sum = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, currentValue</span>) =&gt;</span> accumulator + currentValue, <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+<li>
+<p><strong>Calcul de la moyenne</strong> :
+Trouver la moyenne des éléments d'un array numérique.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">const</span> average = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, currentValue, index, array</span>) =&gt;</span> {
+    accumulator += currentValue;
+    <span class="hljs-keyword">if</span>(index === array.<span class="hljs-property">length</span>-<span class="hljs-number">1</span>) { 
+        <span class="hljs-keyword">return</span> accumulator / array.<span class="hljs-property">length</span>; 
+    } <span class="hljs-keyword">else</span> { 
+        <span class="hljs-keyword">return</span> accumulator; 
+    }
+}, <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+<li>
+<p><strong>Comptage d'occurrences</strong> :
+Compter le nombre d'occurrences de chaque élément dans un array.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;apple&#x27;</span>];
+<span class="hljs-keyword">const</span> count = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, fruit</span>) =&gt;</span> {
+    accumulator[fruit] = (accumulator[fruit] || <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> accumulator;
+}, {});
+</code></pre>
+</li>
+<li>
+<p><strong>Aplatir un array de arrays</strong> :
+Convertir un array de arrays en un seul array plat.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]];
+<span class="hljs-keyword">const</span> flat = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, currentValue</span>) =&gt;</span> accumulator.<span class="hljs-title function_">concat</span>(currentValue), []);
+</code></pre>
+</li>
+<li>
+<p><strong>Trouver le maximum/minimum</strong> :
+Déterminer la valeur maximale ou minimale dans un array numérique.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">const</span> max = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, currentValue</span>) =&gt;</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(accumulator, currentValue));
+</code></pre>
+</li>
+<li>
+<p><strong>Groupement d'éléments</strong> :
+Regrouper les éléments d'un array en fonction d'une propriété spécifique.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> people = [
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">21</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Max&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Jane&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span> }
+];
+
+<span class="hljs-keyword">const</span> groupByAge = people.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, person</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> age = person.<span class="hljs-property">age</span>;
+    <span class="hljs-keyword">if</span> (!accumulator[age]) {
+        accumulator[age] = [];
+    }
+    accumulator[age].<span class="hljs-title function_">push</span>(person);
+    <span class="hljs-keyword">return</span> accumulator;
+}, {});
+</code></pre>
+</li>
+<li>
+<p><strong>Chaînage de méthodes avec <code>reduce()</code></strong> :
+Combiner <code>reduce()</code> avec d'autres méthodes pour des opérations complexes.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">const</span> sumOfSquares = array
+    .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x * x)
+    .<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, currentValue</span>) =&gt;</span> accumulator + currentValue, <span class="hljs-number">0</span>);
+</code></pre>
+</li>
+<li>
+<p><strong>Transformation en un objet</strong> :
+Convertir un array en un objet où chaque élément contribue à une propriété de l'objet.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> array = [[<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value1&#x27;</span>], [<span class="hljs-string">&#x27;key2&#x27;</span>, <span class="hljs-string">&#x27;value2&#x27;</span>]];
+<span class="hljs-keyword">const</span> object = array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">accumulator, [key, value]</span>) =&gt;</span> {
+    accumulator[key] = value;
+    <span class="hljs-keyword">return</span> accumulator;
+}, {});
+</code></pre>
+</li>
+</ol>
+<p>Ces exemples montrent la polyvalence de <code>reduce()</code>, qui peut être utilisée pour une grande variété de tâches de traitement de données dans JavaScript.</p>
+
+            
+            
+        </body>
+        </html>
